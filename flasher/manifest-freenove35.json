@@ -1,0 +1,17 @@
+{
+  "name": "Rouse for Freenove 3.5\" (FNK0104N)",
+  "version": "0.4.3-beta",
+  "new_install_prompt_erase": true,
+  "new_install_improv_wait_time": 0,
+  "builds": [
+    {
+      "chipFamily": "ESP32-S3",
+      "parts": [
+        {
+          "path": "Rouse-0.4.3-beta-Freenove35-FULL-flash-at-0x0.bin",
+          "offset": 0
+        }
+      ]
+    }
+  ]
+}

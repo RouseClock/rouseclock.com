@@ -1,0 +1,17 @@
+{
+  "name": "Rouse for Waveshare ESP32-S3-Touch-LCD-3.5",
+  "version": "0.4.3-beta",
+  "new_install_prompt_erase": true,
+  "new_install_improv_wait_time": 0,
+  "builds": [
+    {
+      "chipFamily": "ESP32-S3",
+      "parts": [
+        {
+          "path": "Rouse-0.4.3-beta-Waveshare35-FULL-flash-at-0x0.bin",
+          "offset": 0
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,1151 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Rouse Operating Manual · Rouse</title>
+<link rel="icon" type="image/png" href="img/icon.png">
+<style>
+@font-face { font-family: "Quicksand"; src: url("fonts/Quicksand.ttf") format("truetype"); font-weight: 300 700; }
+:root {
+  --ink: #2E3138; --sub: #5E6470; --line: #E3E0DA; --paper: #FFFFFF; --wash: #F8F6F2;
+  --amber: #E89234; --amber-ink: #8A4E0E; --amber-wash: #FDF3E7; --note: #EEF2F6;
+}
+* { box-sizing: border-box; }
+html { scroll-padding-top: 16px; }
+body { margin: 0; background: var(--wash); color: var(--ink); font: 16.5px/1.6 Inter, -apple-system, "Segoe UI", Roboto, Carlito, "Helvetica Neue", Arial, sans-serif; }
+a { color: var(--amber-ink); }
+.wrap { display: grid; grid-template-columns: 270px minmax(0, 1fr); max-width: 1180px; margin: 0 auto; }
+nav#toc { position: sticky; top: 0; height: 100vh; overflow: auto; padding: 26px 18px 40px 24px; border-right: 1px solid var(--line); }
+nav#toc .brand { display: flex; align-items: center; gap: 10px; font: 700 26px/1 Quicksand, sans-serif; color: var(--ink); text-decoration: none; margin-bottom: 4px; }
+nav#toc .brand svg { width: 40px; height: 28px; }
+nav#toc .which { font-size: 13px; color: var(--sub); margin: 0 0 18px; }
+nav#toc ul { list-style: none; margin: 0; padding: 0; }
+nav#toc li { margin: 0; }
+nav#toc > ul > li > a { display: block; font-weight: 600; font-size: 14.5px; padding: 6px 8px; border-radius: 8px; color: var(--ink); text-decoration: none; }
+nav#toc ul ul a { display: block; font-size: 13.5px; padding: 3px 8px 3px 20px; color: var(--sub); text-decoration: none; border-radius: 6px; }
+nav#toc a:hover { background: var(--amber-wash); color: var(--amber-ink); }
+main { padding: 34px 48px 80px; background: var(--paper); min-height: 100vh; }
+.cover h1 { font: 700 44px/1.1 Quicksand, sans-serif; margin: 0; letter-spacing: -0.5px; }
+.cover .subtitle { color: var(--sub); font-size: 19px; margin: 6px 0 4px; }
+.cover .ver { color: var(--sub); font-size: 13.5px; margin: 0 0 30px; }
+h1 { font: 700 30px/1.2 Quicksand, sans-serif; margin: 56px 0 14px; padding-top: 18px; border-top: 1px solid var(--line); }
+section.level1:first-of-type h1 { border-top: 0; margin-top: 10px; }
+h2 { font: 700 21px/1.3 Quicksand, sans-serif; margin: 34px 0 8px; }
+h3 { font-size: 17px; margin: 24px 0 6px; }
+p, ul, ol, table { max-width: 720px; }
+li { margin: 3px 0; }
+figure { margin: 18px 0 22px; max-width: 720px; }
+figure img { display: block; max-width: 100%; height: auto; border-radius: 10px; border: 1px solid var(--line); background: #111; }
+img[src*="web-"] { background: #fff; }
+figcaption { font-size: 13.5px; color: var(--sub); margin-top: 6px; }
+table { border-collapse: collapse; width: 100%; font-size: 15px; margin: 14px 0 20px; }
+th, td { text-align: left; padding: 8px 10px; border-bottom: 1px solid var(--line); vertical-align: top; }
+th { background: var(--wash); font-weight: 600; }
+.note, .tip { max-width: 720px; border-radius: 12px; padding: 12px 16px; margin: 18px 0; }
+.note { background: var(--note); }
+.tip { background: var(--amber-wash); border-left: 4px solid var(--amber); }
+.note > :first-child, .tip > :first-child { margin-top: 0; } .note > :last-child, .tip > :last-child { margin-bottom: 0; }
+.photo { max-width: 720px; border: 2px dashed var(--amber); background: #FFFBF5; border-radius: 12px; padding: 14px 16px 14px 62px; margin: 18px 0; position: relative; color: var(--amber-ink); font-size: 15px; }
+.photo::before { content: ""; position: absolute; left: 16px; top: 15px; width: 32px; height: 26px;
+  background: no-repeat center/contain url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 26'%3E%3Cpath d='M11 1h10l2 4h5a3 3 0 0 1 3 3v14a3 3 0 0 1-3 3H4a3 3 0 0 1-3-3V8a3 3 0 0 1 3-3h5z' fill='none' stroke='%23E89234' stroke-width='2'/%3E%3Ccircle cx='16' cy='14' r='6' fill='none' stroke='%23E89234' stroke-width='2'/%3E%3C/svg%3E"); }
+.photo p { margin: 0; }
+.menu-btn { display: none; }
+@media (max-width: 860px) {
+  .wrap { display: block; }
+  nav#toc { position: static; height: auto; border-right: 0; border-bottom: 1px solid var(--line); padding: 16px; }
+  nav#toc > ul { display: none; } nav#toc.open > ul { display: block; }
+  .menu-btn { display: inline-block; margin-top: 6px; font: inherit; font-size: 14px; padding: 6px 12px; border-radius: 8px; border: 1px solid var(--line); background: #fff; color: var(--ink); }
+  main { padding: 20px 16px 60px; }
+  .cover h1 { font-size: 34px; }
+}
+/* print / PDF */
+@page { size: Letter; margin: 16mm 16mm 18mm; }
+@media print {
+  body { background: #fff; font-size: 11pt; }
+  .wrap { display: block; } nav#toc { display: none; } main { padding: 0; }
+  .print-toc { display: block !important; page-break-after: always; }
+  section.level1 { page-break-before: always; } section.level1:first-of-type { page-break-before: auto; }
+  h1 { border-top: 0; margin-top: 0; }
+  figure, .photo, .note, .tip, tr { break-inside: avoid; }
+  table { break-inside: auto; }   /* long tables (parts list) may continue on the next page */
+  h1, h2, h3 { break-after: avoid; }
+  /* the Markdown sets a width on each picture; in print the height is capped instead, so the width must follow
+     the height (width:auto !important), or tall phone screenshots get squeezed */
+  figure img { width: auto !important; height: auto !important; max-width: 62%; max-height: 95mm; }
+  figure img[src*="web-"] { max-height: 125mm; }
+  figure img[src*="wiring"], figure img[src*="case-"] { max-width: 100%; max-height: 120mm; }
+  section.level2 { break-before: auto; }
+  a { color: inherit; text-decoration: none; }
+}
+.print-toc { display: none; }
+.print-toc ul { list-style: none; padding: 0; } .print-toc ul ul { padding-left: 18px; }
+.print-toc a { color: var(--ink); }
+.print-toc h2 { margin-top: 10px; }
+.cover-mark { width: 120px; height: 84px; margin-bottom: 14px; }
+</style>
+</head>
+<body>
+<div class="wrap">
+<nav id="toc" aria-label="Contents">
+  <a class="brand" href="../"><svg viewBox="0 0 120 84" aria-hidden="true"><path d="M18.3 44.6 A46 46 0 0 1 101.7 44.6" fill="none" stroke="#E89234" stroke-width="7" stroke-linecap="round"/><path d="M29.2 49.6 A34 34 0 0 1 90.8 49.6" fill="none" stroke="#E89234" stroke-width="7" stroke-linecap="round"/><path d="M40 64 A20 20 0 0 1 80 64 Z" fill="#E89234"/><line x1="10" y1="72" x2="110" y2="72" stroke="#2E3138" stroke-width="7" stroke-linecap="round"/></svg>Rouse</a>
+  <p class="which">Rouse Operating Manual<br>Firmware 0.4.3-beta</p>
+  <button class="menu-btn" onclick="this.parentNode.classList.toggle('open')">Contents</button>
+<ul>
+<li><a href="#meet-rouse" id="toc-meet-rouse">Meet Rouse</a>
+<ul>
+<li><a href="#the-parts-of-the-clock"
+id="toc-the-parts-of-the-clock">The parts of the clock</a></li>
+</ul></li>
+<li><a href="#first-setup" id="toc-first-setup">First setup</a>
+<ul>
+<li><a href="#plug-it-in" id="toc-plug-it-in">1. Plug it in</a></li>
+<li><a href="#connect-it-to-your-wifi"
+id="toc-connect-it-to-your-wifi">2. Connect it to your WiFi</a></li>
+<li><a href="#open-the-clocks-web-page"
+id="toc-open-the-clocks-web-page">3. Open the clock’s web page</a></li>
+<li><a href="#set-your-location-and-first-alarm"
+id="toc-set-your-location-and-first-alarm">4. Set your location and
+first alarm</a></li>
+</ul></li>
+<li><a href="#everyday-use" id="toc-everyday-use">Everyday use</a>
+<ul>
+<li><a href="#the-clock-screen" id="toc-the-clock-screen">The clock
+screen</a></li>
+<li><a href="#the-menu" id="toc-the-menu">The menu</a></li>
+<li><a href="#when-an-alarm-rings" id="toc-when-an-alarm-rings">When an
+alarm rings</a></li>
+<li><a href="#the-snooze-bar" id="toc-the-snooze-bar">The snooze
+bar</a></li>
+<li><a href="#night-mode" id="toc-night-mode">Night mode</a></li>
+</ul></li>
+<li><a href="#the-web-page" id="toc-the-web-page">The web page</a></li>
+<li><a href="#alarms" id="toc-alarms">Alarms</a>
+<ul>
+<li><a href="#adding-or-editing-an-alarm"
+id="toc-adding-or-editing-an-alarm">Adding or editing an alarm</a></li>
+<li><a href="#alarm-behavior" id="toc-alarm-behavior">Alarm
+behavior</a></li>
+</ul></li>
+<li><a href="#display-and-themes" id="toc-display-and-themes">Display
+and themes</a>
+<ul>
+<li><a href="#the-preview" id="toc-the-preview">The preview</a></li>
+<li><a href="#choosing-and-editing-themes"
+id="toc-choosing-and-editing-themes">Choosing and editing
+themes</a></li>
+<li><a href="#photos" id="toc-photos">Photos</a></li>
+<li><a href="#slideshow" id="toc-slideshow">Slideshow</a></li>
+</ul></li>
+<li><a href="#sounds" id="toc-sounds">Sounds</a>
+<ul>
+<li><a href="#sleep-sounds" id="toc-sleep-sounds">Sleep sounds</a></li>
+<li><a href="#alarm-sounds" id="toc-alarm-sounds">Alarm sounds</a></li>
+<li><a href="#your-own-sounds" id="toc-your-own-sounds">Your own
+sounds</a></li>
+<li><a href="#hourly-chime" id="toc-hourly-chime">Hourly chime</a></li>
+</ul></li>
+<li><a href="#settings" id="toc-settings">Settings</a>
+<ul>
+<li><a href="#time" id="toc-time">Time</a></li>
+<li><a href="#weather" id="toc-weather">Weather</a></li>
+<li><a href="#day-and-night" id="toc-day-and-night">Day and
+night</a></li>
+<li><a href="#hardware" id="toc-hardware">Hardware</a></li>
+<li><a href="#network" id="toc-network">Network</a></li>
+<li><a href="#web-page-pin" id="toc-web-page-pin">Web page PIN</a></li>
+<li><a href="#backup" id="toc-backup">Backup</a></li>
+</ul></li>
+<li><a href="#updating-the-firmware"
+id="toc-updating-the-firmware">Updating the firmware</a></li>
+<li><a href="#troubleshooting"
+id="toc-troubleshooting">Troubleshooting</a></li>
+<li><a href="#specifications"
+id="toc-specifications">Specifications</a></li>
+</ul>
+</nav>
+<main>
+<header class="cover">
+  <svg class="cover-mark" viewBox="0 0 120 84" aria-hidden="true"><path d="M18.3 44.6 A46 46 0 0 1 101.7 44.6" fill="none" stroke="#E89234" stroke-width="6" stroke-linecap="round"/><path d="M29.2 49.6 A34 34 0 0 1 90.8 49.6" fill="none" stroke="#E89234" stroke-width="6" stroke-linecap="round"/><path d="M40 64 A20 20 0 0 1 80 64 Z" fill="#E89234"/><line x1="10" y1="72" x2="110" y2="72" stroke="#2E3138" stroke-width="6" stroke-linecap="round"/></svg>
+  <h1>Rouse Operating Manual</h1>
+  <p class="subtitle">The connected bedside alarm clock</p>
+  <p class="ver">For Rouse firmware 0.4.3-beta · November 2026</p>
+</header>
+<div class="print-toc"><h2>Contents</h2>
+<ul>
+<li><a href="#meet-rouse" id="toc-meet-rouse">Meet Rouse</a>
+<ul>
+<li><a href="#the-parts-of-the-clock"
+id="toc-the-parts-of-the-clock">The parts of the clock</a></li>
+</ul></li>
+<li><a href="#first-setup" id="toc-first-setup">First setup</a>
+<ul>
+<li><a href="#plug-it-in" id="toc-plug-it-in">1. Plug it in</a></li>
+<li><a href="#connect-it-to-your-wifi"
+id="toc-connect-it-to-your-wifi">2. Connect it to your WiFi</a></li>
+<li><a href="#open-the-clocks-web-page"
+id="toc-open-the-clocks-web-page">3. Open the clock’s web page</a></li>
+<li><a href="#set-your-location-and-first-alarm"
+id="toc-set-your-location-and-first-alarm">4. Set your location and
+first alarm</a></li>
+</ul></li>
+<li><a href="#everyday-use" id="toc-everyday-use">Everyday use</a>
+<ul>
+<li><a href="#the-clock-screen" id="toc-the-clock-screen">The clock
+screen</a></li>
+<li><a href="#the-menu" id="toc-the-menu">The menu</a></li>
+<li><a href="#when-an-alarm-rings" id="toc-when-an-alarm-rings">When an
+alarm rings</a></li>
+<li><a href="#the-snooze-bar" id="toc-the-snooze-bar">The snooze
+bar</a></li>
+<li><a href="#night-mode" id="toc-night-mode">Night mode</a></li>
+</ul></li>
+<li><a href="#the-web-page" id="toc-the-web-page">The web page</a></li>
+<li><a href="#alarms" id="toc-alarms">Alarms</a>
+<ul>
+<li><a href="#adding-or-editing-an-alarm"
+id="toc-adding-or-editing-an-alarm">Adding or editing an alarm</a></li>
+<li><a href="#alarm-behavior" id="toc-alarm-behavior">Alarm
+behavior</a></li>
+</ul></li>
+<li><a href="#display-and-themes" id="toc-display-and-themes">Display
+and themes</a>
+<ul>
+<li><a href="#the-preview" id="toc-the-preview">The preview</a></li>
+<li><a href="#choosing-and-editing-themes"
+id="toc-choosing-and-editing-themes">Choosing and editing
+themes</a></li>
+<li><a href="#photos" id="toc-photos">Photos</a></li>
+<li><a href="#slideshow" id="toc-slideshow">Slideshow</a></li>
+</ul></li>
+<li><a href="#sounds" id="toc-sounds">Sounds</a>
+<ul>
+<li><a href="#sleep-sounds" id="toc-sleep-sounds">Sleep sounds</a></li>
+<li><a href="#alarm-sounds" id="toc-alarm-sounds">Alarm sounds</a></li>
+<li><a href="#your-own-sounds" id="toc-your-own-sounds">Your own
+sounds</a></li>
+<li><a href="#hourly-chime" id="toc-hourly-chime">Hourly chime</a></li>
+</ul></li>
+<li><a href="#settings" id="toc-settings">Settings</a>
+<ul>
+<li><a href="#time" id="toc-time">Time</a></li>
+<li><a href="#weather" id="toc-weather">Weather</a></li>
+<li><a href="#day-and-night" id="toc-day-and-night">Day and
+night</a></li>
+<li><a href="#hardware" id="toc-hardware">Hardware</a></li>
+<li><a href="#network" id="toc-network">Network</a></li>
+<li><a href="#web-page-pin" id="toc-web-page-pin">Web page PIN</a></li>
+<li><a href="#backup" id="toc-backup">Backup</a></li>
+</ul></li>
+<li><a href="#updating-the-firmware"
+id="toc-updating-the-firmware">Updating the firmware</a></li>
+<li><a href="#troubleshooting"
+id="toc-troubleshooting">Troubleshooting</a></li>
+<li><a href="#specifications"
+id="toc-specifications">Specifications</a></li>
+</ul>
+</div>
+<section id="meet-rouse" class="level1">
+<h1>Meet Rouse</h1>
+<p>Rouse is a bedside alarm clock with a touch screen and its own web
+page. Day to day, you use it like any alarm clock: glance at the time,
+tap the screen, snooze in the morning. For everything else (setting
+alarms, choosing a look, adding photos and sounds) you use the clock’s
+web page on your phone, tablet or computer. There is no app to install
+and no account to create.</p>
+<p>Rouse can:</p>
+<ul>
+<li>Wake you with up to 10 alarms, each with its own days, sound, volume
+and snooze.</li>
+<li>Wake you gently: the volume can rise slowly and the screen can
+brighten like a sunrise before the alarm.</li>
+<li>Wake you firmly: <strong>Extra loud</strong> is there for heavy
+sleepers.</li>
+<li>Show the weather, the date and your next alarm.</li>
+<li>Dim itself and switch to a night theme while you sleep.</li>
+<li>Show your own photos, one at a time or as a slideshow.</li>
+<li>Play sleep sounds (white noise, rain, ocean waves and others) with a
+sleep timer.</li>
+<li>Keep time through a power outage on its backup battery (if your
+clock has one).</li>
+</ul>
+<figure>
+<img src="img/photo-p1.jpg" style="width:65.0%"
+alt="Rouse on a nightstand" />
+<figcaption aria-hidden="true">Rouse on a nightstand</figcaption>
+</figure>
+<section id="the-parts-of-the-clock" class="level2">
+<h2>The parts of the clock</h2>
+<figure>
+<img src="img/photo-p2.jpg" style="width:65.0%"
+alt="The snooze bar on top, the screen, and the USB-C port on the right side" />
+<figcaption aria-hidden="true">The snooze bar on top, the screen, and
+the USB-C port on the right side</figcaption>
+</figure>
+<figure>
+<img src="img/photo-p6.jpg" style="width:65.0%"
+alt="The back, with the RESET hole near the left edge" />
+<figcaption aria-hidden="true">The back, with the RESET hole near the
+left edge</figcaption>
+</figure>
+<ul>
+<li><strong>Screen.</strong> The time and everything else. Tap it to
+open the menu.</li>
+<li><strong>Snooze bar</strong> (on top, if your clock has one). Press
+it to snooze, hold it to stop the alarm. Clocks without a snooze bar use
+the <strong>Snooze</strong> button on the screen instead.</li>
+<li><strong>USB-C port</strong> (right side). Power. Any USB phone
+charger works.</li>
+<li><strong>Speaker</strong> (underneath). Sound comes out through the
+grille in the base.</li>
+<li><strong>RESET hole</strong> (back). A paperclip pressed gently into
+it restarts the clock. You will rarely need it.</li>
+<li><strong>Stylus holder</strong> (some cases). Holds the stylus for
+clocks with a pressure-sensitive (resistive) screen.</li>
+</ul>
+<div class="note" data-custom-style="Note">
+<p><strong>Three kinds of Rouse.</strong> Rouse runs on three different
+display boards. They work the same way, with a few small differences,
+which this manual points out where they matter. To see which one you
+have, open the web page and look at <strong>Settings → Status →
+Board</strong>:</p>
+<ul>
+<li><strong>CYD</strong> (ESP32 3.5” display, E32R35T).
+Pressure-sensitive touch screen; a stylus works best. Holds up to 3
+photos.</li>
+<li><strong>Freenove</strong> (FNK0104N). Glass touch screen like a
+phone’s; use your finger. Holds up to 64 photos.</li>
+<li><strong>Waveshare</strong> (ESP32-S3-Touch-LCD-3.5). Glass touch
+screen; use your finger. Holds up to 64 photos.</li>
+</ul>
+</div>
+</section>
+</section>
+<section id="first-setup" class="level1">
+<h1>First setup</h1>
+<section id="plug-it-in" class="level2">
+<h2>1. Plug it in</h2>
+<figure>
+<img src="img/photo-p3.jpg" style="width:65.0%"
+alt="The USB-C cable plugs into the right side" />
+<figcaption aria-hidden="true">The USB-C cable plugs into the right
+side</figcaption>
+</figure>
+<p>Connect the clock to a USB charger with a USB-C cable. The screen
+lights up within a few seconds. A brand-new clock (or one that has
+forgotten its WiFi) shows <strong>WiFi setup</strong> instructions.</p>
+<figure>
+<img src="img/clock-message-wifi.png" style="width:60.0%"
+alt="The clock waiting to be set up" />
+<figcaption aria-hidden="true">The clock waiting to be set
+up</figcaption>
+</figure>
+</section>
+<section id="connect-it-to-your-wifi" class="level2">
+<h2>2. Connect it to your WiFi</h2>
+<ol type="1">
+<li>On your phone, open the WiFi settings and join the network the clock
+shows, named <strong>Rouse-</strong> followed by four characters (for
+example <em>Rouse-3F2A</em>). It has no password.</li>
+<li>A setup page usually opens by itself. If it doesn’t, open a web
+browser and go to <strong>http://192.168.4.1</strong>.</li>
+<li>Pick your home WiFi network from the list, type its password and tap
+<strong>Join network</strong>.</li>
+<li>The clock connects, shows the time, and turns off its setup network
+about a minute later.</li>
+<li>Reconnect your phone to your home WiFi.</li>
+</ol>
+<div class="note" data-custom-style="Note">
+<p>Rouse uses 2.4 GHz WiFi, which almost every home router provides. If
+your router uses separate names for 2.4 GHz and 5 GHz, pick the 2.4 GHz
+one.</p>
+</div>
+</section>
+<section id="open-the-clocks-web-page" class="level2">
+<h2>3. Open the clock’s web page</h2>
+<p>On any phone, tablet or computer on your home WiFi, open a browser
+and go to:</p>
+<p><strong>http://rouse.local</strong></p>
+<p>The address is also shown at the bottom of the clock’s menu (tap the
+clock screen once). If <strong>rouse.local</strong> doesn’t open, type
+the number address shown there instead, for example
+<em>http://192.168.1.40</em>.</p>
+<div class="tip" data-custom-style="Tip">
+<p><strong>Add it to your home screen.</strong> On an iPhone or iPad,
+tap the Share button and choose <strong>Add to Home Screen</strong>. On
+Android, open the browser menu and choose <strong>Add to Home
+screen</strong> or <strong>Install</strong>. You get a Rouse icon that
+opens the clock’s page like an app.</p>
+</div>
+<div class="note" data-custom-style="Note">
+<p><strong>More than one Rouse?</strong> The first clock on your network
+takes the name <strong>rouse.local</strong>; the next ones take
+<strong>rouse-2.local</strong>, <strong>rouse-3.local</strong> and so
+on. You can give each one a friendlier name in <strong>Settings →
+Network → Clock name</strong>, for example <em>rouse-bedroom</em>.</p>
+</div>
+</section>
+<section id="set-your-location-and-first-alarm" class="level2">
+<h2>4. Set your location and first alarm</h2>
+<ol type="1">
+<li>In the web page, open <strong>Settings</strong>. Under
+<strong>Time</strong>, check the time zone. Under
+<strong>Weather</strong>, search for your town so the clock can show the
+weather.</li>
+<li>Open <strong>Alarms</strong>, tap <strong>+ Add alarm</strong>, set
+the time and days, and tap <strong>Save</strong>.</li>
+</ol>
+<p>That’s it. The rest of this manual covers everything else you can
+do.</p>
+</section>
+</section>
+<section id="everyday-use" class="level1">
+<h1>Everyday use</h1>
+<section id="the-clock-screen" class="level2">
+<h2>The clock screen</h2>
+<figure>
+<img src="img/clock-classic.png" style="width:60.0%"
+alt="A day theme: time, date, weather and status icons" />
+<figcaption aria-hidden="true">A day theme: time, date, weather and
+status icons</figcaption>
+</figure>
+<p>Depending on the theme and layout you choose, the clock screen can
+show the time, the date, the weather, your next alarm, and small WiFi
+and battery icons.</p>
+</section>
+<section id="the-menu" class="level2">
+<h2>The menu</h2>
+<p>Tap the clock screen to open the menu. It closes by itself after 30
+seconds, or tap <strong>Done</strong>.</p>
+<figure>
+<img src="img/clock-menu.png" style="width:60.0%"
+alt="The menu on the clock" />
+<figcaption aria-hidden="true">The menu on the clock</figcaption>
+</figure>
+<ul>
+<li><strong>Alarms list.</strong> Tap an alarm to turn it on or off. If
+you have more than four alarms, <strong>1/2</strong> shows the next
+page.</li>
+<li><strong>Brightness.</strong> <strong>−</strong> and
+<strong>+</strong> change the brightness for the current mode (day or
+night).</li>
+<li><strong>Theme.</strong> <strong>&lt;</strong> and
+<strong>&gt;</strong> step through your themes.</li>
+<li><strong>Night mode.</strong> Turns night mode on or off right now
+(see <a href="#night-mode">Night mode</a>).</li>
+<li><strong>Noise.</strong> Opens the sleep sounds.</li>
+<li><strong>Network &amp; tools.</strong> The clock’s address and WiFi,
+a fixed network address, saved WiFi networks and, on the CYD, touch
+calibration.</li>
+<li><strong>Cancel snooze.</strong> Shown instead of Network &amp; tools
+while an alarm is snoozing.</li>
+</ul>
+</section>
+<section id="when-an-alarm-rings" class="level2">
+<h2>When an alarm rings</h2>
+<figure>
+<img src="img/clock-ringing.png" style="width:60.0%"
+alt="An alarm ringing" />
+<figcaption aria-hidden="true">An alarm ringing</figcaption>
+</figure>
+<ul>
+<li><strong>Snooze:</strong> tap <strong>Snooze</strong>, or press the
+snooze bar. The alarm rings again after the snooze time (9 minutes
+unless you change it).</li>
+<li><strong>Stop:</strong> press and hold <strong>Stop</strong> for one
+second (a ring fills as you hold), or hold the snooze bar down for about
+1½ seconds. Holding prevents stopping an alarm by accident while half
+asleep. If you prefer a single tap, turn off <strong>Settings → Alarm
+behavior → Press and hold to stop</strong>.</li>
+<li>An alarm nobody stops turns itself off after 15 minutes (you can
+change this).</li>
+<li>While snoozing, the clock screen shows when the alarm will ring
+again. To cancel the snooze, open the menu and tap <strong>Cancel
+snooze</strong>, or hold the snooze bar.</li>
+</ul>
+<figure>
+<img src="img/clock-snoozing.png" style="width:60.0%"
+alt="Snoozing until 6:39 AM" />
+<figcaption aria-hidden="true">Snoozing until 6:39 AM</figcaption>
+</figure>
+</section>
+<section id="the-snooze-bar" class="level2">
+<h2>The snooze bar</h2>
+<p>If your clock has a snooze bar:</p>
+<figure>
+<img src="img/photo-p4.jpg" style="width:65.0%"
+alt="Pressing the snooze bar while an alarm rings" />
+<figcaption aria-hidden="true">Pressing the snooze bar while an alarm
+rings</figcaption>
+</figure>
+<table>
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 33%" />
+<col style="width: 33%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>When</th>
+<th>Press</th>
+<th>Hold (1½ s)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>An alarm is ringing</td>
+<td>Snooze (or stop, if snooze is off for that alarm)</td>
+<td>Stop the alarm</td>
+</tr>
+<tr class="even">
+<td>Snoozing</td>
+<td>Light up the screen</td>
+<td>Cancel the snooze</td>
+</tr>
+<tr class="odd">
+<td>A sleep sound is playing</td>
+<td>Stop the sound</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>At night</td>
+<td>Light up the screen for a few seconds</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>The menu is open</td>
+<td>Close the menu</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="night-mode" class="level2">
+<h2>Night mode</h2>
+<p>Night mode dims the screen and switches to a dark night theme on a
+schedule (from 10:00 PM to 6:30 AM unless you change it). At night:</p>
+<ul>
+<li>Tap the screen to brighten it for a few seconds (10 unless you
+change it). Tap again while it’s bright to open the menu.</li>
+<li>When an alarm rings, the screen brightens so you can see it.</li>
+<li>If an alarm uses the <strong>sunrise light</strong>, the screen
+starts brightening before it rings and switches back to your day
+theme.</li>
+</ul>
+<p>To change the schedule, the night theme or the night brightness, use
+<strong>Settings → Day and night</strong>. To switch night mode on or
+off right now, use the menu on the clock, or <strong>Settings → Day and
+night → Right now</strong>.</p>
+<figure>
+<img src="img/clock-night.png" style="width:60.0%"
+alt="A night theme" />
+<figcaption aria-hidden="true">A night theme</figcaption>
+</figure>
+<figure>
+<img src="img/photo-p5.jpg" style="width:65.0%"
+alt="Night mode in a dark bedroom" />
+<figcaption aria-hidden="true">Night mode in a dark bedroom</figcaption>
+</figure>
+<div class="tip" data-custom-style="Tip">
+<p>How dark the night screen can get depends on the board. The Freenove
+and Waveshare screens get much darker than the CYD’s, so you can use a
+slightly higher night brightness for easier reading without lighting up
+the room.</p>
+</div>
+</section>
+</section>
+<section id="the-web-page" class="level1">
+<h1>The web page</h1>
+<p>The web page has four tabs (<strong>Display</strong>,
+<strong>Alarms</strong>, <strong>Sounds</strong> and
+<strong>Settings</strong>) plus <strong>Clock</strong>, which shows a
+live view of the clock screen. Changes save to the clock as you make
+them; there is no Save button except in the alarm editor.</p>
+<p>If your clock has a PIN (see <a href="#web-page-pin">Web page
+PIN</a>), the page asks for it the first time you open it in a
+browser.</p>
+</section>
+<section id="alarms" class="level1">
+<h1>Alarms</h1>
+<figure>
+<img src="img/web-alarms.png" style="width:45.0%"
+alt="The Alarms tab" />
+<figcaption aria-hidden="true">The Alarms tab</figcaption>
+</figure>
+<p>The <strong>Alarms</strong> tab lists your alarms with the next one
+at the top. Use the switch beside an alarm to turn it on or off, or tap
+the alarm to edit it. You can have up to 10.</p>
+<section id="adding-or-editing-an-alarm" class="level2">
+<h2>Adding or editing an alarm</h2>
+<p>Tap <strong>+ Add alarm</strong>, or tap an existing alarm. When
+you’re done, tap <strong>Save</strong>.</p>
+<figure>
+<img src="img/web-alarm-edit.png" style="width:45.0%"
+alt="Editing an alarm" />
+<figcaption aria-hidden="true">Editing an alarm</figcaption>
+</figure>
+<ul>
+<li><strong>Time.</strong> Tap the time to change it.</li>
+<li><strong>Repeat.</strong> Tap the days it should ring, or use
+<strong>Once</strong>, <strong>Weekdays</strong>,
+<strong>Weekends</strong> or <strong>Every day</strong>. A
+<strong>Once</strong> alarm turns itself off after it rings.</li>
+<li><strong>Label.</strong> A name shown on the clock when it rings, for
+example <em>Work</em>.</li>
+<li><strong>Sound.</strong> Pick a built-in sound or one of your own.
+<strong>▶ Clock</strong> plays it on the clock; <strong>▶ Here</strong>
+plays it on your phone.</li>
+<li><strong>Volume.</strong> How loud the alarm gets.</li>
+<li><strong>Extra loud.</strong> For heavy sleepers: much louder, a
+little harsher. Try it with <strong>▶ Clock</strong> before relying on
+it.</li>
+<li><strong>Gradually increase volume.</strong> Starts quietly and rises
+to the full volume over about 30 seconds.</li>
+<li><strong>Sunrise light.</strong> The screen slowly brightens before
+the alarm, like dawn (starting 15 minutes before unless you change it in
+<strong>Settings → Alarm behavior</strong>).</li>
+<li><strong>Snooze</strong> and <strong>Snooze length.</strong> Whether
+this alarm can be snoozed, and for how long.</li>
+<li><strong>Skip next alarm.</strong> Skips just the next time it would
+ring (a holiday, say), then carries on as normal.</li>
+<li><strong>Ring it now (test)</strong> rings the alarm right away so
+you can check it. <strong>Delete Alarm</strong> removes it.</li>
+</ul>
+</section>
+<section id="alarm-behavior" class="level2">
+<h2>Alarm behavior</h2>
+<p><strong>Settings → Alarm behavior</strong> sets how every alarm
+behaves:</p>
+<figure>
+<img src="img/web-settings-alarm.png" style="width:45.0%"
+alt="Alarm behavior settings" />
+<figcaption aria-hidden="true">Alarm behavior settings</figcaption>
+</figure>
+<ul>
+<li><strong>Stop ringing after.</strong> An alarm nobody stops goes
+quiet after this many minutes.</li>
+<li><strong>Snooze limit.</strong> How many times an alarm can be
+snoozed (0 = no limit).</li>
+<li><strong>Press and hold to stop.</strong> Stopping needs a one-second
+hold, so you can’t stop it by accident.</li>
+<li><strong>Sunrise light starts.</strong> How many minutes before the
+alarm the screen starts to brighten.</li>
+</ul>
+</section>
+</section>
+<section id="display-and-themes" class="level1">
+<h1>Display and themes</h1>
+<p>A <strong>theme</strong> is the look of the clock screen: its layout,
+time font, colors and background. Rouse comes with seven themes. You can
+change them, make copies, and create your own. One theme is used by day
+and one at night.</p>
+<figure>
+<img src="img/web-display.png" style="width:45.0%"
+alt="The Display tab: a preview of the clock and your themes" />
+<figcaption aria-hidden="true">The Display tab: a preview of the clock
+and your themes</figcaption>
+</figure>
+<section id="the-preview" class="level2">
+<h2>The preview</h2>
+<p>The picture at the top of <strong>Display</strong> shows what the
+clock is showing right now. It is drawn on your phone, so it updates
+instantly as you edit.</p>
+<ul>
+<li><strong>Dimmed: 80%</strong> shows the preview at the clock’s
+current brightness. Tap it to switch to <strong>Full bright</strong>,
+which is easier to see while you choose colors.</li>
+<li><strong>Exact pixels</strong> fetches the real screen from the
+clock, pixel for pixel.</li>
+<li><strong>Full screen</strong> shows a bigger preview. Turn your phone
+sideways for the biggest view.</li>
+</ul>
+</section>
+<section id="choosing-and-editing-themes" class="level2">
+<h2>Choosing and editing themes</h2>
+<p>Tap a theme to edit it. While you edit, the clock shows that theme
+for two minutes, then goes back to normal. To use a theme, choose
+<strong>Use as: Day theme</strong> or <strong>Night theme</strong> at
+the top of the editor.</p>
+<ul>
+<li><strong>Duplicate theme</strong> makes a copy of the theme you are
+editing. This is also how you make a new theme (see below). Up to 10
+themes.</li>
+<li><strong>Delete theme</strong> removes the theme you are
+editing.</li>
+<li><strong>Restore built-in themes</strong> puts back the original
+seven (and removes your own).</li>
+</ul>
+<section id="making-your-own-theme" class="level3">
+<h3>Making your own theme</h3>
+<p>New themes always start as a copy of an existing one:</p>
+<ol type="1">
+<li>Tap the theme that’s closest to what you want.</li>
+<li>Tap <strong>Duplicate theme</strong>. The copy appears at the end of
+the list, named after the original with “copy” added, and opens in the
+editor.</li>
+<li>Give it a <strong>Name</strong>, then change its layout, font,
+colors and background as you like.</li>
+<li>To use it, choose <strong>Use as: Day theme</strong> or
+<strong>Night theme</strong>.</li>
+</ol>
+<p>Your original theme stays as it was, so it’s safe to experiment.</p>
+</section>
+<section id="the-theme-editor" class="level3">
+<h3>The theme editor</h3>
+<p>The editor has these sections:</p>
+<ul>
+<li><strong>Layout.</strong> Where the time and other information go:
+<strong>Time + side column</strong>, <strong>Weather column
+left</strong>, <strong>Bottom strip</strong>, <strong>Photo
+corner</strong> (small time, made for photos) and
+<strong>Centered</strong> (time only, with one small line).</li>
+<li><strong>Time.</strong> The font (Modern, Light, Serif, Bold,
+Rounded, LED Segments, Tech), its size, whether the colon blinks, and
+for LED Segments whether the unlit segments show faintly. The time
+shrinks automatically if it doesn’t fit.</li>
+<li><strong>Date format.</strong> From <em>Thursday, October 15</em> to
+<em>10/15/2026</em>.</li>
+<li><strong>Colors.</strong> The time, the accent color (AM/PM, icons
+and the Snooze button) and the secondary text.</li>
+<li><strong>Background.</strong> A solid color, a gradient, or a photo
+(see below).</li>
+<li><strong>Show on the clock.</strong> Tick the items you want: date,
+temperature, weather icon, conditions, high/low, humidity, feels like,
+wind, sunrise/sunset, next alarm, WiFi and battery icons, and AM/PM.
+Items the chosen layout has no room for are greyed out.</li>
+</ul>
+<figure>
+<img src="img/web-theme-items.png" style="width:45.0%"
+alt="Choosing what shows on the clock" />
+<figcaption aria-hidden="true">Choosing what shows on the
+clock</figcaption>
+</figure>
+</section>
+</section>
+<section id="photos" class="level2">
+<h2>Photos</h2>
+<p>Set <strong>Background</strong> to <strong>Image</strong> to use a
+photo.</p>
+<figure>
+<img src="img/web-theme-background.png" style="width:45.0%"
+alt="A photo theme with a slideshow" />
+<figcaption aria-hidden="true">A photo theme with a
+slideshow</figcaption>
+</figure>
+<ul>
+<li><strong>Add an image → Choose photo</strong> picks a photo from your
+phone or computer. The page crops it to the clock’s screen (480 × 320)
+and stores it on the clock.</li>
+<li><strong>Photo</strong> chooses which photo this theme shows.</li>
+<li><strong>Darken behind text</strong> shades the photo behind the time
+and text so they stay readable.</li>
+<li>Below the list of photos, the page shows how much room is left. Each
+photo needs about 150 KB. The CYD has room for up to 3 photos; the
+Freenove and Waveshare for up to 64.</li>
+<li><strong>Delete</strong> removes a photo from the clock. A theme that
+was using it switches to a gradient.</li>
+</ul>
+<figure>
+<img src="img/clock-photo.png" style="width:60.0%"
+alt="A photo theme on the clock" />
+<figcaption aria-hidden="true">A photo theme on the clock</figcaption>
+</figure>
+</section>
+<section id="slideshow" class="level2">
+<h2>Slideshow</h2>
+<p>A photo theme can change photo by itself:</p>
+<ul>
+<li><strong>Slideshow</strong> sets how often: every 10 seconds, 30
+seconds, minute, 5 minutes or 15 minutes. <strong>Off</strong> keeps one
+photo.</li>
+<li>When the slideshow is on, the photo setting becomes <strong>Starts
+with</strong>: the photo it begins from.</li>
+<li><strong>Shuffle</strong> shows the photos in random order; otherwise
+they go in order by name.</li>
+<li><strong>In slideshow</strong>, beside each photo, leaves a photo out
+of the slideshow when turned off.</li>
+</ul>
+<p>The slideshow runs only while the photo theme is your
+<strong>day</strong> theme. It pauses while an alarm rings or the menu
+is open. At night (even if the same theme is used at night) the clock
+keeps the <strong>Starts with</strong> photo, so a bright picture never
+appears at 3 a.m.</p>
+</section>
+</section>
+<section id="sounds" class="level1">
+<h1>Sounds</h1>
+<figure>
+<img src="img/web-sounds.png" style="width:45.0%"
+alt="The Sounds tab" />
+<figcaption aria-hidden="true">The Sounds tab</figcaption>
+</figure>
+<section id="sleep-sounds" class="level2">
+<h2>Sleep sounds</h2>
+<p>Rouse can play a soothing sound to help you fall asleep:
+<strong>White noise</strong>, <strong>Pink noise</strong>, <strong>Brown
+noise</strong>, <strong>Rain</strong>, <strong>Ocean waves</strong> or
+<strong>Fan</strong>.</p>
+<ul>
+<li>On the clock: tap the screen, tap <strong>Noise</strong>, choose a
+sound, and tap <strong>Start</strong>. Use <strong>−</strong> and
+<strong>+</strong> for the volume and <strong>Sleep timer</strong> for
+how long it plays.</li>
+<li>On the web page: <strong>Sounds → Sleep sounds</strong> has the same
+choices. <strong>▶ Clock</strong> and <strong>▶ Here</strong> let you
+listen first. <strong>Start on the clock</strong> starts it.</li>
+<li>The sound fades out over the last minute of the timer. <strong>All
+night</strong> plays until morning.</li>
+<li>Press the snooze bar to stop it. An alarm stops it too.</li>
+</ul>
+<figure>
+<img src="img/clock-noise-on.png" style="width:60.0%"
+alt="Sleep sounds on the clock" />
+<figcaption aria-hidden="true">Sleep sounds on the clock</figcaption>
+</figure>
+</section>
+<section id="alarm-sounds" class="level2">
+<h2>Alarm sounds</h2>
+<p>Rouse has eight built-in alarm sounds: <strong>Morning
+Chimes</strong>, <strong>Marimba</strong>, <strong>Gentle Rise</strong>,
+<strong>Harp</strong>, <strong>Birdsong</strong>, <strong>Classic
+Beep</strong>, <strong>Digital Alarm</strong> and <strong>Soft
+Bell</strong>. <strong>Sounds → Alarm sounds</strong> lets you listen to
+each one on the clock or on your phone. <strong>Clock volume</strong>
+sets the volume for these previews.</p>
+</section>
+<section id="your-own-sounds" class="level2">
+<h2>Your own sounds</h2>
+<p>You can add your own alarm sounds: a song, a rooster, anything.</p>
+<figure>
+<img src="img/web-sounds-yours.png" style="width:45.0%"
+alt="Adding your own sound" />
+<figcaption aria-hidden="true">Adding your own sound</figcaption>
+</figure>
+<ol type="1">
+<li>Under <strong>Add a sound</strong>, tap <strong>Choose file</strong>
+and pick an audio file (MP3, WAV, M4A and most other formats).</li>
+<li>Give it a <strong>Name</strong>.</li>
+<li>Use <strong>Start at</strong> and <strong>Length</strong> to choose
+the part to keep (3 to 30 seconds). Alarms repeat the clip until
+stopped.</li>
+<li>Tap <strong>Preview here</strong> to listen, then <strong>Save to
+clock</strong>.</li>
+</ol>
+<p>Your sounds appear under <strong>Your sounds</strong> and in every
+alarm’s sound list, marked <em>(yours)</em>.</p>
+</section>
+<section id="hourly-chime" class="level2">
+<h2>Hourly chime</h2>
+<p><strong>Settings → Hourly chime</strong> plays a short sound on the
+hour. It stays silent during night mode.</p>
+</section>
+</section>
+<section id="settings" class="level1">
+<h1>Settings</h1>
+<section id="time" class="level2">
+<h2>Time</h2>
+<figure>
+<img src="img/web-settings-time.png" style="width:45.0%"
+alt="Time and weather settings" />
+<figcaption aria-hidden="true">Time and weather settings</figcaption>
+</figure>
+<ul>
+<li><strong>Clock format.</strong> 12-hour or 24-hour.</li>
+<li><strong>Time zone.</strong> Daylight saving time is handled
+automatically. (<strong>POSIX time zone</strong> and <strong>Time
+server</strong> are for unusual setups; leave them alone.)</li>
+</ul>
+<p>The clock sets its own time over the internet. It keeps time through
+short WiFi outages.</p>
+</section>
+<section id="weather" class="level2">
+<h2>Weather</h2>
+<ul>
+<li><strong>Units.</strong> °F and mph, or °C and km/h.</li>
+<li><strong>Location.</strong> Search by town or ZIP code. <strong>Turn
+off</strong> hides the weather.</li>
+<li><strong>Update every.</strong> How often the clock checks the
+weather.</li>
+<li><strong>Status</strong> shows when the weather was last updated.
+<strong>Update now</strong> checks right away.</li>
+</ul>
+<p>Weather comes from Open-Meteo, a free weather service. No account is
+needed.</p>
+</section>
+<section id="day-and-night" class="level2">
+<h2>Day and night</h2>
+<figure>
+<img src="img/web-settings-daynight.png" style="width:45.0%"
+alt="Day and night settings" />
+<figcaption aria-hidden="true">Day and night settings</figcaption>
+</figure>
+<ul>
+<li><strong>Day theme</strong> and <strong>Day brightness.</strong></li>
+<li><strong>Night mode</strong> turns the schedule on or off;
+<strong>From</strong> and <strong>to</strong> set it.</li>
+<li><strong>Night theme</strong> and <strong>Night
+brightness.</strong></li>
+<li><strong>Tap to brighten for.</strong> How long the screen brightens
+when tapped at night.</li>
+<li><strong>Right now.</strong> <strong>Automatic</strong> follows the
+schedule. <strong>Day</strong> or <strong>Night</strong> overrides it
+until the schedule next changes over (so night mode switched off at 11
+PM comes back on the following night).</li>
+</ul>
+</section>
+<section id="hardware" class="level2">
+<h2>Hardware</h2>
+<figure>
+<img src="img/web-settings-hardware.png" style="width:45.0%"
+alt="Hardware settings" />
+<figcaption aria-hidden="true">Hardware settings</figcaption>
+</figure>
+<ul>
+<li><strong>Snooze button.</strong> Turn this on if your clock has a
+snooze bar. <strong>Button pin</strong> is the connection the snooze
+switches are wired to. The right one for your board is chosen already;
+change it only if the build guide told you to. The line under the switch
+shows whether the clock sees the button and when it was last pressed,
+which is handy for testing.</li>
+<li><strong>Rotate display 180°.</strong> For a clock mounted upside
+down.</li>
+<li><strong>Invert colors</strong> and <strong>Swap red and
+blue.</strong> For display boards whose colors look wrong (like a photo
+negative, or red showing as blue). You won’t need them on a clock that
+already looks right.</li>
+<li><strong>Brightness limit on battery.</strong> During a power outage
+the screen is held to this brightness to make the battery last
+longer.</li>
+<li><strong>Recalibrate touch</strong> (CYD only). If taps land in the
+wrong place, this shows targets to tap.</li>
+</ul>
+</section>
+<section id="network" class="level2">
+<h2>Network</h2>
+<figure>
+<img src="img/web-settings-network.png" style="width:45.0%"
+alt="Network settings" />
+<figcaption aria-hidden="true">Network settings</figcaption>
+</figure>
+<ul>
+<li><strong>Clock name.</strong> The clock’s web address: <em>rouse</em>
+means <strong>http://rouse.local</strong>. Changing it restarts the
+clock.</li>
+<li><strong>Web page PIN.</strong> See below.</li>
+<li><strong>WiFi networks.</strong> Up to three WiFi networks can be
+saved. If the one in use can’t be reached, the clock tries the others.
+<strong>Add</strong> looks for networks nearby.</li>
+</ul>
+<p>The clock’s own <strong>Network &amp; tools</strong> screen (tap the
+screen, then <strong>Network &amp; tools</strong>) shows its address and
+signal, and can give it a <strong>fixed address</strong>, which avoids
+trouble on some routers.</p>
+<figure>
+<img src="img/clock-network.png" style="width:60.0%"
+alt="Network &amp; tools on the clock" />
+<figcaption aria-hidden="true">Network &amp; tools on the
+clock</figcaption>
+</figure>
+</section>
+<section id="web-page-pin" class="level2">
+<h2>Web page PIN</h2>
+<p>Without a PIN, anyone on your home WiFi can open the clock’s web page
+and change its alarms. That is fine for most homes. If you’d like to
+keep it private, set a PIN:</p>
+<ol type="1">
+<li>In <strong>Settings → Network → Web page PIN</strong>, tap
+<strong>Set PIN</strong>.</li>
+<li>Enter 4 to 8 digits and tap <strong>Save PIN</strong>.</li>
+</ol>
+<figure>
+<img src="img/web-settings-pin.png" style="width:45.0%"
+alt="Setting a PIN" />
+<figcaption aria-hidden="true">Setting a PIN</figcaption>
+</figure>
+<p>How it works:</p>
+<ul>
+<li>Each phone, tablet or computer asks for the PIN once, then stays
+signed in for a year, even when the clock restarts. The clock remembers
+up to eight devices.</li>
+<li>Changing the PIN signs out every other device; the one you changed
+it from stays signed in.</li>
+<li>The PIN protects everything on the page, including photos and
+firmware updates.</li>
+<li>After five wrong tries, the clock makes you wait a minute.</li>
+<li>The PIN is stored scrambled and is never included in a settings
+backup.</li>
+<li>Setting up a new clock (or one that has lost its WiFi) through its
+setup network never asks for the PIN.</li>
+<li><strong>Turn off PIN</strong> removes it.</li>
+</ul>
+<figure>
+<img src="img/web-pin-signin.png" style="width:45.0%"
+alt="Signing in" />
+<figcaption aria-hidden="true">Signing in</figcaption>
+</figure>
+<div class="tip" data-custom-style="Tip">
+<p><strong>Forgot the PIN?</strong> On the clock, tap the screen, then
+<strong>Network &amp; tools</strong>, then <strong>Remove web
+PIN</strong>. You have to be at the clock to do this, which is the
+point. Then set a new PIN in the web page.</p>
+</div>
+</section>
+<section id="backup" class="level2">
+<h2>Backup</h2>
+<figure>
+<img src="img/web-settings-backup.png" style="width:45.0%"
+alt="Backup and firmware settings" />
+<figcaption aria-hidden="true">Backup and firmware settings</figcaption>
+</figure>
+<p><strong>Download settings</strong> saves your alarms, themes and
+settings to a file; <strong>Restore from file</strong> puts them back,
+for example after a factory reset or onto a second clock. The backup
+does not include WiFi passwords, the PIN, photos or your own sounds.</p>
+</section>
+</section>
+<section id="updating-the-firmware" class="level1">
+<h1>Updating the firmware</h1>
+<p>New versions of Rouse add features and fix problems. Updating takes
+less than a minute and keeps all your settings, photos and sounds.</p>
+<ol type="1">
+<li>Download the new firmware file for <strong>your</strong> board. Each
+release has one file per board, with the board’s name in the file name:
+<strong>CYD</strong>, <strong>Freenove35</strong> or
+<strong>Waveshare35</strong>. <strong>Settings → Firmware</strong>
+reminds you which one your clock needs.</li>
+<li>In <strong>Settings → Firmware</strong>, tap
+<strong>Update…</strong> and choose the file.</li>
+<li>Keep the clock plugged in. A progress bar shows the upload; the
+clock restarts by itself when done.</li>
+</ol>
+<p>If you pick the wrong file, the clock refuses it and says which file
+it needs. Nothing is changed.</p>
+<div class="note" data-custom-style="Note">
+<p>The very first install on a new board is done over USB from a
+computer, as described in the build guide. After that, every update goes
+through the web page.</p>
+</div>
+</section>
+<section id="troubleshooting" class="level1">
+<h1>Troubleshooting</h1>
+<p><strong>The clock shows “WiFi setup” again.</strong> It started up
+and couldn’t reach any saved WiFi network for a minute: the router may
+be off, or its name or password changed. Join the clock’s
+<strong>Rouse-</strong> network with your phone and choose your WiFi
+again (see <a href="#first-setup">First setup</a>). If the router was
+only restarting, the clock also keeps trying your saved networks in the
+background.</p>
+<p><strong>rouse.local doesn’t open.</strong> Some phones and networks
+don’t support <em>.local</em> names. Use the number address shown at the
+bottom of the clock’s menu instead. Make sure your phone is on the same
+WiFi as the clock, not on mobile data or a guest network.</p>
+<p><strong>I want to move the clock to a different WiFi
+network.</strong> Before you move it, go to <strong>Settings →
+Network</strong>, tap <strong>Add</strong>, and enter the new network
+(it can be saved even when it’s out of range). If you’ve already moved
+it, unplug the clock and plug it back in: when it can’t reach any saved
+network for a minute after starting, it opens its
+<strong>Rouse-</strong> setup network again.</p>
+<p><strong>I forgot the web page PIN.</strong> On the clock: tap the
+screen, <strong>Network &amp; tools</strong>, <strong>Remove web
+PIN</strong>.</p>
+<p><strong>Touches land in the wrong place</strong> (CYD). Tap the
+screen, <strong>Network &amp; tools</strong>, <strong>Calibrate
+touch</strong>, and tap each target as it appears. A stylus or
+fingernail works best.</p>
+<p><strong>The alarm is too quiet.</strong> Raise the alarm’s
+<strong>Volume</strong>, turn on <strong>Extra loud</strong>, or both.
+Test with <strong>▶ Clock</strong>.</p>
+<p><strong>The screen is too bright at night.</strong> Lower
+<strong>Night brightness</strong>, and choose a night theme with dark
+colors (the built-in <strong>Night</strong> theme is made for this).</p>
+<p><strong>The weather says “Updating…” for a long time.</strong> Check
+the location in <strong>Settings → Weather</strong>, then tap
+<strong>Update now</strong>. The weather needs a working internet
+connection.</p>
+<p><strong>The clock seems stuck.</strong> Press a paperclip gently into
+the <strong>RESET</strong> hole on the back. Your settings are kept.</p>
+<p><strong>Something isn’t working right.</strong> <strong>Settings →
+Diagnostics log</strong> shows what the clock has been doing.
+<strong>Copy log</strong> copies it so you can send it along when asking
+for help.</p>
+<p><strong>Start over.</strong> <strong>Settings → Factory
+reset</strong> erases all alarms, themes and settings and restarts the
+clock. It stays connected to your WiFi, and your photos and sounds stay
+on the clock. Download a backup first if you might want your settings
+back.</p>
+</section>
+<section id="specifications" class="level1">
+<h1>Specifications</h1>
+<table>
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th></th>
+<th>CYD</th>
+<th>Freenove</th>
+<th>Waveshare</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Board</td>
+<td>ESP32 3.5” display (E32R35T)</td>
+<td>Freenove FNK0104N</td>
+<td>Waveshare ESP32-S3-Touch-LCD-3.5</td>
+</tr>
+<tr class="even">
+<td>Screen</td>
+<td>3.5” 480 × 320</td>
+<td>3.5” 480 × 320 IPS</td>
+<td>3.5” 480 × 320 IPS</td>
+</tr>
+<tr class="odd">
+<td>Touch</td>
+<td>Pressure-sensitive (stylus)</td>
+<td>Glass, finger</td>
+<td>Glass, finger</td>
+</tr>
+<tr class="even">
+<td>Room for photos</td>
+<td>up to 3</td>
+<td>up to 64</td>
+<td>up to 64</td>
+</tr>
+<tr class="odd">
+<td>Touch calibration</td>
+<td>Yes</td>
+<td>Not needed</td>
+<td>Not needed</td>
+</tr>
+<tr class="even">
+<td>Firmware file name</td>
+<td>…-CYD-…</td>
+<td>…-Freenove35-…</td>
+<td>…-Waveshare35-…</td>
+</tr>
+</tbody>
+</table>
+<p>All three:</p>
+<ul>
+<li><strong>WiFi:</strong> 2.4 GHz.</li>
+<li><strong>Power:</strong> USB-C, 5 V.</li>
+<li><strong>Backup battery:</strong> optional. On the CYD, a 1100 mAh
+battery runs the clock for about 7½ hours, and a 2000 mAh one about
+twice as long; other boards may draw a little more.</li>
+<li><strong>Alarms:</strong> up to 10. <strong>Themes:</strong> up to
+10. <strong>Saved WiFi networks:</strong> up to 3.</li>
+<li><strong>Internet services:</strong> time (NTP time servers) and
+weather (Open-Meteo). Nothing else leaves your home network, and no
+account is needed.</li>
+</ul>
+</section>
+</main>
+</div>
+</body>
+</html>

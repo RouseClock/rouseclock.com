@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Install Rouse</title>
+<link rel="icon" type="image/png" href="icon.png">
+<script type="module" src="https://unpkg.com/esp-web-tools@10.1.0/dist/web/install-button.js?module"></script>
+<style>
+@font-face { font-family: "Quicksand"; src: url("Quicksand.ttf") format("truetype"); font-weight: 300 700; }
+:root { --ink: #2E3138; --sub: #5E6470; --line: #E3E0DA; --wash: #F8F6F2; --amber: #E89234; --amber-ink: #8A4E0E; --amber-wash: #FDF3E7;
+  --esp-tools-button-color: #E89234; --esp-tools-button-text-color: #1A1206; --esp-tools-button-border-radius: 10px; }
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--wash); color: var(--ink); font: 16.5px/1.55 Inter, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; }
+main { max-width: 860px; margin: 0 auto; padding: 36px 20px 70px; }
+header { display: flex; align-items: center; gap: 14px; }
+header svg { width: 64px; height: 45px; flex: none; }
+h1 { font: 700 34px/1.1 Quicksand, sans-serif; margin: 0; }
+.sub { color: var(--sub); margin: 4px 0 26px; }
+h2 { font: 700 20px/1.3 Quicksand, sans-serif; margin: 34px 0 10px; }
+.boards { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 14px; }
+.board { background: #fff; border: 1px solid var(--line); border-radius: 14px; padding: 18px; display: flex; flex-direction: column; gap: 8px; }
+.board h3 { margin: 0; font: 700 18px/1.25 Quicksand, sans-serif; }
+.board p { margin: 0; font-size: 14.5px; color: var(--sub); flex: 1; }
+.board .tag { font-size: 12.5px; color: var(--sub); }
+.board button[slot=activate] { font: 600 15.5px/1 Inter, -apple-system, "Segoe UI", sans-serif; background: var(--amber); color: #1A1206; border: 0; border-radius: 10px; padding: 12px 16px; cursor: pointer; width: 100%; }
+.board button[slot=activate]:hover { filter: brightness(1.05); }
+.note { background: var(--amber-wash); border-left: 4px solid var(--amber); border-radius: 10px; padding: 12px 16px; margin: 16px 0; }
+.warn { background: #EEF2F6; border-radius: 10px; padding: 12px 16px; margin: 16px 0; }
+.unsupported { display: none; }
+.nope { display: block; text-align: center; font-size: 14px; color: var(--sub); border: 1px dashed var(--line); border-radius: 10px; padding: 11px; }
+ol li, ul li { margin: 4px 0; }
+code { background: #fff; border: 1px solid var(--line); border-radius: 6px; padding: 1px 5px; font-size: 14px; }
+footer { color: var(--sub); font-size: 13.5px; margin-top: 40px; }
+@media (prefers-color-scheme: dark) {
+  :root { --ink: #EEF0F3; --sub: #A9B0BB; --line: #2C333D; --wash: #12161C; --amber-wash: #2A1F12; }
+  .board { background: #1A2028; } .warn { background: #1D2530; } code { background: #1A2028; }
+}
+</style>
+</head>
+<body>
+<main>
+<header>
+  <svg viewBox="0 0 120 84" aria-hidden="true"><path d="M18.3 44.6 A46 46 0 0 1 101.7 44.6" fill="none" stroke="#E89234" stroke-width="7" stroke-linecap="round"/><path d="M29.2 49.6 A34 34 0 0 1 90.8 49.6" fill="none" stroke="#E89234" stroke-width="7" stroke-linecap="round"/><path d="M40 64 A20 20 0 0 1 80 64 Z" fill="#E89234"/><line x1="10" y1="72" x2="110" y2="72" stroke="currentColor" stroke-width="7" stroke-linecap="round"/></svg>
+  <h1>Install Rouse</h1>
+</header>
+<p class="sub">Put the Rouse firmware on a new board, straight from your browser. Version 0.4.3-beta.</p>
+
+<div class="warn unsupported" id="local"><b>This page is open as a file on your computer.</b> The Install buttons only work when the page comes from a web address (https://…, or http://localhost for testing): opened as a file, the browser won't let the page read the firmware or reach the USB port.</div>
+<div class="warn unsupported" id="insecure"><b>This page needs a secure address.</b> Browsers only let pages reach a USB port when they're served over <b>https://</b> (look for the padlock). Ask your web host to turn on HTTPS for this site (often called SSL or Let's Encrypt, and usually free), then open the page with https:// at the start.</div>
+<div class="warn unsupported" id="unsupported"><b>This browser can't talk to USB devices.</b> Use Chrome or Microsoft Edge on a Windows, Mac, Linux or ChromeOS computer. (Phones, tablets, Safari and Firefox can't install firmware.)</div>
+
+<h2>1. Plug in the board</h2>
+<ol>
+  <li>Connect the board to this computer with a USB-C cable. It must be a <b>data</b> cable; some cables only charge.</li>
+  <li>Pick your board below and click <b>Install</b>.</li>
+  <li>Choose the board's port in the list that appears (it may be called <i>USB JTAG/serial debug unit</i>, <i>USB Single Serial</i>, <i>CH340</i> or similar) and click <b>Connect</b>.</li>
+</ol>
+
+<h2>2. Install</h2>
+<div class="boards">
+  <div class="board">
+    <h3>Freenove 3.5"</h3>
+    <span class="tag">FNK0104N · ESP32-S3 · glass touch</span>
+    <p>The Freenove ESP32-S3 Display, 3.5-inch (FNK0104N).</p>
+    <esp-web-install-button manifest="manifest-freenove35.json"><button slot="activate">Install on Freenove</button><span slot="unsupported" class="nope">Not available in this browser</span><span slot="not-allowed" class="nope">Needs a secure (https) page</span></esp-web-install-button>
+  </div>
+  <div class="board">
+    <h3>Waveshare 3.5"</h3>
+    <span class="tag">ESP32-S3-Touch-LCD-3.5 · glass touch</span>
+    <p>The Waveshare ESP32-S3-Touch-LCD-3.5, as a bare board or in Waveshare's own case.</p>
+    <esp-web-install-button manifest="manifest-waveshare35.json"><button slot="activate">Install on Waveshare</button><span slot="unsupported" class="nope">Not available in this browser</span><span slot="not-allowed" class="nope">Needs a secure (https) page</span></esp-web-install-button>
+  </div>
+  <div class="board">
+    <h3>CYD 3.5"</h3>
+    <span class="tag">E32R35T · ESP32 · stylus touch</span>
+    <p>The "Cheap Yellow Display" 3.5-inch ESP32 board (LCDwiki / Hosyond E32R35T).</p>
+    <esp-web-install-button manifest="manifest-cyd.json"><button slot="activate">Install on CYD</button><span slot="unsupported" class="nope">Not available in this browser</span><span slot="not-allowed" class="nope">Needs a secure (https) page</span></esp-web-install-button>
+  </div>
+</div>
+
+<div class="note"><b>Erase the device?</b> On a brand-new board, either answer is fine. On a clock that already runs Rouse, choose <b>not</b> to erase and your alarms, themes, photos and WiFi are kept. Erasing starts completely fresh.</div>
+
+<h2>3. Set it up</h2>
+<p>When the install finishes, the board restarts. A new board (or an erased one) shows <b>WiFi setup</b>. Follow the Operating Manual's <i>First setup</i> chapter: join the <code>Rouse-XXXX</code> network with your phone and pick your home WiFi. From then on, updates are installed from the clock's own web page (Settings → Firmware); you won't need this page again for that board.</p>
+
+<h2>If it doesn't connect</h2>
+<ul>
+  <li><b>No port in the list:</b> try another USB cable (a data cable) or another USB port. On Windows, the CYD may need the CH340 driver from the board maker.</li>
+  <li><b>"Failed to connect" or it stops at "Preparing":</b> put the board in download mode: hold its <b>BOOT</b> button, press and release <b>RESET</b>, then release <b>BOOT</b>. Click Install again.</li>
+  <li><b>It worked the second time:</b> that's normal for the Freenove and Waveshare, whose USB port restarts during the install. Reload this page and try again.</li>
+  <li><b>The install finished but the screen stays dark:</b> press <b>RESET</b> once (or unplug and replug the board).</li>
+</ul>
+
+<footer>Rouse · the connected bedside alarm clock · Installing uses <a href="https://esphome.github.io/esp-web-tools/">ESP Web Tools</a>; the firmware goes straight from this page to your board.</footer>
+</main>
+<script>
+if (location.protocol == 'file:') document.getElementById('local').style.display = 'block';
+else if (!window.isSecureContext) document.getElementById('insecure').style.display = 'block';   // http: the browser hides USB
+else if (!('serial' in navigator)) document.getElementById('unsupported').style.display = 'block';
+</script>
+</body>
+</html>

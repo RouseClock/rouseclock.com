@@ -1,0 +1,778 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Rouse Build Guide · Rouse</title>
+<link rel="icon" type="image/png" href="img/icon.png">
+<style>
+@font-face { font-family: "Quicksand"; src: url("fonts/Quicksand.ttf") format("truetype"); font-weight: 300 700; }
+:root {
+  --ink: #2E3138; --sub: #5E6470; --line: #E3E0DA; --paper: #FFFFFF; --wash: #F8F6F2;
+  --amber: #E89234; --amber-ink: #8A4E0E; --amber-wash: #FDF3E7; --note: #EEF2F6;
+}
+* { box-sizing: border-box; }
+html { scroll-padding-top: 16px; }
+body { margin: 0; background: var(--wash); color: var(--ink); font: 16.5px/1.6 Inter, -apple-system, "Segoe UI", Roboto, Carlito, "Helvetica Neue", Arial, sans-serif; }
+a { color: var(--amber-ink); }
+.wrap { display: grid; grid-template-columns: 270px minmax(0, 1fr); max-width: 1180px; margin: 0 auto; }
+nav#toc { position: sticky; top: 0; height: 100vh; overflow: auto; padding: 26px 18px 40px 24px; border-right: 1px solid var(--line); }
+nav#toc .brand { display: flex; align-items: center; gap: 10px; font: 700 26px/1 Quicksand, sans-serif; color: var(--ink); text-decoration: none; margin-bottom: 4px; }
+nav#toc .brand svg { width: 40px; height: 28px; }
+nav#toc .which { font-size: 13px; color: var(--sub); margin: 0 0 18px; }
+nav#toc ul { list-style: none; margin: 0; padding: 0; }
+nav#toc li { margin: 0; }
+nav#toc > ul > li > a { display: block; font-weight: 600; font-size: 14.5px; padding: 6px 8px; border-radius: 8px; color: var(--ink); text-decoration: none; }
+nav#toc ul ul a { display: block; font-size: 13.5px; padding: 3px 8px 3px 20px; color: var(--sub); text-decoration: none; border-radius: 6px; }
+nav#toc a:hover { background: var(--amber-wash); color: var(--amber-ink); }
+main { padding: 34px 48px 80px; background: var(--paper); min-height: 100vh; }
+.cover h1 { font: 700 44px/1.1 Quicksand, sans-serif; margin: 0; letter-spacing: -0.5px; }
+.cover .subtitle { color: var(--sub); font-size: 19px; margin: 6px 0 4px; }
+.cover .ver { color: var(--sub); font-size: 13.5px; margin: 0 0 30px; }
+h1 { font: 700 30px/1.2 Quicksand, sans-serif; margin: 56px 0 14px; padding-top: 18px; border-top: 1px solid var(--line); }
+section.level1:first-of-type h1 { border-top: 0; margin-top: 10px; }
+h2 { font: 700 21px/1.3 Quicksand, sans-serif; margin: 34px 0 8px; }
+h3 { font-size: 17px; margin: 24px 0 6px; }
+p, ul, ol, table { max-width: 720px; }
+li { margin: 3px 0; }
+figure { margin: 18px 0 22px; max-width: 720px; }
+figure img { display: block; max-width: 100%; height: auto; border-radius: 10px; border: 1px solid var(--line); background: #111; }
+img[src*="web-"] { background: #fff; }
+figcaption { font-size: 13.5px; color: var(--sub); margin-top: 6px; }
+table { border-collapse: collapse; width: 100%; font-size: 15px; margin: 14px 0 20px; }
+th, td { text-align: left; padding: 8px 10px; border-bottom: 1px solid var(--line); vertical-align: top; }
+th { background: var(--wash); font-weight: 600; }
+.note, .tip { max-width: 720px; border-radius: 12px; padding: 12px 16px; margin: 18px 0; }
+.note { background: var(--note); }
+.tip { background: var(--amber-wash); border-left: 4px solid var(--amber); }
+.note > :first-child, .tip > :first-child { margin-top: 0; } .note > :last-child, .tip > :last-child { margin-bottom: 0; }
+.photo { max-width: 720px; border: 2px dashed var(--amber); background: #FFFBF5; border-radius: 12px; padding: 14px 16px 14px 62px; margin: 18px 0; position: relative; color: var(--amber-ink); font-size: 15px; }
+.photo::before { content: ""; position: absolute; left: 16px; top: 15px; width: 32px; height: 26px;
+  background: no-repeat center/contain url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 26'%3E%3Cpath d='M11 1h10l2 4h5a3 3 0 0 1 3 3v14a3 3 0 0 1-3 3H4a3 3 0 0 1-3-3V8a3 3 0 0 1 3-3h5z' fill='none' stroke='%23E89234' stroke-width='2'/%3E%3Ccircle cx='16' cy='14' r='6' fill='none' stroke='%23E89234' stroke-width='2'/%3E%3C/svg%3E"); }
+.photo p { margin: 0; }
+.menu-btn { display: none; }
+@media (max-width: 860px) {
+  .wrap { display: block; }
+  nav#toc { position: static; height: auto; border-right: 0; border-bottom: 1px solid var(--line); padding: 16px; }
+  nav#toc > ul { display: none; } nav#toc.open > ul { display: block; }
+  .menu-btn { display: inline-block; margin-top: 6px; font: inherit; font-size: 14px; padding: 6px 12px; border-radius: 8px; border: 1px solid var(--line); background: #fff; color: var(--ink); }
+  main { padding: 20px 16px 60px; }
+  .cover h1 { font-size: 34px; }
+}
+/* print / PDF */
+@page { size: Letter; margin: 16mm 16mm 18mm; }
+@media print {
+  body { background: #fff; font-size: 11pt; }
+  .wrap { display: block; } nav#toc { display: none; } main { padding: 0; }
+  .print-toc { display: block !important; page-break-after: always; }
+  section.level1 { page-break-before: always; } section.level1:first-of-type { page-break-before: auto; }
+  h1 { border-top: 0; margin-top: 0; }
+  figure, .photo, .note, .tip, tr { break-inside: avoid; }
+  table { break-inside: auto; }   /* long tables (parts list) may continue on the next page */
+  h1, h2, h3 { break-after: avoid; }
+  /* the Markdown sets a width on each picture; in print the height is capped instead, so the width must follow
+     the height (width:auto !important), or tall phone screenshots get squeezed */
+  figure img { width: auto !important; height: auto !important; max-width: 62%; max-height: 95mm; }
+  figure img[src*="web-"] { max-height: 125mm; }
+  figure img[src*="wiring"], figure img[src*="case-"] { max-width: 100%; max-height: 120mm; }
+  section.level2 { break-before: auto; }
+  a { color: inherit; text-decoration: none; }
+}
+.print-toc { display: none; }
+.print-toc ul { list-style: none; padding: 0; } .print-toc ul ul { padding-left: 18px; }
+.print-toc a { color: var(--ink); }
+.print-toc h2 { margin-top: 10px; }
+.cover-mark { width: 120px; height: 84px; margin-bottom: 14px; }
+</style>
+</head>
+<body>
+<div class="wrap">
+<nav id="toc" aria-label="Contents">
+  <a class="brand" href="../"><svg viewBox="0 0 120 84" aria-hidden="true"><path d="M18.3 44.6 A46 46 0 0 1 101.7 44.6" fill="none" stroke="#E89234" stroke-width="7" stroke-linecap="round"/><path d="M29.2 49.6 A34 34 0 0 1 90.8 49.6" fill="none" stroke="#E89234" stroke-width="7" stroke-linecap="round"/><path d="M40 64 A20 20 0 0 1 80 64 Z" fill="#E89234"/><line x1="10" y1="72" x2="110" y2="72" stroke="#2E3138" stroke-width="7" stroke-linecap="round"/></svg>Rouse</a>
+  <p class="which">Rouse Build Guide<br>Firmware 0.4.3-beta</p>
+  <button class="menu-btn" onclick="this.parentNode.classList.toggle('open')">Contents</button>
+<ul>
+<li><a href="#what-youll-build" id="toc-what-youll-build">What you’ll
+build</a></li>
+<li><a href="#parts" id="toc-parts">Parts</a>
+<ul>
+<li><a href="#tools" id="toc-tools">Tools</a></li>
+</ul></li>
+<li><a href="#printing-the-case" id="toc-printing-the-case">Printing the
+case</a></li>
+<li><a href="#wiring" id="toc-wiring">Wiring</a>
+<ul>
+<li><a href="#snooze-bar-switches" id="toc-snooze-bar-switches">Snooze
+bar switches</a></li>
+<li><a href="#speaker" id="toc-speaker">Speaker</a></li>
+<li><a href="#battery" id="toc-battery">Battery</a></li>
+</ul></li>
+<li><a href="#assembly" id="toc-assembly">Assembly</a></li>
+<li><a href="#installing-the-firmware"
+id="toc-installing-the-firmware">Installing the firmware</a></li>
+<li><a href="#first-power-up" id="toc-first-power-up">First power-up</a>
+<ul>
+<li><a href="#setting-up" id="toc-setting-up">Setting up</a></li>
+<li><a href="#testing" id="toc-testing">Testing</a></li>
+</ul></li>
+<li><a href="#the-waveshare-board" id="toc-the-waveshare-board">The
+Waveshare board</a></li>
+<li><a href="#troubleshooting-the-build"
+id="toc-troubleshooting-the-build">Troubleshooting the build</a></li>
+</ul>
+</nav>
+<main>
+<header class="cover">
+  <svg class="cover-mark" viewBox="0 0 120 84" aria-hidden="true"><path d="M18.3 44.6 A46 46 0 0 1 101.7 44.6" fill="none" stroke="#E89234" stroke-width="6" stroke-linecap="round"/><path d="M29.2 49.6 A34 34 0 0 1 90.8 49.6" fill="none" stroke="#E89234" stroke-width="6" stroke-linecap="round"/><path d="M40 64 A20 20 0 0 1 80 64 Z" fill="#E89234"/><line x1="10" y1="72" x2="110" y2="72" stroke="#2E3138" stroke-width="6" stroke-linecap="round"/></svg>
+  <h1>Rouse Build Guide</h1>
+  <p class="subtitle">Print, wire and assemble your own Rouse alarm
+clock</p>
+  <p class="ver">For Rouse firmware 0.4.3-beta · November 2026</p>
+</header>
+<div class="print-toc"><h2>Contents</h2>
+<ul>
+<li><a href="#what-youll-build" id="toc-what-youll-build">What you’ll
+build</a></li>
+<li><a href="#parts" id="toc-parts">Parts</a>
+<ul>
+<li><a href="#tools" id="toc-tools">Tools</a></li>
+</ul></li>
+<li><a href="#printing-the-case" id="toc-printing-the-case">Printing the
+case</a></li>
+<li><a href="#wiring" id="toc-wiring">Wiring</a>
+<ul>
+<li><a href="#snooze-bar-switches" id="toc-snooze-bar-switches">Snooze
+bar switches</a></li>
+<li><a href="#speaker" id="toc-speaker">Speaker</a></li>
+<li><a href="#battery" id="toc-battery">Battery</a></li>
+</ul></li>
+<li><a href="#assembly" id="toc-assembly">Assembly</a></li>
+<li><a href="#installing-the-firmware"
+id="toc-installing-the-firmware">Installing the firmware</a></li>
+<li><a href="#first-power-up" id="toc-first-power-up">First power-up</a>
+<ul>
+<li><a href="#setting-up" id="toc-setting-up">Setting up</a></li>
+<li><a href="#testing" id="toc-testing">Testing</a></li>
+</ul></li>
+<li><a href="#the-waveshare-board" id="toc-the-waveshare-board">The
+Waveshare board</a></li>
+<li><a href="#troubleshooting-the-build"
+id="toc-troubleshooting-the-build">Troubleshooting the build</a></li>
+</ul>
+</div>
+<section id="what-youll-build" class="level1">
+<h1>What you’ll build</h1>
+<p>Rouse is an alarm clock built around a ready-made ESP32 touch-screen
+board, a 3D-printed case, a small speaker, an optional snooze bar and an
+optional backup battery. There is no circuit board to make: the wiring
+is two small switches and three plugs. Plan on less than an hour, plus
+printing time.</p>
+<figure>
+<img src="img/photo-p1.jpg" style="width:65.0%"
+alt="Everything for one clock (shown with the CYD board)" />
+<figcaption aria-hidden="true">Everything for one clock (shown with the
+CYD board)</figcaption>
+</figure>
+<p><strong>This guide covers three boards</strong>, and other boards
+that are the same size with the same mounting holes and screen position.
+They all run the same Rouse firmware:</p>
+<table>
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 33%" />
+<col style="width: 33%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Board</th>
+<th>Case</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Freenove</strong> FNK0104N, 3.5”</td>
+<td>Rouse case</td>
+<td>Glass touch screen, room for 64 photos. The board used in the
+pictures.</td>
+</tr>
+<tr class="even">
+<td><strong>CYD</strong> (Hosyond / LCDwiki E32R35T), 3.5”</td>
+<td>Rouse case</td>
+<td>Pressure-sensitive touch screen (comes with a stylus); room for 3
+photos.</td>
+</tr>
+<tr class="odd">
+<td><strong>Waveshare</strong> ESP32-S3-Touch-LCD-3.5, in Waveshare’s
+enclosure</td>
+<td>Rouse case, Waveshare version</td>
+<td>No wiring: the enclosure fits into a Rouse case made for it (see <a
+href="#the-waveshare-board">The Waveshare board</a>).</td>
+</tr>
+</tbody>
+</table>
+<p>The Freenove and CYD boards have the same size, mounting holes and
+screen position, so <strong>one Rouse case fits both</strong>. It comes
+in three versions:</p>
+<ul>
+<li><strong>With snooze bar opening and stylus holder:</strong> for the
+CYD, whose stylus has a place to live.</li>
+<li><strong>With snooze bar opening:</strong> for any board.</li>
+<li><strong>Without snooze bar opening:</strong> touch screen only; no
+switches to wire.</li>
+</ul>
+<figure>
+<img src="img/case-parts.png" style="width:85.0%"
+alt="The Rouse case: bezel with the name inlay (top) and the three body versions" />
+<figcaption aria-hidden="true">The Rouse case: bezel with the name inlay
+(top) and the three body versions</figcaption>
+</figure>
+</section>
+<section id="parts" class="level1">
+<h1>Parts</h1>
+<p>One clock needs:</p>
+<table>
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Part</th>
+<th>Qty</th>
+<th>Notes</th>
+<th>Example</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Display board</td>
+<td>1</td>
+<td>One of: Freenove ESP32-S3 Display 3.5” (FNK0104N); Hosyond 3.5”
+ESP32 touch screen (CYD); Waveshare ESP32-S3-Touch-LCD-3.5</td>
+<td><a href="https://www.amazon.com/dp/B0H1VHJHS4">Freenove</a> · <a
+href="https://www.amazon.com/dp/B0D93MBWC2">CYD</a> · <a
+href="https://www.amazon.com/gp/product/B0F5HG2417">Waveshare</a></td>
+</tr>
+<tr class="even">
+<td>Tactile switch, 6 × 6 mm base, 8 mm stem (6×6×8)</td>
+<td>2</td>
+<td>For the snooze bar. Skip for the case without snooze bar
+opening.</td>
+<td><a href="https://www.amazon.com/dp/B07ZBHXBZ4">Switches</a></td>
+</tr>
+<tr class="odd">
+<td>Speaker, 8 Ω 2 W, 28 × 28 mm, with 2-pin 1.25 mm plug</td>
+<td>1</td>
+<td>Plugs straight into the board.</td>
+<td><a href="https://www.amazon.com/dp/B0GXJZXFVF">Speaker</a></td>
+</tr>
+<tr class="even">
+<td>LiPo battery, 3.7 V 1100–2000 mAh, with 2-pin 1.25 mm plug</td>
+<td>1</td>
+<td>Optional backup; bigger runs longer. Up to about 50 × 34 × 10 mm
+fits. The board charges it. See <a href="#battery">Battery</a> for run
+times.</td>
+<td><a
+href="https://www.amazon.com/gp/product/B0FPCWFFYB">Battery</a></td>
+</tr>
+<tr class="odd">
+<td>Pan head screws, M2.5 × 6</td>
+<td>4</td>
+<td>Hold the board in the bezel.</td>
+<td><a href="https://www.amazon.com/dp/B06Y3TVKMR">M2.5 screws</a></td>
+</tr>
+<tr class="even">
+<td>Self-tapping screws, M3 × 8</td>
+<td>2</td>
+<td>Close the case from underneath.</td>
+<td><a href="https://www.amazon.com/dp/B0GF7YZZZD">M3 screws</a></td>
+</tr>
+<tr class="odd">
+<td>Adhesive bumper pads, 8 mm</td>
+<td>4</td>
+<td>Feet.</td>
+<td><a
+href="https://www.amazon.com/Adhesive-Furniture-Bumpers-Cabinets-AUSTOR/dp/B074C2XKXH">Bumpers</a></td>
+</tr>
+<tr class="even">
+<td>Double-sided foam tape, about 50 × 30 mm</td>
+<td>1 piece</td>
+<td>Holds the battery.</td>
+<td><a
+href="https://www.amazon.com/Pre-Cut-Rectangles-Mounting-Polyurethane-Adhesive/dp/B0GFMNMDX3">Foam
+tape</a></td>
+</tr>
+<tr class="odd">
+<td>Hook-up wire, 22 AWG stranded</td>
+<td>about 20 cm (8”)</td>
+<td>Between the two switches.</td>
+<td><a href="https://www.amazon.com/dp/B01LH1FR6M">Wire</a></td>
+</tr>
+<tr class="even">
+<td>Filament (PLA or PLA+)</td>
+<td>about 100 g</td>
+<td>One main color and one accent color.</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>The links are examples of what was used for the clock in this guide;
+equivalent parts work just as well.</p>
+<div class="note" data-custom-style="Note">
+<p><strong>The cable for the snooze bar comes with the board.</strong>
+The Freenove and CYD boards include short cables with plugs (pigtails)
+for their small connectors. One of them connects the snooze bar to the
+board.</p>
+</div>
+<section id="tools" class="level2">
+<h2>Tools</h2>
+<ul>
+<li>3D printer (any; a two-color printer, such as one with an AMS, can
+print the name on the bezel in the accent color)</li>
+<li>Soldering iron and solder</li>
+<li>Small Phillips screwdriver</li>
+<li>Wire cutters and strippers</li>
+<li>Hot glue gun (or a small piece of foam tape) for the speaker</li>
+<li>A computer with Chrome or Microsoft Edge and a USB-C
+<strong>data</strong> cable, to install the firmware</li>
+</ul>
+</section>
+</section>
+<section id="printing-the-case" class="level1">
+<h1>Printing the case</h1>
+<p>Download <strong>Rouse-case-v1.1.3mf</strong> (Bambu Studio and
+OrcaSlicer) or the STL files (any slicer). The 3MF has every part on its
+own plate, already turned the right way up:</p>
+<table>
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 33%" />
+<col style="width: 33%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Plate</th>
+<th>Part</th>
+<th>Color</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>1</td>
+<td>Case with snooze bar opening and stylus holder</td>
+<td>Main</td>
+</tr>
+<tr class="even">
+<td>2</td>
+<td>Case with snooze bar opening</td>
+<td>Main</td>
+</tr>
+<tr class="odd">
+<td>3</td>
+<td>Case without snooze bar opening</td>
+<td>Main</td>
+</tr>
+<tr class="even">
+<td>4</td>
+<td>Bezel, with the “Rouse” name inlaid</td>
+<td>Main, name in accent</td>
+</tr>
+<tr class="odd">
+<td>5</td>
+<td>Bezel, with the name engraved</td>
+<td>Main</td>
+</tr>
+<tr class="even">
+<td>6</td>
+<td>Band ring and snooze bar</td>
+<td>Accent</td>
+</tr>
+<tr class="odd">
+<td>7–10</td>
+<td>The same parts for the Waveshare version: case, bezel (inlaid or
+engraved name), band ring</td>
+<td>as above</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Print one case (plates 1–3), one bezel (plate 4 or 5), and
+plate 6.</strong> If your case has no snooze bar opening, delete the
+snooze bar from plate 6 before printing.</p>
+<ul>
+<li><strong>Material:</strong> PLA or PLA+, 0.2 mm layers, 3 walls, 15 %
+infill. The clock in this guide is charcoal with an orange accent.</li>
+<li><strong>Supports:</strong> none except two small areas the 3MF
+already marks: the top edge of the USB opening and the front edge of the
+snooze bar opening. With the STL files, add supports at those two places
+yourself.</li>
+<li><strong>The name:</strong> plate 4’s bezel prints face down with
+“Rouse” in its first layers as a second color, for printers that can
+change filament (such as an AMS). On a single-color printer, use plate
+5: the name is engraved 1 mm into the face and reads by its shadow.</li>
+</ul>
+<figure>
+<img src="img/photo-p2.jpg" style="width:65.0%"
+alt="The printed parts" />
+<figcaption aria-hidden="true">The printed parts</figcaption>
+</figure>
+<div class="tip" data-custom-style="Tip">
+<p><strong>Check the stylus holder</strong> (plate 1 only). The CYD’s
+stylus should slide into the holder and stay put. Printers differ a
+little; if it is too tight, run a 13/64” (5.2 mm) drill bit through it
+by hand.</p>
+</div>
+</section>
+<section id="wiring" class="level1">
+<h1>Wiring</h1>
+<p>All the connections plug into the back of the board except the snooze
+bar, which needs a few solder joints.</p>
+<section id="snooze-bar-switches" class="level2">
+<h2>Snooze bar switches</h2>
+<p>Skip this if your case has no snooze bar opening.</p>
+<p>Look at a switch from below. Its body is a rectangle, with two pins
+coming out of each of the two long sides:</p>
+<ul>
+<li>The <strong>two pins on the same side</strong> (the ones closer
+together) are the two sides of the switch contact. Pressing the button
+connects them.</li>
+<li>The <strong>pins straight across</strong> from each other, on
+opposite sides, are connected inside the switch. They let the connection
+pass through to the next switch.</li>
+</ul>
+<ol type="1">
+<li>Push the two switches into the switch shelves on the inside of the
+bezel’s top edge, button facing up, pins pointing left and right.</li>
+<li><strong>Jumpers:</strong> with two short pieces of wire, join the
+inner pins of the left switch to the matching inner pins of the right
+switch: top pin to top pin, bottom pin to bottom pin (the green wires in
+the diagram). The switches are now side by side (in parallel), so either
+one works the snooze.</li>
+<li><strong>Board cable:</strong> the boards come with a short cable
+with a plug (pigtail) for their small connectors. Cut it to length and
+solder its <strong>snooze pin</strong> wire and its <strong>GND</strong>
+wire to the two <strong>outer</strong> pins of the left switch, one wire
+to each pin. Leave the cable’s other wires uncut but tape or heat-shrink
+their ends, in case you want them later.</li>
+<li>Plug the cable into the board’s connector (see the table). With the
+cables that come with the boards, the wires to use are the
+<strong>green</strong> and <strong>black</strong> ones: on the Freenove,
+green is <strong>IO45</strong> and black is <strong>GND</strong>; on the
+CYD, black is <strong>IO32</strong> and green is <strong>GND</strong>.
+If your cable’s colors differ, match the wires to the pin labels printed
+next to the connector.</li>
+</ol>
+<table>
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Board</th>
+<th>Connector</th>
+<th>Snooze pin</th>
+<th>Ground</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Freenove</td>
+<td>4-pin connector labeled 3.3V / GND / IO46 / IO45</td>
+<td>IO45</td>
+<td>GND</td>
+</tr>
+<tr class="even">
+<td>CYD</td>
+<td>4-pin I2C connector labeled 3.3V / IO32 / IO25 / GND</td>
+<td>IO32</td>
+<td>GND</td>
+</tr>
+</tbody>
+</table>
+<figure>
+<img src="img/wiring-snooze.png" style="width:95.0%"
+alt="The snooze bar wiring" />
+<figcaption aria-hidden="true">The snooze bar wiring</figcaption>
+</figure>
+<figure>
+<img src="img/photo-p11.jpg" style="width:80.0%"
+alt="Two switches wired side by side" />
+<figcaption aria-hidden="true">Two switches wired side by
+side</figcaption>
+</figure>
+<figure>
+<img src="img/photo-p10.jpg" style="width:80.0%"
+alt="A switch in its shelf, and the speaker plug (Freenove)" />
+<figcaption aria-hidden="true">A switch in its shelf, and the speaker
+plug (Freenove)</figcaption>
+</figure>
+<div class="note" data-custom-style="Note">
+<p>It doesn’t matter which of the two cable wires goes to which outer
+pin. If the snooze bar doesn’t respond later, the clock’s web page shows
+when it sees a press (see <a href="#testing">Testing</a>).</p>
+</div>
+<figure>
+<img src="img/photo-p12.jpg" style="width:75.0%"
+alt="The Freenove: the cable’s green (IO45) and black (GND) wires run to the left switch" />
+<figcaption aria-hidden="true">The Freenove: the cable’s green (IO45)
+and black (GND) wires run to the left switch</figcaption>
+</figure>
+<figure>
+<img src="img/photo-p13.jpg" style="width:65.0%"
+alt="The CYD’s I2C connector, with its pin labels" />
+<figcaption aria-hidden="true">The CYD’s I2C connector, with its pin
+labels</figcaption>
+</figure>
+</section>
+<section id="speaker" class="level2">
+<h2>Speaker</h2>
+<p>The speaker’s plug goes into the board’s <strong>SPEAKER</strong>
+connector. It only fits one way.</p>
+</section>
+<section id="battery" class="level2">
+<h2>Battery</h2>
+<p>The battery keeps the clock running through a power outage; the board
+charges it from USB. On the CYD, a 1100 mAh battery runs the clock for
+about 7½ hours, and a 2000 mAh one about twice as long. Other boards may
+draw a little more. The clock limits its brightness on battery to make
+it last (see the Operating Manual).</p>
+<div class="tip" data-custom-style="Tip">
+<p><strong>Check the polarity before plugging in the battery.</strong>
+Small batteries with 1.25 mm plugs don’t all use the same wiring. Look
+for the <strong>+</strong> and <strong>−</strong> marks printed next to
+the board’s <strong>BAT</strong> connector: the battery’s
+<strong>red</strong> wire must go to <strong>+</strong>. If it’s the
+other way around, don’t plug it in; swap the two wires in the plug (lift
+the tiny tab on the plug and slide each wire out) or use a different
+battery. Plugging a battery in backwards can damage the board.</p>
+</div>
+<p>Handle the battery gently: don’t bend, puncture or crush it, and keep
+the bare plug pins away from metal.</p>
+</section>
+</section>
+<section id="assembly" class="level1">
+<h1>Assembly</h1>
+<figure>
+<img src="img/photo-p16.jpg" style="width:85.0%"
+alt="Everything connected, ready to close" />
+<figcaption aria-hidden="true">Everything connected, ready to
+close</figcaption>
+</figure>
+<ol type="1">
+<li><strong>Board into the bezel.</strong> Lay the bezel face down on a
+soft cloth. Set the board in it, screen down, with the USB port toward
+the side with the USB opening in the case. Screw it to the four posts
+with the <strong>M2.5 × 6</strong> screws. Snug, not tight; the screws
+hold the board in place.</li>
+<li><strong>Snooze cable.</strong> Plug the snooze cable into the board
+(see <a href="#wiring">Wiring</a>) and route it along the edge so it
+won’t be pinched.</li>
+<li><strong>Speaker.</strong> In the case body, set the speaker face
+down in its cradle on the base, over the grille holes. Hold it with a
+few dots of hot glue at the corners (or a piece of foam tape). Plug it
+into <strong>SPEAKER</strong>.</li>
+<li><strong>Battery.</strong> Stick the battery to the inside of the
+back wall with the foam tape, plug end toward the bottom. Check the
+polarity (above), then plug it into <strong>BAT</strong>.</li>
+<li><strong>Snooze bar.</strong> Push the snooze bar into the slot on
+top of the body from outside until its two hooks click under the catches
+inside.</li>
+<li><strong>Band ring.</strong> Lay the band ring over the bezel’s
+lip.</li>
+<li><strong>Close the case.</strong> Hook the bezel’s two top hooks
+behind the rails under the top of the body, then swing the bottom of the
+bezel in. Make sure no wire is caught between the parts.</li>
+<li><strong>Screws.</strong> Turn the clock over and drive the two
+<strong>M3 × 8</strong> self-tapping screws up through the holes in the
+base into the bezel. They cut their own thread: firm, but stop as soon
+as they’re snug.</li>
+<li><strong>Feet.</strong> Stick the four bumper pads into the round
+dimples on the base.</li>
+</ol>
+<figure>
+<img src="img/photo-p14.jpg" style="width:80.0%"
+alt="The speaker in its cradle, the battery on the back wall and the snooze bar" />
+<figcaption aria-hidden="true">The speaker in its cradle, the battery on
+the back wall and the snooze bar</figcaption>
+</figure>
+<figure>
+<img src="img/photo-p15.jpg" style="width:70.0%"
+alt="The battery held by foam tape" />
+<figcaption aria-hidden="true">The battery held by foam
+tape</figcaption>
+</figure>
+<figure>
+<img src="img/photo-p17.jpg" style="width:80.0%"
+alt="The snooze bar’s hooks under the catches" />
+<figcaption aria-hidden="true">The snooze bar’s hooks under the
+catches</figcaption>
+</figure>
+<figure>
+<img src="img/photo-p18.jpg" style="width:65.0%"
+alt="Closing the case: top hooked in, bottom still swung out" />
+<figcaption aria-hidden="true">Closing the case: top hooked in, bottom
+still swung out</figcaption>
+</figure>
+<figure>
+<img src="img/photo-p19.jpg" style="width:70.0%"
+alt="The underside: two M3 screws, four bumper pads and the speaker grille" />
+<figcaption aria-hidden="true">The underside: two M3 screws, four bumper
+pads and the speaker grille</figcaption>
+</figure>
+</section>
+<section id="installing-the-firmware" class="level1">
+<h1>Installing the firmware</h1>
+<p>The first install goes over USB from a computer. After that, the
+clock updates itself from its own web page.</p>
+<ol type="1">
+<li>Plug the board into the computer with a USB-C <strong>data</strong>
+cable. The case can be closed already; the USB port is reachable from
+the side.</li>
+<li>In <strong>Chrome</strong> or <strong>Microsoft Edge</strong>, open
+the Rouse web installer at <strong>rouseclock.com/flasher</strong>.</li>
+<li>Click <strong>Install</strong> under your board, choose the board’s
+port in the list, and click <strong>Connect</strong>. Then
+<strong>Install</strong>.</li>
+<li>Wait for the progress to finish (about a minute). The board restarts
+and shows <strong>WiFi setup</strong>.</li>
+</ol>
+<p>If it doesn’t connect, the installer page lists what to try. The most
+common fixes: use a different (data) USB cable, or put the board in
+download mode by holding <strong>BOOT</strong>, pressing and releasing
+<strong>RESET</strong>, then releasing <strong>BOOT</strong>.</p>
+<div class="note" data-custom-style="Note">
+<p><strong>Prefer the command line?</strong> Each release also has a
+<strong>FULL</strong> firmware file for each board (for example
+<em>Rouse-1.0.0-Freenove35-FULL-flash-at-0x0.bin</em>), which any ESP32
+flashing tool such as esptool can write at address 0x0.</p>
+</div>
+</section>
+<section id="first-power-up" class="level1">
+<h1>First power-up</h1>
+<section id="setting-up" class="level2">
+<h2>Setting up</h2>
+<p>Follow <strong>First setup</strong> in the Rouse Operating Manual:
+join the clock’s <strong>Rouse-</strong> WiFi network with your phone,
+pick your home WiFi, then open <strong>http://rouse.local</strong>.</p>
+<p>If the picture looks wrong, it’s quick to fix in the web page under
+<strong>Settings → Hardware</strong>: <strong>Invert colors</strong> for
+a photo-negative look, <strong>Swap red and blue</strong> if red shows
+as blue, <strong>Rotate display 180°</strong> if it’s upside down. On
+the CYD, touch calibration runs by itself the first time; tap each
+target as it appears.</p>
+</section>
+<section id="testing" class="level2">
+<h2>Testing</h2>
+<ol type="1">
+<li><strong>Snooze bar.</strong> In <strong>Settings →
+Hardware</strong>, turn on <strong>Snooze button</strong> (the pin is
+already correct for your board). Press the snooze bar: the line under
+the switch shows the press. Press each end of the bar; both should
+register.</li>
+<li><strong>Sound.</strong> In <strong>Alarms</strong>, add an alarm and
+tap <strong>Ring it now (test)</strong>. Snooze it with the bar, then
+hold the bar to stop it.</li>
+<li><strong>Battery.</strong> <strong>Settings → Status</strong> shows
+the battery level. Unplug USB for a few minutes: the clock keeps
+running.</li>
+</ol>
+<p>Your Rouse is ready. Everything else is in the Operating Manual.</p>
+</section>
+</section>
+<section id="the-waveshare-board" class="level1">
+<h1>The Waveshare board</h1>
+<p>The Waveshare ESP32-S3-Touch-LCD-3.5 comes in Waveshare’s own
+enclosure, with its own speaker and touch screen. It doesn’t need
+wiring: the whole enclosure goes into a Rouse case made for it, with the
+same look, window, band and 8° tilt as the other Rouse cases, just 6 mm
+taller.</p>
+<figure>
+<img src="img/case-ws.png" style="width:85.0%"
+alt="The Waveshare version: the sound grille and the paperclip holes over the buttons on top, and the USB opening on the right" />
+<figcaption aria-hidden="true">The Waveshare version: the sound grille
+and the paperclip holes over the buttons on top, and the USB opening on
+the right</figcaption>
+</figure>
+<p><strong>You need:</strong> the Waveshare board in its enclosure, the
+two <strong>M3 × 8</strong> self-tapping screws and the four bumper pads
+from the parts list. There’s no snooze bar: the touch screen’s
+<strong>Snooze</strong> button works instead.</p>
+<p><strong>Print</strong> plates 7–10 of the 3MF: the Waveshare case,
+one of the two Waveshare bezels (plate 8 with the inlaid name, or plate
+9 with the name engraved), and the Waveshare band ring.</p>
+<ol type="1">
+<li><strong>Install the firmware</strong> first (see <a
+href="#installing-the-firmware">Installing the firmware</a>, choosing
+<strong>Waveshare</strong>). The USB port stays reachable later, but the
+enclosure’s <strong>BOOT</strong> button will be inside the case.</li>
+<li><strong>Enclosure into the bezel.</strong> Lay the bezel face down
+on a soft cloth and press the enclosure into it, screen down, with its
+USB-C port on the side toward the case’s USB opening. Small ribs on the
+bezel’s inner walls keep it centered. When the case is closed, four
+posts inside the case press on the enclosure’s rubber feet, so tapping
+the screen can’t push it back.</li>
+<li><strong>Band ring and closing.</strong> Lay the band ring over the
+bezel’s lip, hook the bezel’s two top hooks behind the rails under the
+top of the case, and swing the bottom in.</li>
+<li><strong>Screws and feet.</strong> Drive the two M3 × 8 screws up
+through the base, and stick the bumper pads into the dimples.</li>
+</ol>
+<p>The enclosure’s speaker, microSD slot and buttons are on its top
+edge, under the case’s top. A <strong>grille</strong> in the top lets
+the sound out, and three small holes above the buttons let you press
+<strong>PWR</strong>, <strong>RESET</strong> and <strong>BOOT</strong>
+with a straightened paperclip. Seen from the front, the holes are, from
+the left: BOOT, RESET, PWR.</p>
+<figure>
+<img src="img/photo-p21.jpg" style="width:65.0%"
+alt="Rouse on the Waveshare board" />
+<figcaption aria-hidden="true">Rouse on the Waveshare board</figcaption>
+</figure>
+<div class="note" data-custom-style="Note">
+<p><strong>A case for the bare Waveshare board</strong> (without
+Waveshare’s enclosure, with a bigger speaker and a snooze bar) may come
+in a future version.</p>
+</div>
+</section>
+<section id="troubleshooting-the-build" class="level1">
+<h1>Troubleshooting the build</h1>
+<p><strong>The computer doesn’t see the board.</strong> Use a different
+USB-C cable (many only charge) and a different USB port. On Windows, the
+CYD may need the CH340 USB driver from the board maker.</p>
+<p><strong>The install stops with “Failed to connect”.</strong> Hold
+<strong>BOOT</strong>, press and release <strong>RESET</strong>, release
+<strong>BOOT</strong>, and try again. On the Freenove and Waveshare, a
+second try after reloading the page often works.</p>
+<p><strong>The screen stays dark after installing.</strong> Press
+<strong>RESET</strong> once, or unplug and replug the board.</p>
+<p><strong>No sound.</strong> Check the speaker plug is fully in the
+<strong>SPEAKER</strong> connector. Test with <strong>Ring it
+now</strong> at a high volume.</p>
+<p><strong>The snooze bar does nothing.</strong> Check that
+<strong>Snooze button</strong> is on in <strong>Settings →
+Hardware</strong> and the <strong>Button pin</strong> matches your
+wiring (IO45 on the Freenove, IO32 on the CYD), then watch the line
+under it while pressing. If no press shows: check the solder joints, and
+that the cable goes to the two pins on the <strong>same side</strong> of
+the left switch.</p>
+<p><strong>The snooze bar only works at one end.</strong> A jumper
+between the switches is loose or goes to the wrong pin; each jumper
+joins matching pins (top to top, bottom to bottom).</p>
+<p><strong>No battery level.</strong> Check the battery is plugged into
+<strong>BAT</strong> and the polarity is right. A completely empty
+battery may take a while to show up after charging starts.</p>
+<p><strong>The case won’t close.</strong> A wire is in the way, usually
+the battery or speaker lead at the bottom. Reroute it along the side
+wall.</p>
+<p><strong>The bezel is loose.</strong> Check both top hooks are behind
+the rails and both M3 screws are snug.</p>
+</section>
+</main>
+</div>
+</body>
+</html>

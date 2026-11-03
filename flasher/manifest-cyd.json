@@ -1,0 +1,17 @@
+{
+  "name": "Rouse for CYD 3.5\" (E32R35T)",
+  "version": "0.4.3-beta",
+  "new_install_prompt_erase": true,
+  "new_install_improv_wait_time": 0,
+  "builds": [
+    {
+      "chipFamily": "ESP32",
+      "parts": [
+        {
+          "path": "Rouse-0.4.3-beta-CYD-FULL-flash-at-0x0.bin",
+          "offset": 0
+        }
+      ]
+    }
+  ]
+}
