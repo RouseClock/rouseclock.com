@@ -89,7 +89,7 @@ th { background: var(--wash); font-weight: 600; }
 <div class="wrap">
 <nav id="toc" aria-label="Contents">
   <a class="brand" href="../"><svg viewBox="0 0 120 84" aria-hidden="true"><path d="M18.3 44.6 A46 46 0 0 1 101.7 44.6" fill="none" stroke="#E89234" stroke-width="7" stroke-linecap="round"/><path d="M29.2 49.6 A34 34 0 0 1 90.8 49.6" fill="none" stroke="#E89234" stroke-width="7" stroke-linecap="round"/><path d="M40 64 A20 20 0 0 1 80 64 Z" fill="#E89234"/><line x1="10" y1="72" x2="110" y2="72" stroke="#2E3138" stroke-width="7" stroke-linecap="round"/></svg>Rouse</a>
-  <p class="which">Rouse Build Guide<br>Firmware 0.4.3-beta</p>
+  <p class="which">Rouse Build Guide<br>Firmware 0.5.0-beta</p>
   <button class="menu-btn" onclick="this.parentNode.classList.toggle('open')">Contents</button>
 <ul>
 <li><a href="#what-youll-build" id="toc-what-youll-build">What you’ll
@@ -127,7 +127,7 @@ id="toc-troubleshooting-the-build">Troubleshooting the build</a></li>
   <h1>Rouse Build Guide</h1>
   <p class="subtitle">Print, wire and assemble your own Rouse alarm
 clock</p>
-  <p class="ver">For Rouse firmware 0.4.3-beta · November 2026</p>
+  <p class="ver">For Rouse firmware 0.5.0-beta · November 2026</p>
 </header>
 <div class="print-toc"><h2>Contents</h2>
 <ul>
@@ -206,7 +206,8 @@ photos.</td>
 <td><strong>Waveshare</strong> ESP32-S3-Touch-LCD-3.5, in Waveshare’s
 enclosure</td>
 <td>Rouse case, Waveshare version</td>
-<td>No wiring: the enclosure fits into a Rouse case made for it (see <a
+<td>No wiring and no snooze bar: tap the case to snooze. The enclosure
+fits into a Rouse case made for it (see <a
 href="#the-waveshare-board">The Waveshare board</a>).</td>
 </tr>
 </tbody>
@@ -259,8 +260,8 @@ href="https://www.amazon.com/gp/product/B0F5HG2417">Waveshare</a></td>
 <tr class="even">
 <td>Tactile switch, 6 × 6 mm base, 8 mm stem (6×6×8)</td>
 <td>2</td>
-<td>For the snooze bar. Skip for the case without snooze bar
-opening.</td>
+<td>For the snooze bar. Skip for the case without snooze bar opening,
+and for the Waveshare.</td>
 <td><a href="https://www.amazon.com/dp/B07ZBHXBZ4">Switches</a></td>
 </tr>
 <tr class="odd">
@@ -700,27 +701,36 @@ the right</figcaption>
 </figure>
 <p><strong>You need:</strong> the Waveshare board in its enclosure, the
 two <strong>M3 × 8</strong> self-tapping screws and the four bumper pads
-from the parts list. There’s no snooze bar: the touch screen’s
-<strong>Snooze</strong> button works instead.</p>
+from the parts list. There’s no snooze bar and nothing to wire: the
+board’s motion sensor lets you <strong>tap the case</strong> to snooze
+(one tap) or stop the alarm (two quick taps). The touch screen’s
+<strong>Snooze</strong> button works too.</p>
 <p><strong>Print</strong> plates 7–10 of the 3MF: the Waveshare case,
 one of the two Waveshare bezels (plate 8 with the inlaid name, or plate
 9 with the name engraved), and the Waveshare band ring.</p>
 <ol type="1">
-<li><strong>Install the firmware</strong> first (see <a
+<li><p><strong>Install the firmware</strong> first (see <a
 href="#installing-the-firmware">Installing the firmware</a>, choosing
 <strong>Waveshare</strong>). The USB port stays reachable later, but the
-enclosure’s <strong>BOOT</strong> button will be inside the case.</li>
-<li><strong>Enclosure into the bezel.</strong> Lay the bezel face down
-on a soft cloth and press the enclosure into it, screen down, with its
-USB-C port on the side toward the case’s USB opening. Small ribs on the
-bezel’s inner walls keep it centered. When the case is closed, four
+enclosure’s <strong>BOOT</strong> button will be inside the
+case.</p></li>
+<li><p><strong>Enclosure into the bezel.</strong> Lay the bezel face
+down on a soft cloth and press the enclosure into it, screen down, with
+its USB-C port on the side toward the case’s USB opening. Small ribs on
+the bezel’s inner walls keep it centered. When the case is closed, four
 posts inside the case press on the enclosure’s rubber feet, so tapping
-the screen can’t push it back.</li>
-<li><strong>Band ring and closing.</strong> Lay the band ring over the
-bezel’s lip, hook the bezel’s two top hooks behind the rails under the
-top of the case, and swing the bottom in.</li>
-<li><strong>Screws and feet.</strong> Drive the two M3 × 8 screws up
-through the base, and stick the bumper pads into the dimples.</li>
+the screen can’t push it back.</p></li>
+<li><p><strong>Band ring and closing.</strong> Lay the band ring over
+the bezel’s lip, hook the bezel’s two top hooks behind the rails under
+the top of the case, and swing the bottom in.</p></li>
+<li><p><strong>Screws and feet.</strong> Drive the two M3 × 8 screws up
+through the base, and stick the bumper pads into the dimples.</p></li>
+<li><p><strong>Test the tap.</strong> Set an alarm a minute ahead (or
+use <strong>Ring it now (test)</strong> in the alarm editor). When it
+rings, tap the case once: it snoozes. Then tap twice quickly: the snooze
+is cancelled. Tap-to-snooze is on by default; its settings are in
+<strong>Settings → Hardware</strong> (see the Operating Manual,
+<em>Tapping the case</em>).</p></li>
 </ol>
 <p>The enclosure’s speaker, microSD slot and buttons are on its top
 edge, under the case’s top. A <strong>grille</strong> in the top lets
@@ -735,8 +745,8 @@ alt="Rouse on the Waveshare board" />
 </figure>
 <div class="note" data-custom-style="Note">
 <p><strong>A case for the bare Waveshare board</strong> (without
-Waveshare’s enclosure, with a bigger speaker and a snooze bar) may come
-in a future version.</p>
+Waveshare’s enclosure, with a bigger speaker) may come in a future
+version.</p>
 </div>
 </section>
 <section id="troubleshooting-the-build" class="level1">

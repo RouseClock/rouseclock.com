@@ -89,7 +89,7 @@ th { background: var(--wash); font-weight: 600; }
 <div class="wrap">
 <nav id="toc" aria-label="Contents">
   <a class="brand" href="../"><svg viewBox="0 0 120 84" aria-hidden="true"><path d="M18.3 44.6 A46 46 0 0 1 101.7 44.6" fill="none" stroke="#E89234" stroke-width="7" stroke-linecap="round"/><path d="M29.2 49.6 A34 34 0 0 1 90.8 49.6" fill="none" stroke="#E89234" stroke-width="7" stroke-linecap="round"/><path d="M40 64 A20 20 0 0 1 80 64 Z" fill="#E89234"/><line x1="10" y1="72" x2="110" y2="72" stroke="#2E3138" stroke-width="7" stroke-linecap="round"/></svg>Rouse</a>
-  <p class="which">Rouse Operating Manual<br>Firmware 0.4.3-beta</p>
+  <p class="which">Rouse Operating Manual<br>Firmware 0.5.0-beta</p>
   <button class="menu-btn" onclick="this.parentNode.classList.toggle('open')">Contents</button>
 <ul>
 <li><a href="#meet-rouse" id="toc-meet-rouse">Meet Rouse</a>
@@ -117,6 +117,8 @@ screen</a></li>
 alarm rings</a></li>
 <li><a href="#the-snooze-bar" id="toc-the-snooze-bar">The snooze
 bar</a></li>
+<li><a href="#tapping-the-case" id="toc-tapping-the-case">Tapping the
+case</a></li>
 <li><a href="#night-mode" id="toc-night-mode">Night mode</a></li>
 </ul></li>
 <li><a href="#the-web-page" id="toc-the-web-page">The web page</a></li>
@@ -169,7 +171,7 @@ id="toc-specifications">Specifications</a></li>
   <svg class="cover-mark" viewBox="0 0 120 84" aria-hidden="true"><path d="M18.3 44.6 A46 46 0 0 1 101.7 44.6" fill="none" stroke="#E89234" stroke-width="6" stroke-linecap="round"/><path d="M29.2 49.6 A34 34 0 0 1 90.8 49.6" fill="none" stroke="#E89234" stroke-width="6" stroke-linecap="round"/><path d="M40 64 A20 20 0 0 1 80 64 Z" fill="#E89234"/><line x1="10" y1="72" x2="110" y2="72" stroke="#2E3138" stroke-width="6" stroke-linecap="round"/></svg>
   <h1>Rouse Operating Manual</h1>
   <p class="subtitle">The connected bedside alarm clock</p>
-  <p class="ver">For Rouse firmware 0.4.3-beta · November 2026</p>
+  <p class="ver">For Rouse firmware 0.5.0-beta · November 2026</p>
 </header>
 <div class="print-toc"><h2>Contents</h2>
 <ul>
@@ -198,6 +200,8 @@ screen</a></li>
 alarm rings</a></li>
 <li><a href="#the-snooze-bar" id="toc-the-snooze-bar">The snooze
 bar</a></li>
+<li><a href="#tapping-the-case" id="toc-tapping-the-case">Tapping the
+case</a></li>
 <li><a href="#night-mode" id="toc-night-mode">Night mode</a></li>
 </ul></li>
 <li><a href="#the-web-page" id="toc-the-web-page">The web page</a></li>
@@ -293,7 +297,9 @@ left edge</figcaption>
 open the menu.</li>
 <li><strong>Snooze bar</strong> (on top, if your clock has one). Press
 it to snooze, hold it to stop the alarm. Clocks without a snooze bar use
-the <strong>Snooze</strong> button on the screen instead.</li>
+the <strong>Snooze</strong> button on the screen instead. On the
+Waveshare, you can simply <strong>tap the case</strong> (see <em>Tapping
+the case</em>).</li>
 <li><strong>USB-C port</strong> (right side). Power. Any USB phone
 charger works.</li>
 <li><strong>Speaker</strong> (underneath). Sound comes out through the
@@ -449,19 +455,21 @@ alt="An alarm ringing" />
 <figcaption aria-hidden="true">An alarm ringing</figcaption>
 </figure>
 <ul>
-<li><strong>Snooze:</strong> tap <strong>Snooze</strong>, or press the
-snooze bar. The alarm rings again after the snooze time (9 minutes
-unless you change it).</li>
+<li><strong>Snooze:</strong> tap <strong>Snooze</strong>, press the
+snooze bar, or (Waveshare) tap the case once. The alarm rings again
+after the snooze time (9 minutes unless you change it).</li>
 <li><strong>Stop:</strong> press and hold <strong>Stop</strong> for one
-second (a ring fills as you hold), or hold the snooze bar down for about
-1½ seconds. Holding prevents stopping an alarm by accident while half
-asleep. If you prefer a single tap, turn off <strong>Settings → Alarm
-behavior → Press and hold to stop</strong>.</li>
+second (a ring fills as you hold), hold the snooze bar down for about 1½
+seconds, or (Waveshare) tap the case twice quickly. Holding prevents
+stopping an alarm by accident while half asleep. If you prefer a single
+tap, turn off <strong>Settings → Alarm behavior → Press and hold to
+stop</strong>.</li>
 <li>An alarm nobody stops turns itself off after 15 minutes (you can
 change this).</li>
 <li>While snoozing, the clock screen shows when the alarm will ring
 again. To cancel the snooze, open the menu and tap <strong>Cancel
-snooze</strong>, or hold the snooze bar.</li>
+snooze</strong>, hold the snooze bar, or (Waveshare) tap the case twice
+quickly.</li>
 </ul>
 <figure>
 <img src="img/clock-snoozing.png" style="width:60.0%"
@@ -519,6 +527,46 @@ rings</figcaption>
 </tr>
 </tbody>
 </table>
+</section>
+<section id="tapping-the-case" class="level2">
+<h2>Tapping the case</h2>
+<p>The Waveshare board has a motion sensor, so a Waveshare clock needs
+no snooze bar: while an alarm rings, tap anywhere on the case.</p>
+<table>
+<thead>
+<tr class="header">
+<th>When</th>
+<th>One tap</th>
+<th>Two quick taps</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>An alarm is ringing</td>
+<td>Snooze</td>
+<td>Stop the alarm</td>
+</tr>
+<tr class="even">
+<td>Snoozing</td>
+<td>(nothing)</td>
+<td>Cancel the snooze</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>Tap firmly with a fingertip, like knocking on a door. For two taps,
+make them about the same strength, a quarter of a second apart.</li>
+<li>After one tap the clock waits a moment (under a second) to see
+whether a second tap follows, then snoozes.</li>
+<li>Taps only do something while an alarm is ringing or snoozing. At
+other times they’re ignored, so bumping the nightstand does
+nothing.</li>
+<li>A hard bump of the nightstand can count as a tap. That can snooze
+the alarm, but never stop it: stopping always takes two taps.</li>
+<li>Turn it on or off, and choose how hard a tap must be, in
+<strong>Settings → Hardware</strong> (see <em>Hardware</em>). It’s on,
+at <strong>Normal tap</strong>, on a new Waveshare clock.</li>
+</ul>
 </section>
 <section id="night-mode" class="level2">
 <h2>Night mode</h2>
@@ -907,6 +955,14 @@ switches are wired to. The right one for your board is chosen already;
 change it only if the build guide told you to. The line under the switch
 shows whether the clock sees the button and when it was last pressed,
 which is handy for testing.</li>
+<li><strong>Tap the case to snooze</strong> (Waveshare only). One tap
+snoozes, two quick taps stop (see <em>Tapping the case</em>). The line
+under the switch shows how hard your last tap was, which helps when
+choosing the next setting.</li>
+<li><strong>How hard</strong> (Waveshare only). <strong>Gentle
+tap</strong>, <strong>Normal tap</strong> or <strong>Firm tap</strong>.
+Choose <strong>Firm tap</strong> if bumps of the nightstand snooze your
+alarm, <strong>Gentle tap</strong> if your taps aren’t noticed.</li>
 <li><strong>Rotate display 180°.</strong> For a clock mounted upside
 down.</li>
 <li><strong>Invert colors</strong> and <strong>Swap red and
@@ -1124,6 +1180,12 @@ back.</p>
 <td>Not needed</td>
 </tr>
 <tr class="even">
+<td>Snooze</td>
+<td>Snooze bar (optional)</td>
+<td>Snooze bar (optional)</td>
+<td>Tap the case</td>
+</tr>
+<tr class="odd">
 <td>Firmware file name</td>
 <td>…-CYD-…</td>
 <td>…-Freenove35-…</td>
