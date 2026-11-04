@@ -89,7 +89,7 @@ th { background: var(--wash); font-weight: 600; }
 <div class="wrap">
 <nav id="toc" aria-label="Contents">
   <a class="brand" href="../"><svg viewBox="0 0 120 84" aria-hidden="true"><path d="M18.3 44.6 A46 46 0 0 1 101.7 44.6" fill="none" stroke="#E89234" stroke-width="7" stroke-linecap="round"/><path d="M29.2 49.6 A34 34 0 0 1 90.8 49.6" fill="none" stroke="#E89234" stroke-width="7" stroke-linecap="round"/><path d="M40 64 A20 20 0 0 1 80 64 Z" fill="#E89234"/><line x1="10" y1="72" x2="110" y2="72" stroke="#2E3138" stroke-width="7" stroke-linecap="round"/></svg>Rouse</a>
-  <p class="which">Rouse Operating Manual<br>Firmware 0.5.0-beta</p>
+  <p class="which">Rouse Operating Manual<br>Firmware 0.5.2-beta</p>
   <button class="menu-btn" onclick="this.parentNode.classList.toggle('open')">Contents</button>
 <ul>
 <li><a href="#meet-rouse" id="toc-meet-rouse">Meet Rouse</a>
@@ -159,7 +159,14 @@ night</a></li>
 <li><a href="#backup" id="toc-backup">Backup</a></li>
 </ul></li>
 <li><a href="#updating-the-firmware"
-id="toc-updating-the-firmware">Updating the firmware</a></li>
+id="toc-updating-the-firmware">Updating the firmware</a>
+<ul>
+<li><a href="#installing-an-update-from-the-web-page"
+id="toc-installing-an-update-from-the-web-page">Installing an update
+from the web page</a></li>
+<li><a href="#installing-a-file-yourself"
+id="toc-installing-a-file-yourself">Installing a file yourself</a></li>
+</ul></li>
 <li><a href="#troubleshooting"
 id="toc-troubleshooting">Troubleshooting</a></li>
 <li><a href="#specifications"
@@ -171,7 +178,7 @@ id="toc-specifications">Specifications</a></li>
   <svg class="cover-mark" viewBox="0 0 120 84" aria-hidden="true"><path d="M18.3 44.6 A46 46 0 0 1 101.7 44.6" fill="none" stroke="#E89234" stroke-width="6" stroke-linecap="round"/><path d="M29.2 49.6 A34 34 0 0 1 90.8 49.6" fill="none" stroke="#E89234" stroke-width="6" stroke-linecap="round"/><path d="M40 64 A20 20 0 0 1 80 64 Z" fill="#E89234"/><line x1="10" y1="72" x2="110" y2="72" stroke="#2E3138" stroke-width="6" stroke-linecap="round"/></svg>
   <h1>Rouse Operating Manual</h1>
   <p class="subtitle">The connected bedside alarm clock</p>
-  <p class="ver">For Rouse firmware 0.5.0-beta · November 2026</p>
+  <p class="ver">For Rouse firmware 0.5.2-beta · November 2026</p>
 </header>
 <div class="print-toc"><h2>Contents</h2>
 <ul>
@@ -242,7 +249,14 @@ night</a></li>
 <li><a href="#backup" id="toc-backup">Backup</a></li>
 </ul></li>
 <li><a href="#updating-the-firmware"
-id="toc-updating-the-firmware">Updating the firmware</a></li>
+id="toc-updating-the-firmware">Updating the firmware</a>
+<ul>
+<li><a href="#installing-an-update-from-the-web-page"
+id="toc-installing-an-update-from-the-web-page">Installing an update
+from the web page</a></li>
+<li><a href="#installing-a-file-yourself"
+id="toc-installing-a-file-yourself">Installing a file yourself</a></li>
+</ul></li>
 <li><a href="#troubleshooting"
 id="toc-troubleshooting">Troubleshooting</a></li>
 <li><a href="#specifications"
@@ -1063,6 +1077,28 @@ does not include WiFi passwords, the PIN, photos or your own sounds.</p>
 <h1>Updating the firmware</h1>
 <p>New versions of Rouse add features and fix problems. Updating takes
 less than a minute and keeps all your settings, photos and sounds.</p>
+<section id="installing-an-update-from-the-web-page" class="level2">
+<h2>Installing an update from the web page</h2>
+<p>When you open the clock’s web page, it checks
+<strong>rouseclock.com</strong> for a newer version for your board. If
+there is one, a dot appears on the <strong>Settings</strong> tab, and
+<strong>Settings → Firmware</strong> shows <strong>Update
+available</strong>, with a line about what’s new.</p>
+<ol type="1">
+<li>Tap <strong>Install…</strong> and confirm. Nothing is installed
+until you do.</li>
+<li>The page downloads the update from rouseclock.com and passes it to
+the clock. Keep the clock plugged in and the page open; the clock
+restarts by itself when done.</li>
+</ol>
+<p>The check is made by your phone or computer, not the clock: an
+ordinary web request to rouseclock.com, with nothing about you or your
+clock in it. If the download doesn’t work (no internet on that device,
+for example), the page links to the downloads page instead: use the
+steps below.</p>
+</section>
+<section id="installing-a-file-yourself" class="level2">
+<h2>Installing a file yourself</h2>
 <ol type="1">
 <li>Download the new firmware file for <strong>your</strong> board. Each
 release has one file per board, with the board’s name in the file name:
@@ -1081,6 +1117,7 @@ it needs. Nothing is changed.</p>
 computer, as described in the build guide. After that, every update goes
 through the web page.</p>
 </div>
+</section>
 </section>
 <section id="troubleshooting" class="level1">
 <h1>Troubleshooting</h1>

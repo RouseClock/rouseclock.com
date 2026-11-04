@@ -1,0 +1,18 @@
+{
+ "version": "0.5.2-beta",
+ "notes": "test of the new Install button (same as 0.5.1)",
+ "files": {
+  "CYD": {
+   "url": "https://rouseclock.com/downloads/Rouse-0.5.2-beta-CYD-app-flash-at-0x10000.bin",
+   "size": 1712256
+  },
+  "Freenove35": {
+   "url": "https://rouseclock.com/downloads/Rouse-0.5.2-beta-Freenove35-app-flash-at-0x10000.bin",
+   "size": 1719824
+  },
+  "Waveshare35": {
+   "url": "https://rouseclock.com/downloads/Rouse-0.5.2-beta-Waveshare35-app-flash-at-0x10000.bin",
+   "size": 1712320
+  }
+ }
+}
