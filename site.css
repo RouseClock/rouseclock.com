@@ -88,6 +88,10 @@ section { padding: 84px 0; }
 .steps p { color: var(--sub); font-size: 16px; }
 
 .parts { padding-top: 20px; }
+.support { background: var(--amber-wash); padding: 56px 0; }
+.support-in { display: flex; align-items: center; justify-content: space-between; gap: 28px; flex-wrap: wrap; }
+.support h2 { margin-bottom: 8px; }
+.support p { color: var(--sub); margin: 0; max-width: 40em; }
 .parts p { color: var(--sub); }
 
 /* footer */

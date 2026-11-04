@@ -1,20 +1,20 @@
 {
- "version": "0.5.3-beta",
- "notes": "\"What's new\" link in the update offer",
+ "version": "1.0.0",
+ "notes": "the first full release",
  "important": "",
- "whatsNew": "https://rouseclock.com/whats-new/#v0-5-3-beta",
+ "whatsNew": "https://rouseclock.com/whats-new/#v1-0-0",
  "files": {
   "CYD": {
-   "url": "https://rouseclock.com/downloads/Rouse-0.5.3-beta-CYD-app-flash-at-0x10000.bin",
-   "size": 1712368
+   "url": "https://rouseclock.com/downloads/Rouse-1.0.0-CYD-app-flash-at-0x10000.bin",
+   "size": 1712656
   },
   "Freenove35": {
-   "url": "https://rouseclock.com/downloads/Rouse-0.5.3-beta-Freenove35-app-flash-at-0x10000.bin",
-   "size": 1719936
+   "url": "https://rouseclock.com/downloads/Rouse-1.0.0-Freenove35-app-flash-at-0x10000.bin",
+   "size": 1720224
   },
   "Waveshare35": {
-   "url": "https://rouseclock.com/downloads/Rouse-0.5.3-beta-Waveshare35-app-flash-at-0x10000.bin",
-   "size": 1712432
+   "url": "https://rouseclock.com/downloads/Rouse-1.0.0-Waveshare35-app-flash-at-0x10000.bin",
+   "size": 1712736
   }
  }
 }
