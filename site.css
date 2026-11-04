@@ -133,3 +133,6 @@ section { padding: 84px 0; }
   body { font-size: 16.5px; }
   .files li { flex-direction: column; align-items: flex-start; }
 }
+.news { max-width: 46em; color: var(--ink); padding-left: 22px; margin: 8px 0 0; }
+.news li { margin: 6px 0; }
+.tip-line { max-width: 46em; background: var(--amber-wash); border-left: 4px solid var(--amber); border-radius: 10px; padding: 10px 14px; }
