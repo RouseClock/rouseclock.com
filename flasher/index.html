@@ -63,19 +63,19 @@ footer { color: var(--sub); font-size: 13.5px; margin-top: 40px; }
     <h3>Freenove 3.5"</h3>
     <span class="tag">FNK0104N · ESP32-S3 · glass touch</span>
     <p>The Freenove ESP32-S3 Display, 3.5-inch (FNK0104N).</p>
-    <esp-web-install-button manifest="manifest-freenove35.json"><button slot="activate">Install on Freenove</button><span slot="unsupported" class="nope">Not available in this browser</span><span slot="not-allowed" class="nope">Needs a secure (https) page</span></esp-web-install-button>
+    <esp-web-install-button manifest="manifest-freenove35.json"><button slot="activate" data-goatcounter-click="install-freenove35">Install on Freenove</button><span slot="unsupported" class="nope">Not available in this browser</span><span slot="not-allowed" class="nope">Needs a secure (https) page</span></esp-web-install-button>
   </div>
   <div class="board">
     <h3>Waveshare 3.5"</h3>
     <span class="tag">ESP32-S3-Touch-LCD-3.5 · glass touch</span>
     <p>The Waveshare ESP32-S3-Touch-LCD-3.5, as a bare board or in Waveshare's own case.</p>
-    <esp-web-install-button manifest="manifest-waveshare35.json"><button slot="activate">Install on Waveshare</button><span slot="unsupported" class="nope">Not available in this browser</span><span slot="not-allowed" class="nope">Needs a secure (https) page</span></esp-web-install-button>
+    <esp-web-install-button manifest="manifest-waveshare35.json"><button slot="activate" data-goatcounter-click="install-waveshare35">Install on Waveshare</button><span slot="unsupported" class="nope">Not available in this browser</span><span slot="not-allowed" class="nope">Needs a secure (https) page</span></esp-web-install-button>
   </div>
   <div class="board">
     <h3>CYD 3.5"</h3>
     <span class="tag">E32R35T · ESP32 · stylus touch</span>
     <p>The "Cheap Yellow Display" 3.5-inch ESP32 board (LCDwiki / Hosyond E32R35T).</p>
-    <esp-web-install-button manifest="manifest-cyd.json"><button slot="activate">Install on CYD</button><span slot="unsupported" class="nope">Not available in this browser</span><span slot="not-allowed" class="nope">Needs a secure (https) page</span></esp-web-install-button>
+    <esp-web-install-button manifest="manifest-cyd.json"><button slot="activate" data-goatcounter-click="install-cyd">Install on CYD</button><span slot="unsupported" class="nope">Not available in this browser</span><span slot="not-allowed" class="nope">Needs a secure (https) page</span></esp-web-install-button>
   </div>
 </div>
 
@@ -84,7 +84,7 @@ footer { color: var(--sub); font-size: 13.5px; margin-top: 40px; }
 <h2>3. Set it up</h2>
 <p>When the install finishes, the board restarts. A new board (or an erased one) shows <b>WiFi setup</b>. Follow the Operating Manual's <i>First setup</i> chapter: join the <code>Rouse-XXXX</code> network with your phone and pick your home WiFi. From then on, updates are installed from the clock's own web page (Settings → Firmware); you won't need this page again for that board.</p>
 
-<p class="note">Rouse is free. If you enjoy your clock, <a href="https://ko-fi.com/tuscanygroup" target="_blank" rel="noopener">a tip</a> helps pay for new hardware to test and new features.</p>
+<p class="note">Rouse is free. If you enjoy your clock, <a href="https://ko-fi.com/tuscanygroup" data-goatcounter-click="tip" target="_blank" rel="noopener">a tip</a> helps pay for new hardware to test and new features.</p>
 
 <h2>If it doesn't connect</h2>
 <ul>
@@ -101,5 +101,6 @@ if (location.protocol == 'file:') document.getElementById('local').style.display
 else if (!window.isSecureContext) document.getElementById('insecure').style.display = 'block';   // http: the browser hides USB
 else if (!('serial' in navigator)) document.getElementById('unsupported').style.display = 'block';
 </script>
+<script data-goatcounter="https://rouseclock.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
 </body>
 </html>
