@@ -1,20 +1,20 @@
 {
- "version": "1.0.0",
- "notes": "the first full release",
+ "version": "1.0.3",
+ "notes": "Extra loud for sleep sounds, smoother sleep sounds, and a fix for a rare restart",
  "important": "",
- "whatsNew": "https://rouseclock.com/whats-new/#v1-0-0",
+ "whatsNew": "https://rouseclock.com/whats-new/#v1-0-3",
  "files": {
   "CYD": {
-   "url": "https://rouseclock.com/downloads/Rouse-1.0.0-CYD-app-flash-at-0x10000.bin",
-   "size": 1712656
+   "url": "https://rouseclock.com/downloads/Rouse-1.0.3-CYD-app-flash-at-0x10000.bin",
+   "size": 1712752
   },
   "Freenove35": {
-   "url": "https://rouseclock.com/downloads/Rouse-1.0.0-Freenove35-app-flash-at-0x10000.bin",
-   "size": 1720224
+   "url": "https://rouseclock.com/downloads/Rouse-1.0.3-Freenove35-app-flash-at-0x10000.bin",
+   "size": 1720432
   },
   "Waveshare35": {
-   "url": "https://rouseclock.com/downloads/Rouse-1.0.0-Waveshare35-app-flash-at-0x10000.bin",
-   "size": 1712736
+   "url": "https://rouseclock.com/downloads/Rouse-1.0.3-Waveshare35-app-flash-at-0x10000.bin",
+   "size": 1712928
   }
  }
 }
