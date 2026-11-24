@@ -65,6 +65,12 @@ section { padding: 84px 0; }
 .night h2 { color: #fff; }
 .night h2::after { content: ""; display: block; width: 44px; height: 4px; border-radius: 2px; background: var(--red); margin-top: 14px; }
 
+.video { background: var(--wash); }
+.video p { color: var(--sub); }
+.video .split { grid-template-columns: auto 1fr; }
+.video-frame video { display: block; height: min(640px, 78vh); width: auto; aspect-ratio: 9 / 16; border-radius: 22px; background: var(--night);
+  box-shadow: 0 24px 50px -26px rgba(46,49,56,.55); }
+
 .phone p { color: var(--sub); }
 .shots { display: flex; gap: 18px; justify-content: center; }
 .shots img { width: 46%; max-width: 250px; border-radius: 26px; border: 8px solid var(--ink); background: #fff; box-shadow: 0 24px 50px -26px rgba(46,49,56,.5); }
@@ -124,7 +130,9 @@ section { padding: 84px 0; }
 .notice th { background: var(--wash); }
 
 @media (max-width: 900px) {
-  .hero-grid, .split { grid-template-columns: 1fr; gap: 32px; }
+  .hero-grid, .split, .video .split { grid-template-columns: 1fr; gap: 32px; }
+  .video-frame { justify-self: center; width: 100%; max-width: 360px; }
+  .video-frame video { width: 100%; height: auto; }
   .split.rev > :first-child { order: 1; }
   .grid3, .steps { grid-template-columns: 1fr 1fr; }
   .screen-row { grid-template-columns: 1fr 1fr; }

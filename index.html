@@ -51,6 +51,30 @@
   </div>
 </section>
 
+<section id="video" class="video">
+  <div class="wrap split">
+    <figure class="video-frame">
+      <video controls playsinline preload="none" poster="video/rouse-2.0-poster.jpg" width="720" height="1280"
+             aria-label="A 50-second video of Rouse: the alarm in the dark, the snooze bar, radio, weather, photos, sleep sounds and the build">
+        <source src="video/rouse-2.0.mp4" type="video/mp4">
+      </video>
+    </figure>
+    <div>
+      <h2>See it in action</h2>
+      <p>Fifty seconds with Rouse 2.0: the alarm going off in the dark and the snooze bar, then internet radio, the weather,
+        your photos and sleep sounds, and how it goes together.</p>
+      <p>It runs on three ESP32 display boards, and the firmware, case files and build guide are free.</p>
+      <div class="cta"><a class="btn" href="#build">How to build one</a></div>
+    </div>
+  </div>
+  <script>
+    // count each page view's first play in GoatCounter (no cookies)
+    (function () { var v = document.querySelector('#video video'), done = false;
+      v.addEventListener('play', function () { if (done) return; done = true;
+        try { window.goatcounter && window.goatcounter.count({ path: 'video-play', title: 'Rouse 2.0 video', event: true }); } catch (e) {} }); })();
+  </script>
+</section>
+
 <section id="features" class="features">
   <div class="wrap">
     <h2>Everything a bedside clock should do, and nothing it shouldn't</h2>
