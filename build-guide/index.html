@@ -89,7 +89,7 @@ th { background: var(--wash); font-weight: 600; }
 <div class="wrap">
 <nav id="toc" aria-label="Contents">
   <a class="brand" href="../"><svg viewBox="0 0 120 84" aria-hidden="true"><path d="M18.3 44.6 A46 46 0 0 1 101.7 44.6" fill="none" stroke="#E89234" stroke-width="7" stroke-linecap="round"/><path d="M29.2 49.6 A34 34 0 0 1 90.8 49.6" fill="none" stroke="#E89234" stroke-width="7" stroke-linecap="round"/><path d="M40 64 A20 20 0 0 1 80 64 Z" fill="#E89234"/><line x1="10" y1="72" x2="110" y2="72" stroke="#2E3138" stroke-width="7" stroke-linecap="round"/></svg>Rouse</a>
-  <p class="which">Rouse Build Guide<br>Firmware 1.0.3</p>
+  <p class="which">Rouse Build Guide<br>Firmware 2.0.0</p>
   <button class="menu-btn" onclick="this.parentNode.classList.toggle('open')">Contents</button>
 <ul>
 <li><a href="#what-youll-build" id="toc-what-youll-build">What you’ll
@@ -127,7 +127,7 @@ id="toc-troubleshooting-the-build">Troubleshooting the build</a></li>
   <h1>Rouse Build Guide</h1>
   <p class="subtitle">Print, wire and assemble your own Rouse alarm
 clock</p>
-  <p class="ver">For Rouse firmware 1.0.3 · November 2026</p>
+  <p class="ver">For Rouse firmware 2.0.0 · November 2026</p>
 </header>
 <div class="print-toc"><h2>Contents</h2>
 <ul>
@@ -200,10 +200,12 @@ pictures.</td>
 <td><strong>CYD</strong> (Hosyond / LCDwiki E32R35T), 3.5”</td>
 <td>Rouse case</td>
 <td>Pressure-sensitive touch screen (comes with a stylus); room for 3
-photos.</td>
+photos; no internet radio. The least expensive board, with the simplest
+sound: alarms play at 25% volume or more, sleep sounds at 15% or
+more.</td>
 </tr>
 <tr class="odd">
-<td><strong>Waveshare</strong> ESP32-S3-Touch-LCD-3.5, in Waveshare’s
+<td><strong>Waveshare</strong> ESP32-S3-Touch-LCD-3.5-C, in Waveshare’s
 enclosure</td>
 <td>Rouse case, Waveshare version</td>
 <td>No wiring and no snooze bar: tap the case to snooze. The enclosure
@@ -253,10 +255,11 @@ alt="The Rouse case: bezel with the name inlay (top) and the three body versions
 <td>Display board</td>
 <td>1</td>
 <td>One of: Freenove ESP32-S3 Display 3.5” (FNK0104N); Hosyond 3.5”
-ESP32 touch screen (CYD); Waveshare ESP32-S3-Touch-LCD-3.5</td>
+ESP32 touch screen (CYD); Waveshare ESP32-S3-Touch-LCD-3.5-C (the
+version in Waveshare’s enclosure, not the bare board)</td>
 <td><a href="https://www.amazon.com/dp/B0H1VHJHS4?tag=tuscanygroup-20" rel="sponsored noopener">Freenove</a> · <a
 href="https://www.amazon.com/dp/B0D93MBWC2?tag=tuscanygroup-20" rel="sponsored noopener">CYD</a> · <a
-href="https://www.amazon.com/dp/B0F5HG2417?tag=tuscanygroup-20" rel="sponsored noopener">Waveshare</a></td>
+href="https://www.amazon.com/dp/B0F9W5JM2M?tag=tuscanygroup-20" rel="sponsored noopener">Waveshare</a></td>
 </tr>
 <tr class="even">
 <td>Tactile switch, 6 × 6 mm base, 8 mm stem (6×6×8)</td>
@@ -268,10 +271,34 @@ and for the Waveshare.</td>
 <tr class="odd">
 <td>Speaker, 8 Ω 2 W, 28 × 28 mm, with 2-pin 1.25 mm plug</td>
 <td>1</td>
-<td>Plugs straight into the board.</td>
+<td>Plugs straight into the board. Fits the case as designed.</td>
 <td><a href="https://www.amazon.com/dp/B0GXJZXFVF?tag=tuscanygroup-20" rel="sponsored noopener">Speaker</a></td>
 </tr>
 <tr class="even">
+<td><em>Or, for more volume:</em> speaker, 4 Ω 3 W, 28.2 × 31 × 15.3 mm,
+with 2-pin 2.0 mm plug</td>
+<td>1</td>
+<td>Louder and fuller. Its plug is the larger 2.0 mm size, so it needs a
+1.25 mm lead spliced on (see <a href="#speaker">Speaker</a>). Fits the
+case slightly tilted and glued.</td>
+<td><a href="https://www.amazon.com/dp/B0BTP67F81?tag=tuscanygroup-20" rel="sponsored noopener">Louder speaker</a>
+(choose <strong>3W 4Ohm</strong>)</td>
+</tr>
+<tr class="odd">
+<td>2-pin JST PH1.25 leads with wires (“pigtails”)</td>
+<td>1</td>
+<td>Only for the 4 Ω speaker. Usually sold as plug-and-socket pairs; use
+the half whose plug matches the 8 Ω speaker’s (it fits the board’s
+<strong>SPEAKER</strong> connector).</td>
+<td><a href="https://www.amazon.com/dp/B013JRWCBU?tag=tuscanygroup-20" rel="sponsored noopener">Leads</a></td>
+</tr>
+<tr class="even">
+<td>Heat-shrink tubing, about 2–3 mm</td>
+<td>2 short pieces</td>
+<td>Only for the 4 Ω speaker: covers the two soldered joints.</td>
+<td></td>
+</tr>
+<tr class="odd">
 <td>LiPo battery, 3.7 V single cell, 1100–2000 mAh, with 2-pin 1.25 mm
 plug</td>
 <td>1</td>
@@ -280,29 +307,28 @@ works if it has the 1.25 mm plug and fits (up to about 50 × 34 × 10 mm);
 packs of two or four cost less per battery. <strong>Check the polarity
 before plugging it in</strong> (see <a
 href="#battery">Battery</a>).</td>
-<td><a
-href="https://www.amazon.com/dp/B0FPCWFFYB?tag=tuscanygroup-20" rel="sponsored noopener">Battery</a></td>
+<td><a href="https://www.amazon.com/dp/B0FPCWFFYB?tag=tuscanygroup-20" rel="sponsored noopener">Battery</a></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>Pan head screws, M2.5 × 6</td>
 <td>4</td>
 <td>Hold the board in the bezel.</td>
-<td><a href="https://www.amazon.com/dp/B06Y3TVKMR?tag=tuscanygroup-20" rel="sponsored noopener">M2.5 screws</a></td>
+<td><a href="https://www.amazon.com/dp/B0B8C6CTYD?tag=tuscanygroup-20" rel="sponsored noopener">M2.5 screws</a></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>Self-tapping screws, M3 × 8</td>
 <td>2</td>
 <td>Close the case from underneath.</td>
 <td><a href="https://www.amazon.com/dp/B0GF7YZZZD?tag=tuscanygroup-20" rel="sponsored noopener">M3 screws</a></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>Adhesive bumper pads, 8 mm</td>
 <td>4</td>
 <td>Feet.</td>
 <td><a
 href="https://www.amazon.com/dp/B074C2XKXH?tag=tuscanygroup-20" rel="sponsored noopener">Bumpers</a></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>Double-sided foam tape, about 50 × 30 mm</td>
 <td>1 piece</td>
 <td>Holds the battery.</td>
@@ -310,13 +336,13 @@ href="https://www.amazon.com/dp/B074C2XKXH?tag=tuscanygroup-20" rel="sponsored n
 href="https://www.amazon.com/dp/B0GFMNMDX3?tag=tuscanygroup-20" rel="sponsored noopener">Foam
 tape</a></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>Hook-up wire, 22 AWG stranded</td>
 <td>about 20 cm (8”)</td>
 <td>Between the two switches.</td>
 <td><a href="https://www.amazon.com/dp/B01LH1FR6M?tag=tuscanygroup-20" rel="sponsored noopener">Wire</a></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>Filament (PLA or PLA+)</td>
 <td>about 100 g</td>
 <td>One main color and one accent color.</td>
@@ -341,6 +367,8 @@ print the name on the bezel in the accent color)</li>
 <li>Small Phillips screwdriver</li>
 <li>Wire cutters and strippers</li>
 <li>Hot glue gun (or a small piece of foam tape) for the speaker</li>
+<li>A heat gun or lighter for the heat-shrink (only for the 4 Ω
+speaker)</li>
 <li>A computer with Chrome or Microsoft Edge and a USB-C
 <strong>data</strong> cable, to install the firmware</li>
 </ul>
@@ -462,8 +490,8 @@ one works the snooze.</li>
 with a plug (pigtail) for their small connectors. Cut it to length and
 solder its <strong>snooze pin</strong> wire and its <strong>GND</strong>
 wire to the two <strong>outer</strong> pins of the left switch, one wire
-to each pin. Leave the cable’s other wires uncut but tape or heat-shrink
-their ends, in case you want them later.</li>
+to each pin. Clip the cable’s other two wires (red and yellow) off right
+at the plug, so their ends can’t touch anything.</li>
 <li>Plug the cable into the board’s connector (see the table). With the
 cables that come with the boards, the wires to use are the
 <strong>green</strong> and <strong>black</strong> ones: on the Freenove,
@@ -525,22 +553,58 @@ pin. If the snooze bar doesn’t respond later, the clock’s web page shows
 when it sees a press (see <a href="#testing">Testing</a>).</p>
 </div>
 <figure>
-<img src="img/photo-p12.jpg" style="width:75.0%"
-alt="The Freenove: the cable’s green (IO45) and black (GND) wires run to the left switch" />
+<img src="img/photo-p12.jpg" style="width:70.0%"
+alt="The Freenove: the cable’s green (IO45) and black (GND) wires run to the left switch; red and yellow are clipped off at the plug" />
 <figcaption aria-hidden="true">The Freenove: the cable’s green (IO45)
-and black (GND) wires run to the left switch</figcaption>
+and black (GND) wires run to the left switch; red and yellow are clipped
+off at the plug</figcaption>
 </figure>
 <figure>
-<img src="img/photo-p13.jpg" style="width:65.0%"
-alt="The CYD’s I2C connector, with its pin labels" />
+<img src="img/photo-p13.jpg" style="width:60.0%"
+alt="The CYD’s I2C connector, with its pin labels: black (IO32) and green (GND) are used; red and yellow are clipped off at the plug" />
 <figcaption aria-hidden="true">The CYD’s I2C connector, with its pin
-labels</figcaption>
+labels: black (IO32) and green (GND) are used; red and yellow are
+clipped off at the plug</figcaption>
 </figure>
 </section>
 <section id="speaker" class="level2">
 <h2>Speaker</h2>
 <p>The speaker’s plug goes into the board’s <strong>SPEAKER</strong>
 connector. It only fits one way.</p>
+<p><strong>The louder 4 Ω speaker</strong> comes with a larger 2.0 mm
+plug, which doesn’t fit the board. Replace it with a 1.25 mm lead:</p>
+<figure>
+<img src="img/speaker-splice.png" style="width:90.0%"
+alt="Splicing a 1.25 mm lead onto the 4 Ω speaker" />
+<figcaption aria-hidden="true">Splicing a 1.25 mm lead onto the 4 Ω
+speaker</figcaption>
+</figure>
+<ol type="1">
+<li>Cut the speaker’s plug off, leaving its wires about 3 cm (1¼”) long.
+Cut the new lead to a similar length.</li>
+<li>Strip about 5 mm from each wire end, and slide a piece of
+heat-shrink onto one wire of each pair.</li>
+<li>Twist red to red and black to black, and solder each joint.</li>
+<li>Slide the heat-shrink over each joint and shrink it with a heat gun
+or lighter.</li>
+<li>Plug the new lead into <strong>SPEAKER</strong>.</li>
+</ol>
+<figure>
+<img src="img/photo-p22.jpg" style="width:55.0%"
+alt="The finished splice: heat-shrink over both joints, and the new 1.25 mm plug ready for SPEAKER" />
+<figcaption aria-hidden="true">The finished splice: heat-shrink over
+both joints, and the new 1.25 mm plug ready for SPEAKER</figcaption>
+</figure>
+<p>If you’d rather not cut the speaker’s wires, a short adapter cable
+(2.0 mm socket to 1.25 mm plug) also works; tie up the extra length and
+keep it away from the antenna (see the tip below).</p>
+<div class="tip" data-custom-style="Tip">
+<p><strong>Keep wires short and away from the antenna.</strong> Long
+speaker or battery wires near the board’s antenna (at the end of the
+metal ESP32 module) can weaken the WiFi enough to cause dropouts. Cut
+leads to length, and route them along the side of the case, away from
+that end of the board.</p>
+</div>
 </section>
 <section id="battery" class="level2">
 <h2>Battery</h2>
@@ -566,10 +630,10 @@ the bare plug pins away from metal.</p>
 <section id="assembly" class="level1">
 <h1>Assembly</h1>
 <figure>
-<img src="img/photo-p16.jpg" style="width:85.0%"
-alt="Everything connected, ready to close" />
-<figcaption aria-hidden="true">Everything connected, ready to
-close</figcaption>
+<img src="img/photo-p16.jpg" style="width:75.0%"
+alt="Everything connected, ready to close (Freenove, with the louder 4 Ω speaker in the cradle)" />
+<figcaption aria-hidden="true">Everything connected, ready to close
+(Freenove, with the louder 4 Ω speaker in the cradle)</figcaption>
 </figure>
 <ol type="1">
 <li><strong>Board into the bezel.</strong> Lay the bezel face down on a
@@ -580,10 +644,14 @@ hold the board in place.</li>
 <li><strong>Snooze cable.</strong> Plug the snooze cable into the board
 (see <a href="#wiring">Wiring</a>) and route it along the edge so it
 won’t be pinched.</li>
-<li><strong>Speaker.</strong> In the case body, set the speaker face
-down in its cradle on the base, over the grille holes. Hold it with a
-few dots of hot glue at the corners (or a piece of foam tape). Plug it
-into <strong>SPEAKER</strong>.</li>
+<li><strong>Speaker.</strong> Put a dot of hot glue in each inside
+corner of the speaker cradle, at the bottom and on the sides,
+<strong>before</strong> setting the speaker in; glue added afterward is
+hard to place and holds less well. Then set the speaker face down in its
+cradle on the base, over the grille holes, and press it down while the
+glue sets. The 4 Ω speaker is a little longer than the cradle: set it
+with its wire end toward the front, tilted up slightly at the back, and
+glue it the same way. Plug it into <strong>SPEAKER</strong>.</li>
 <li><strong>Battery.</strong> Stick the battery to the inside of the
 back wall with the foam tape, plug end toward the bottom. Check the
 polarity (above), then plug it into <strong>BAT</strong>.</li>
@@ -694,7 +762,7 @@ running.</li>
 </section>
 <section id="the-waveshare-board" class="level1">
 <h1>The Waveshare board</h1>
-<p>The Waveshare ESP32-S3-Touch-LCD-3.5 comes in Waveshare’s own
+<p>The Waveshare ESP32-S3-Touch-LCD-3.5-C comes in Waveshare’s own
 enclosure, with its own speaker and touch screen. It doesn’t need
 wiring: the whole enclosure goes into a Rouse case made for it, with the
 same look, window, band and 8° tilt as the other Rouse cases, just 6 mm

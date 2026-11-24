@@ -89,7 +89,7 @@ th { background: var(--wash); font-weight: 600; }
 <div class="wrap">
 <nav id="toc" aria-label="Contents">
   <a class="brand" href="../"><svg viewBox="0 0 120 84" aria-hidden="true"><path d="M18.3 44.6 A46 46 0 0 1 101.7 44.6" fill="none" stroke="#E89234" stroke-width="7" stroke-linecap="round"/><path d="M29.2 49.6 A34 34 0 0 1 90.8 49.6" fill="none" stroke="#E89234" stroke-width="7" stroke-linecap="round"/><path d="M40 64 A20 20 0 0 1 80 64 Z" fill="#E89234"/><line x1="10" y1="72" x2="110" y2="72" stroke="#2E3138" stroke-width="7" stroke-linecap="round"/></svg>Rouse</a>
-  <p class="which">Rouse Operating Manual<br>Firmware 1.0.3</p>
+  <p class="which">Rouse Operating Manual<br>Firmware 2.0.0</p>
   <button class="menu-btn" onclick="this.parentNode.classList.toggle('open')">Contents</button>
 <ul>
 <li><a href="#meet-rouse" id="toc-meet-rouse">Meet Rouse</a>
@@ -121,7 +121,18 @@ bar</a></li>
 case</a></li>
 <li><a href="#night-mode" id="toc-night-mode">Night mode</a></li>
 </ul></li>
-<li><a href="#the-web-page" id="toc-the-web-page">The web page</a></li>
+<li><a href="#the-views" id="toc-the-views">The views</a>
+<ul>
+<li><a href="#radio" id="toc-radio">Radio</a></li>
+<li><a href="#weather" id="toc-weather">Weather</a></li>
+<li><a href="#carousel" id="toc-carousel">Carousel</a></li>
+</ul></li>
+<li><a href="#the-web-page" id="toc-the-web-page">The web page</a>
+<ul>
+<li><a href="#home" id="toc-home">Home</a></li>
+<li><a href="#your-clock-on-your-phone"
+id="toc-your-clock-on-your-phone">Your clock on your phone</a></li>
+</ul></li>
 <li><a href="#alarms" id="toc-alarms">Alarms</a>
 <ul>
 <li><a href="#adding-or-editing-an-alarm"
@@ -129,8 +140,7 @@ id="toc-adding-or-editing-an-alarm">Adding or editing an alarm</a></li>
 <li><a href="#alarm-behavior" id="toc-alarm-behavior">Alarm
 behavior</a></li>
 </ul></li>
-<li><a href="#display-and-themes" id="toc-display-and-themes">Display
-and themes</a>
+<li><a href="#themes" id="toc-themes">Themes</a>
 <ul>
 <li><a href="#the-preview" id="toc-the-preview">The preview</a></li>
 <li><a href="#choosing-and-editing-themes"
@@ -141,16 +151,17 @@ themes</a></li>
 </ul></li>
 <li><a href="#sounds" id="toc-sounds">Sounds</a>
 <ul>
-<li><a href="#sleep-sounds" id="toc-sleep-sounds">Sleep sounds</a></li>
 <li><a href="#alarm-sounds" id="toc-alarm-sounds">Alarm sounds</a></li>
 <li><a href="#your-own-sounds" id="toc-your-own-sounds">Your own
 sounds</a></li>
+<li><a href="#sleep-sounds" id="toc-sleep-sounds">Sleep sounds</a></li>
+<li><a href="#radio-1" id="toc-radio-1">Radio</a></li>
 <li><a href="#hourly-chime" id="toc-hourly-chime">Hourly chime</a></li>
 </ul></li>
 <li><a href="#settings" id="toc-settings">Settings</a>
 <ul>
 <li><a href="#time" id="toc-time">Time</a></li>
-<li><a href="#weather" id="toc-weather">Weather</a></li>
+<li><a href="#weather-1" id="toc-weather-1">Weather</a></li>
 <li><a href="#day-and-night" id="toc-day-and-night">Day and
 night</a></li>
 <li><a href="#hardware" id="toc-hardware">Hardware</a></li>
@@ -177,8 +188,8 @@ id="toc-specifications">Specifications</a></li>
 <header class="cover">
   <svg class="cover-mark" viewBox="0 0 120 84" aria-hidden="true"><path d="M18.3 44.6 A46 46 0 0 1 101.7 44.6" fill="none" stroke="#E89234" stroke-width="6" stroke-linecap="round"/><path d="M29.2 49.6 A34 34 0 0 1 90.8 49.6" fill="none" stroke="#E89234" stroke-width="6" stroke-linecap="round"/><path d="M40 64 A20 20 0 0 1 80 64 Z" fill="#E89234"/><line x1="10" y1="72" x2="110" y2="72" stroke="#2E3138" stroke-width="6" stroke-linecap="round"/></svg>
   <h1>Rouse Operating Manual</h1>
-  <p class="subtitle">The connected bedside alarm clock</p>
-  <p class="ver">For Rouse firmware 1.0.3 · November 2026</p>
+  <p class="subtitle">The connected bedside station</p>
+  <p class="ver">For Rouse firmware 2.0.0 · November 2026</p>
 </header>
 <div class="print-toc"><h2>Contents</h2>
 <ul>
@@ -211,7 +222,18 @@ bar</a></li>
 case</a></li>
 <li><a href="#night-mode" id="toc-night-mode">Night mode</a></li>
 </ul></li>
-<li><a href="#the-web-page" id="toc-the-web-page">The web page</a></li>
+<li><a href="#the-views" id="toc-the-views">The views</a>
+<ul>
+<li><a href="#radio" id="toc-radio">Radio</a></li>
+<li><a href="#weather" id="toc-weather">Weather</a></li>
+<li><a href="#carousel" id="toc-carousel">Carousel</a></li>
+</ul></li>
+<li><a href="#the-web-page" id="toc-the-web-page">The web page</a>
+<ul>
+<li><a href="#home" id="toc-home">Home</a></li>
+<li><a href="#your-clock-on-your-phone"
+id="toc-your-clock-on-your-phone">Your clock on your phone</a></li>
+</ul></li>
 <li><a href="#alarms" id="toc-alarms">Alarms</a>
 <ul>
 <li><a href="#adding-or-editing-an-alarm"
@@ -219,8 +241,7 @@ id="toc-adding-or-editing-an-alarm">Adding or editing an alarm</a></li>
 <li><a href="#alarm-behavior" id="toc-alarm-behavior">Alarm
 behavior</a></li>
 </ul></li>
-<li><a href="#display-and-themes" id="toc-display-and-themes">Display
-and themes</a>
+<li><a href="#themes" id="toc-themes">Themes</a>
 <ul>
 <li><a href="#the-preview" id="toc-the-preview">The preview</a></li>
 <li><a href="#choosing-and-editing-themes"
@@ -231,16 +252,17 @@ themes</a></li>
 </ul></li>
 <li><a href="#sounds" id="toc-sounds">Sounds</a>
 <ul>
-<li><a href="#sleep-sounds" id="toc-sleep-sounds">Sleep sounds</a></li>
 <li><a href="#alarm-sounds" id="toc-alarm-sounds">Alarm sounds</a></li>
 <li><a href="#your-own-sounds" id="toc-your-own-sounds">Your own
 sounds</a></li>
+<li><a href="#sleep-sounds" id="toc-sleep-sounds">Sleep sounds</a></li>
+<li><a href="#radio-1" id="toc-radio-1">Radio</a></li>
 <li><a href="#hourly-chime" id="toc-hourly-chime">Hourly chime</a></li>
 </ul></li>
 <li><a href="#settings" id="toc-settings">Settings</a>
 <ul>
 <li><a href="#time" id="toc-time">Time</a></li>
-<li><a href="#weather" id="toc-weather">Weather</a></li>
+<li><a href="#weather-1" id="toc-weather-1">Weather</a></li>
 <li><a href="#day-and-night" id="toc-day-and-night">Day and
 night</a></li>
 <li><a href="#hardware" id="toc-hardware">Hardware</a></li>
@@ -265,12 +287,14 @@ id="toc-specifications">Specifications</a></li>
 </div>
 <section id="meet-rouse" class="level1">
 <h1>Meet Rouse</h1>
-<p>Rouse is a bedside alarm clock with a touch screen and its own web
-page. Day to day, you use it like any alarm clock: glance at the time,
-tap the screen, snooze in the morning. For everything else (setting
-alarms, choosing a look, adding photos and sounds) you use the clock’s
-web page on your phone, tablet or computer. There is no app to install
-and no account to create.</p>
+<p>Rouse is the connected bedside station: clock, radio, photos and
+weather, for your nightstand or your desk. It has a touch screen and its
+own web page. Besides the time, its screen can be a radio, a weather
+display, or a carousel of your photos. Day to day, you use it like any
+alarm clock: glance at the time, tap the screen, snooze in the morning.
+For everything else (setting alarms, choosing a look, adding stations,
+photos and sounds) you use the clock’s web page on your phone, tablet or
+computer. There is no app to install and no account to create.</p>
 <p>Rouse can:</p>
 <ul>
 <li>Wake you with up to 10 alarms, each with its own days, sound, volume
@@ -281,7 +305,13 @@ brighten like a sunrise before the alarm.</li>
 sleepers.</li>
 <li>Show the weather, the date and your next alarm.</li>
 <li>Dim itself and switch to a night theme while you sleep.</li>
-<li>Show your own photos, one at a time or as a slideshow.</li>
+<li>Play internet radio: wake up to a station, fall asleep to one, or
+just listen (Freenove and Waveshare).</li>
+<li>Show a carousel: your photos, the clock and the weather, taking
+turns.</li>
+<li>Show the weather for the next hours and days.</li>
+<li>Be on your phone too: a live picture of the clock you can tap, and
+your alarms can ring on the phone as well.</li>
 <li>Play sleep sounds (white noise, rain, ocean waves and others) with a
 sleep timer.</li>
 <li>Keep time through a power outage on its backup battery (if your
@@ -308,7 +338,7 @@ left edge</figcaption>
 </figure>
 <ul>
 <li><strong>Screen.</strong> The time and everything else. Tap it to
-open the menu.</li>
+open the menu, or the page for whatever it’s showing.</li>
 <li><strong>Snooze bar</strong> (on top, if your clock has one). Press
 it to snooze, hold it to stop the alarm. Clocks without a snooze bar use
 the <strong>Snooze</strong> button on the screen instead. On the
@@ -332,11 +362,12 @@ Board</strong>:</p>
 <ul>
 <li><strong>CYD</strong> (ESP32 3.5” display, E32R35T).
 Pressure-sensitive touch screen; a stylus works best. Holds up to 3
-photos.</li>
+photos. No internet radio.</li>
 <li><strong>Freenove</strong> (FNK0104N). Glass touch screen like a
-phone’s; use your finger. Holds up to 64 photos.</li>
-<li><strong>Waveshare</strong> (ESP32-S3-Touch-LCD-3.5). Glass touch
-screen; use your finger. Holds up to 64 photos.</li>
+phone’s; use your finger. Holds up to 64 photos. Internet radio.</li>
+<li><strong>Waveshare</strong> (ESP32-S3-Touch-LCD-3.5-C, in Waveshare’s
+enclosure). Glass touch screen; use your finger. Holds up to 64 photos.
+Internet radio.</li>
 </ul>
 </div>
 </section>
@@ -391,11 +422,9 @@ clock screen once). If <strong>rouse.local</strong> doesn’t open, type
 the number address shown there instead, for example
 <em>http://192.168.1.40</em>.</p>
 <div class="tip" data-custom-style="Tip">
-<p><strong>Add it to your home screen.</strong> On an iPhone or iPad,
-tap the Share button and choose <strong>Add to Home Screen</strong>. On
-Android, open the browser menu and choose <strong>Add to Home
-screen</strong> or <strong>Install</strong>. You get a Rouse icon that
-opens the clock’s page like an app.</p>
+<p><strong>Add it to your home screen.</strong> The page works like an
+app from your phone’s home screen. See <a
+href="#your-clock-on-your-phone">Your clock on your phone</a>.</p>
 </div>
 <div class="note" data-custom-style="Note">
 <p><strong>More than one Rouse?</strong> The first clock on your network
@@ -439,10 +468,15 @@ and battery icons.</p>
 seconds, or tap <strong>Done</strong>.</p>
 <figure>
 <img src="img/clock-menu.png" style="width:60.0%"
-alt="The menu on the clock" />
-<figcaption aria-hidden="true">The menu on the clock</figcaption>
+alt="The menu on the clock, with the views across the top" />
+<figcaption aria-hidden="true">The menu on the clock, with the views
+across the top</figcaption>
 </figure>
 <ul>
+<li><strong>Views</strong> (the top row). What the screen shows:
+<strong>Clock</strong>, <strong>Radio</strong>, <strong>Weather</strong>
+or <strong>Carousel</strong> (see <a href="#the-views">The views</a>).
+The one showing now is underlined. The CYD has no Radio.</li>
 <li><strong>Alarms list.</strong> Tap an alarm to turn it on or off. If
 you have more than four alarms, <strong>1/2</strong> shows the next
 page.</li>
@@ -451,15 +485,25 @@ page.</li>
 night).</li>
 <li><strong>Theme.</strong> <strong>&lt;</strong> and
 <strong>&gt;</strong> step through your themes.</li>
-<li><strong>Night mode.</strong> Turns night mode on or off right now
-(see <a href="#night-mode">Night mode</a>).</li>
-<li><strong>Noise.</strong> Opens the sleep sounds.</li>
+<li><strong>Night.</strong> Turns night mode on or off right now (see <a
+href="#night-mode">Night mode</a>).</li>
+<li><strong>Sleep.</strong> Sleep sounds and sleep radio (see <a
+href="#sleep-sounds">Sleep sounds</a>).</li>
 <li><strong>Network &amp; tools.</strong> The clock’s address and WiFi,
 a fixed network address, saved WiFi networks and, on the CYD, touch
 calibration.</li>
 <li><strong>Cancel snooze.</strong> Shown instead of Network &amp; tools
 while an alarm is snoozing.</li>
 </ul>
+<p>The bottom left corner shows the clock’s web address.</p>
+<div class="note" data-custom-style="Note">
+<p><strong>The same top row everywhere.</strong> On the Radio, Weather
+and Carousel views, a tap opens that view’s own page instead (see <a
+href="#the-views">The views</a>). Its top row is the same: the views,
+then a gold button on the right. So switching views is always a tap on
+the screen, then a tap on the top row. <strong>Alarms &amp;
+settings</strong> on those pages opens this menu.</p>
+</div>
 </section>
 <section id="when-an-alarm-rings" class="level2">
 <h2>When an alarm rings</h2>
@@ -482,8 +526,9 @@ stop</strong>.</li>
 change this).</li>
 <li>While snoozing, the clock screen shows when the alarm will ring
 again. To cancel the snooze, open the menu and tap <strong>Cancel
-snooze</strong>, hold the snooze bar, or (Waveshare) tap the case twice
-quickly.</li>
+snooze</strong> (on the Radio, Weather or Carousel view, tap the screen,
+then <strong>Alarms &amp; settings</strong>), hold the snooze bar, or
+(Waveshare) tap the case twice quickly.</li>
 </ul>
 <figure>
 <img src="img/clock-snoozing.png" style="width:60.0%"
@@ -596,8 +641,9 @@ theme.</li>
 </ul>
 <p>To change the schedule, the night theme or the night brightness, use
 <strong>Settings → Day and night</strong>. To switch night mode on or
-off right now, use the menu on the clock, or <strong>Settings → Day and
-night → Right now</strong>.</p>
+off right now, tap <strong>Night</strong> in the clock’s menu, or use
+<strong>Night mode</strong> on the web page’s <strong>Home</strong>
+tab.</p>
 <figure>
 <img src="img/clock-night.png" style="width:60.0%"
 alt="A night theme" />
@@ -616,16 +662,248 @@ the room.</p>
 </div>
 </section>
 </section>
+<section id="the-views" class="level1">
+<h1>The views</h1>
+<p>The clock screen can show one of four <strong>views</strong>. Pick
+one in the top row of the menu, or from the <strong>Home</strong> tab of
+the web page. Alarms ring the same way whichever view is showing.</p>
+<ul>
+<li><strong>Clock.</strong> The time in your chosen theme. This is what
+Rouse shows unless you choose otherwise.</li>
+<li><strong>Radio.</strong> A station and what’s playing, with the
+controls to play it (Freenove and Waveshare).</li>
+<li><strong>Weather.</strong> The weather now, the next hours and the
+next days.</li>
+<li><strong>Carousel.</strong> Your photos, and if you like the clock
+and the weather, taking turns.</li>
+</ul>
+<p>On the Clock view, a tap opens the menu. On the other three, a tap
+opens a page for that view: the views and <strong>Done</strong> along
+the top, then <strong>Alarms &amp; settings</strong> (the menu), then
+the view’s own settings. <strong>Done</strong> goes back to the
+view.</p>
+<p>When night mode starts, the clock comes back by itself, so the room
+stays dark (the Carousel can stay up at night if you want). When night
+mode ends in the morning, the view you chose comes back. If you pick a
+view other than Clock during the night, night mode turns off until you
+pick Clock again.</p>
+<section id="radio" class="level2">
+<h2>Radio</h2>
+<figure>
+<img src="img/clock-radio.png" style="width:60.0%"
+alt="The Radio view" />
+<figcaption aria-hidden="true">The Radio view</figcaption>
+</figure>
+<p>The Radio view shows the station, what’s playing (when the station
+says), and these controls:</p>
+<ul>
+<li><strong>▶</strong> plays the station and <strong>■</strong> stops
+it. <strong>⏮</strong> and <strong>⏭</strong> go to the previous and
+next of your stations.</li>
+<li><strong>Volume:</strong> the speaker buttons, with the volume
+between them.</li>
+<li><strong>Sleep timer</strong> turns the radio off later. Each tap
+steps through 15, 30, 60 and 90 minutes, then off.</li>
+</ul>
+<p>Tap anywhere else on the screen for the <strong>Radio page</strong>:
+your stations, four at a time. Tap one to play it. Swipe up or down, or
+use the arrows, to see more.</p>
+<figure>
+<img src="img/clock-stations.png" style="width:60.0%"
+alt="The Radio page: your stations" />
+<figcaption aria-hidden="true">The Radio page: your
+stations</figcaption>
+</figure>
+<p>Your stations come from the web page (see <a
+href="#radio-1">Radio</a> under Sounds). A station takes two or three
+seconds to start: the clock gathers a few seconds of sound first, so it
+keeps playing smoothly if the WiFi stutters.</p>
+</section>
+<section id="weather" class="level2">
+<h2>Weather</h2>
+<figure>
+<img src="img/clock-weather.png" style="width:60.0%"
+alt="The Weather view" />
+<figcaption aria-hidden="true">The Weather view</figcaption>
+</figure>
+<p>The Weather view shows the weather now (the temperature, the day’s
+high and low, and the conditions, plus the details you choose), the
+hours ahead (now, then every two hours), and the next five days. A blue
+raindrop with a percentage shows the chance of rain or snow, when it’s
+20% or more.</p>
+<p>The sky behind it follows the weather: blue for a clear day, grey for
+clouds, dark for night. For 45 minutes around sunrise and sunset it
+warms to orange and violet.</p>
+<figure>
+<img src="img/clock-weather-sunset.png" style="width:60.0%"
+alt="Around sunset" />
+<figcaption aria-hidden="true">Around sunset</figcaption>
+</figure>
+<p>Tap the screen for the <strong>Weather page</strong>:</p>
+<figure>
+<img src="img/clock-weather-settings.png" style="width:60.0%"
+alt="The Weather page" />
+<figcaption aria-hidden="true">The Weather page</figcaption>
+</figure>
+<ul>
+<li><strong>Show.</strong> <strong>Hours and days</strong>, just
+<strong>Hours</strong>, just <strong>Days</strong>, or <strong>Take
+turns</strong> (switches every 15 seconds, with bigger pictures).</li>
+<li><strong>Temperature.</strong> °F or °C (this changes it everywhere
+on the clock).</li>
+<li><strong>Details.</strong> Which details appear beside the
+temperature: <strong>Feels</strong> like, <strong>Humidity</strong>,
+<strong>Wind</strong>, <strong>Rain</strong> chance and
+<strong>Sun</strong> (the next sunrise or sunset).</li>
+<li>The bottom left shows when the weather was last updated.</li>
+</ul>
+<p>The weather needs your location (see <a href="#weather-1">Weather</a>
+under Settings). Without one, the view says so.</p>
+</section>
+<section id="carousel" class="level2">
+<h2>Carousel</h2>
+<figure>
+<img src="img/clock-photos.png" style="width:60.0%"
+alt="The Carousel showing a photo" />
+<figcaption aria-hidden="true">The Carousel showing a photo</figcaption>
+</figure>
+<p>The Carousel shows your photos one after another, full screen. It can
+also take turns with the Clock and the Weather, so between photos you
+see the time and the forecast at a glance. Swipe left or right to go to
+the previous or next item.</p>
+<p>Tap the screen for the <strong>Carousel page</strong>:</p>
+<figure>
+<img src="img/clock-photos-settings.png" style="width:60.0%"
+alt="The Carousel page" />
+<figcaption aria-hidden="true">The Carousel page</figcaption>
+</figure>
+<ul>
+<li><strong>&lt;</strong>, <strong>⏸</strong> and <strong>&gt;</strong>
+(top left). <strong>&lt;</strong> and <strong>&gt;</strong> close the
+page and show the previous or next item; <strong>⏸</strong> pauses the
+carousel (it turns gold) and <strong>▶</strong> carries on.</li>
+<li><strong>Each item.</strong> How long each photo (or the clock, or
+the weather) shows, with <strong>−</strong> and <strong>+</strong>.
+Beside it, <strong>By name</strong> or <strong>Shuffled</strong> sets
+the order.</li>
+<li><strong>Show the time on photos.</strong> A small clock in the
+corner of each photo. (The Clock and Weather items show the time
+already.)</li>
+<li><strong>At night.</strong> <strong>Switch to the night
+clock</strong> when night mode starts, or <strong>Keep the carousel
+going</strong> at the night brightness.</li>
+<li><strong>Choose what to show</strong> (Freenove and Waveshare). Tick
+the photos the carousel shows, and the <strong>Clock</strong> and
+<strong>Weather</strong> items at the top of the list. Untick photos
+that look better as theme backgrounds.</li>
+<li><strong>Also show</strong> (CYD). The <strong>Clock</strong> and
+<strong>Weather</strong> items. The CYD’s carousel shows the photos
+marked <strong>In slideshow</strong> on the Themes tab.</li>
+</ul>
+<p>The same settings are on the web page’s <strong>Home</strong> tab
+when the Carousel is showing. Add and delete photos on the
+<strong>Themes</strong> tab (see <a href="#photos">Photos</a>).</p>
+</section>
+</section>
 <section id="the-web-page" class="level1">
 <h1>The web page</h1>
-<p>The web page has four tabs (<strong>Display</strong>,
-<strong>Alarms</strong>, <strong>Sounds</strong> and
-<strong>Settings</strong>) plus <strong>Clock</strong>, which shows a
-live view of the clock screen. Changes save to the clock as you make
-them; there is no Save button except in the alarm editor.</p>
+<p>The web page has five tabs: <strong>Home</strong>,
+<strong>Alarms</strong>, <strong>Sounds</strong>,
+<strong>Themes</strong> and <strong>Settings</strong>. Changes save to
+the clock as you make them; there is no Save button except in the alarm
+editor.</p>
 <p>If your clock has a PIN (see <a href="#web-page-pin">Web page
 PIN</a>), the page asks for it the first time you open it in a
 browser.</p>
+<section id="home" class="level2">
+<h2>Home</h2>
+<figure>
+<img src="img/web-home.png" style="width:45.0%"
+alt="The Home tab with the Clock view" />
+<figcaption aria-hidden="true">The Home tab with the Clock
+view</figcaption>
+</figure>
+<p><strong>Home</strong> shows what the clock is doing right now, and is
+its remote control.</p>
+<ul>
+<li><strong>Clock, Radio, Weather, Carousel</strong> across the top
+choose the view on the clock (see <a href="#the-views">The
+views</a>).</li>
+<li><strong>The picture of the clock</strong> shows what’s on its
+screen. It’s drawn on your phone and follows the clock within a moment
+(on the CYD, within a few seconds). While a menu is open on the clock,
+the picture keeps showing the view behind it.</li>
+<li><strong>Its buttons work.</strong> When the clock shows the Radio
+view, tap ▶, ⏮, ⏭, the volume or the sleep timer in the picture, just as
+on the clock. When an alarm rings, <strong>Snooze</strong> and
+<strong>Stop</strong> in the picture work too. A tap anywhere else opens
+the picture full screen.</li>
+<li><strong>Dimmed</strong> shows the picture at the clock’s current
+brightness; tap it for full brightness. <strong>Exact pixels</strong>
+fetches the real screen from the clock, pixel for pixel. <strong>Full
+screen</strong> shows a bigger picture; turn your phone sideways for the
+biggest view. In full screen the buttons work too; tap anywhere else, or
+<strong>✕</strong>, to close it.</li>
+</ul>
+<p>Below the picture are the controls for the view that’s showing:</p>
+<ul>
+<li><strong>Clock:</strong> the next alarm, <strong>Night mode</strong>
+(<strong>Automatic</strong>, <strong>Day</strong> or
+<strong>Night</strong>), the brightness, the theme, and <strong>Play
+alarms here</strong> (see <a href="#your-clock-on-your-phone">Your clock
+on your phone</a>).</li>
+<li><strong>Radio:</strong> <strong>Now playing</strong>, with play and
+stop, previous and next, the volume and a <strong>Sleep timer</strong>.
+<strong>Your stations</strong> lists your stations: tap one to put it on
+the clock; <strong>▶ Here</strong> plays it on your phone instead.
+<strong>Theme → Background</strong> chooses what’s behind the Radio
+view: <strong>Same as the clock</strong> (your clock theme’s
+background), <strong>Solid</strong>, <strong>Gradient</strong> or
+<strong>Image</strong>.</li>
+<li><strong>Carousel:</strong> back, pause and next, and the same
+settings as on the clock. <strong>In the carousel</strong> lists the
+<strong>Clock</strong> and <strong>Weather</strong> items and your
+photos, with a switch for each. Tap a photo to see it full size or
+rename it.</li>
+<li><strong>Weather:</strong> the conditions now and when they were
+updated (<strong>Update now</strong> checks again), and what the view
+shows: <strong>Show</strong>, <strong>Units</strong> and
+<strong>Details</strong>.</li>
+</ul>
+<p><img src="img/web-home-radio.png" style="width:31.0%"
+alt="Home with Radio, Carousel and Weather" /> <img
+src="img/web-home-photos.png" style="width:31.0%" /> <img
+src="img/web-home-weather.png" style="width:31.0%" /></p>
+</section>
+<section id="your-clock-on-your-phone" class="level2">
+<h2>Your clock on your phone</h2>
+<p>The web page works best as an app on your phone’s home screen. First,
+give the clock an address that never changes:</p>
+<ul>
+<li><strong>Use a fixed address,</strong> or reserve the clock’s address
+in your router. A home-screen icon remembers the address it was added
+with; if the router later gives the clock a different one, the icon
+can’t find it. Set a fixed address on the clock’s <strong>Network &amp;
+tools</strong> screen (see <a href="#network">Network</a>).</li>
+</ul>
+<p>Then add the page to your home screen:</p>
+<ul>
+<li><strong>iPhone and iPad:</strong> open the clock’s page in Safari,
+tap the <strong>Share</strong> button, then <strong>Add to Home
+Screen</strong>.</li>
+<li><strong>Android:</strong> open the page in Chrome, tap the
+<strong>⋮</strong> menu, then <strong>Add to Home screen</strong> (on
+some phones, <strong>Install app</strong>).</li>
+</ul>
+<p>You get a Rouse icon that opens the clock’s page full screen, like an
+app. After an update that changes how the page looks, remove the icon
+and add it again to pick up the change.</p>
+<p><strong>Play alarms here</strong> (on the Home tab, under the Clock
+view) makes your phone or computer ring as well when an alarm goes off,
+with a <strong>Snooze</strong> and <strong>Stop</strong> pop-up, as long
+as the page is open on screen. A locked or sleeping phone stays silent,
+so the clock is still your alarm.</p>
+</section>
 </section>
 <section id="alarms" class="level1">
 <h1>Alarms</h1>
@@ -654,9 +932,13 @@ alt="Editing an alarm" />
 <strong>Once</strong> alarm turns itself off after it rings.</li>
 <li><strong>Label.</strong> A name shown on the clock when it rings, for
 example <em>Work</em>.</li>
-<li><strong>Sound.</strong> Pick a built-in sound or one of your own.
-<strong>▶ Clock</strong> plays it on the clock; <strong>▶ Here</strong>
-plays it on your phone.</li>
+<li><strong>Sound.</strong> Pick a built-in sound, one of your own, or
+one of your radio stations (Freenove and Waveshare). <strong>▶
+Clock</strong> plays it on the clock; <strong>▶ Here</strong> plays it
+on your phone.</li>
+<li><strong>Backup sound</strong> (for a station). The built-in sound
+that plays instead if the station doesn’t answer or goes quiet (see <a
+href="#radio-1">Radio</a>).</li>
 <li><strong>Volume.</strong> How loud the alarm gets.</li>
 <li><strong>Extra loud.</strong> For heavy sleepers: much louder, a
 little harsher. Try it with <strong>▶ Clock</strong> before relying on
@@ -695,32 +977,25 @@ alarm the screen starts to brighten.</li>
 </ul>
 </section>
 </section>
-<section id="display-and-themes" class="level1">
-<h1>Display and themes</h1>
-<p>A <strong>theme</strong> is the look of the clock screen: its layout,
+<section id="themes" class="level1">
+<h1>Themes</h1>
+<p>A <strong>theme</strong> is the look of the Clock view: its layout,
 time font, colors and background. Rouse comes with seven themes. You can
 change them, make copies, and create your own. One theme is used by day
 and one at night.</p>
 <figure>
-<img src="img/web-display.png" style="width:45.0%"
-alt="The Display tab: a preview of the clock and your themes" />
-<figcaption aria-hidden="true">The Display tab: a preview of the clock
+<img src="img/web-themes.png" style="width:45.0%"
+alt="The Themes tab: a preview of the clock and your themes" />
+<figcaption aria-hidden="true">The Themes tab: a preview of the clock
 and your themes</figcaption>
 </figure>
 <section id="the-preview" class="level2">
 <h2>The preview</h2>
-<p>The picture at the top of <strong>Display</strong> shows what the
-clock is showing right now. It is drawn on your phone, so it updates
-instantly as you edit.</p>
-<ul>
-<li><strong>Dimmed: 80%</strong> shows the preview at the clock’s
-current brightness. Tap it to switch to <strong>Full bright</strong>,
-which is easier to see while you choose colors.</li>
-<li><strong>Exact pixels</strong> fetches the real screen from the
-clock, pixel for pixel.</li>
-<li><strong>Full screen</strong> shows a bigger preview. Turn your phone
-sideways for the biggest view.</li>
-</ul>
+<p>The picture at the top of <strong>Themes</strong> always shows the
+Clock view, even when the clock is showing another view, so you can see
+your theme. It is drawn on your phone, so it updates instantly as you
+edit. <strong>Dimmed</strong>, <strong>Exact pixels</strong> and
+<strong>Full screen</strong> work as on the Home tab.</p>
 </section>
 <section id="choosing-and-editing-themes" class="level2">
 <h2>Choosing and editing themes</h2>
@@ -786,8 +1061,11 @@ clock</figcaption>
 </section>
 <section id="photos" class="level2">
 <h2>Photos</h2>
-<p>Set <strong>Background</strong> to <strong>Image</strong> to use a
-photo.</p>
+<p>Photos are added and deleted here, on the <strong>Themes</strong>
+tab. A photo can be a theme’s background, and it can be shown by the
+Carousel (see <a href="#carousel">Carousel</a>). To use one as a
+background, set <strong>Background</strong> to
+<strong>Image</strong>.</p>
 <figure>
 <img src="img/web-theme-background.png" style="width:45.0%"
 alt="A photo theme with a slideshow" />
@@ -836,48 +1114,34 @@ appears at 3 a.m.</p>
 </section>
 <section id="sounds" class="level1">
 <h1>Sounds</h1>
+<p>The <strong>Sounds</strong> tab has three parts: <strong>Wake
+up</strong> (what your alarms can play), <strong>Fall asleep</strong>
+(sleep sounds) and, on the Freenove and Waveshare,
+<strong>Radio</strong> (your stations).</p>
 <figure>
 <img src="img/web-sounds.png" style="width:45.0%"
 alt="The Sounds tab" />
 <figcaption aria-hidden="true">The Sounds tab</figcaption>
 </figure>
-<section id="sleep-sounds" class="level2">
-<h2>Sleep sounds</h2>
-<p>Rouse can play a soothing sound to help you fall asleep:
-<strong>White noise</strong>, <strong>Pink noise</strong>, <strong>Brown
-noise</strong>, <strong>Rain</strong>, <strong>Ocean waves</strong> or
-<strong>Fan</strong>.</p>
-<ul>
-<li>On the clock: tap the screen, tap <strong>Noise</strong>, choose a
-sound, and tap <strong>Start</strong>. Use <strong>−</strong> and
-<strong>+</strong> for the volume and <strong>Sleep timer</strong> for
-how long it plays.</li>
-<li>On the web page: <strong>Sounds → Sleep sounds</strong> has the same
-choices. <strong>▶ Clock</strong> and <strong>▶ Here</strong> let you
-listen first. <strong>Start on the clock</strong> starts it.</li>
-<li><strong>Extra loud</strong> (on the web page) makes the sleep sound
-louder and fuller, for a noisy room or a heavy sleeper. Like Extra loud
-for alarms, it evens out the sound so more of it reaches the
-speaker.</li>
-<li>The sound fades out over the last minute of the timer. <strong>All
-night</strong> plays until morning.</li>
-<li>Press the snooze bar to stop it. An alarm stops it too.</li>
-</ul>
-<figure>
-<img src="img/clock-noise-on.png" style="width:60.0%"
-alt="Sleep sounds on the clock" />
-<figcaption aria-hidden="true">Sleep sounds on the clock</figcaption>
-</figure>
-</section>
 <section id="alarm-sounds" class="level2">
 <h2>Alarm sounds</h2>
 <p>Rouse has eight built-in alarm sounds: <strong>Morning
 Chimes</strong>, <strong>Marimba</strong>, <strong>Gentle Rise</strong>,
 <strong>Harp</strong>, <strong>Birdsong</strong>, <strong>Classic
 Beep</strong>, <strong>Digital Alarm</strong> and <strong>Soft
-Bell</strong>. <strong>Sounds → Alarm sounds</strong> lets you listen to
+Bell</strong>. <strong>Wake up → Alarm tones</strong> lets you listen to
 each one on the clock or on your phone. <strong>Clock volume</strong>
 sets the volume for these previews.</p>
+<div class="note" data-custom-style="Note">
+<p><strong>On the CYD,</strong> alarm sounds play at 25% volume or more,
+and sleep sounds at 15% or more. The CYD drives its speaker straight
+from the chip, without a separate sound chip, and below those levels the
+sound turns rough. A gentle alarm on the CYD also starts a little
+louder. The Freenove and Waveshare have a real sound chip and go all the
+way down, which makes them the better choice for very quiet alarms.</p>
+</div>
+<p>An alarm can also wake you with one of your own sounds (below) or a
+radio station (see <a href="#radio-1">Radio</a>).</p>
 </section>
 <section id="your-own-sounds" class="level2">
 <h2>Your own sounds</h2>
@@ -899,6 +1163,86 @@ clock</strong>.</li>
 </ol>
 <p>Your sounds appear under <strong>Your sounds</strong> and in every
 alarm’s sound list, marked <em>(yours)</em>.</p>
+</section>
+<section id="sleep-sounds" class="level2">
+<h2>Sleep sounds</h2>
+<p>Rouse can play a soothing sound to help you fall asleep:
+<strong>White noise</strong>, <strong>Pink noise</strong>, <strong>Brown
+noise</strong>, <strong>Rain</strong>, <strong>Ocean waves</strong> or
+<strong>Fan</strong>, or one of your radio stations.</p>
+<figure>
+<img src="img/web-sounds-sleep.png" style="width:45.0%"
+alt="Sleep sounds on the web page" />
+<figcaption aria-hidden="true">Sleep sounds on the web page</figcaption>
+</figure>
+<ul>
+<li><strong>On the clock:</strong> tap the screen, then
+<strong>Sleep</strong>. <strong>Sounds</strong> has the built-in sounds
+and <strong>Radio</strong> your stations (Freenove and Waveshare).
+Choose one, set the volume and the <strong>Sleep timer</strong>, and tap
+<strong>Start</strong>.</li>
+<li><strong>On the web page:</strong> <strong>Fall asleep → Sleep
+sounds</strong> has the same choices, with your stations at the end of
+the list. <strong>▶ Clock</strong> and <strong>▶ Here</strong> let you
+listen first. <strong>Start on the clock</strong> starts it.</li>
+<li><strong>Extra loud</strong> (on the web page) makes the sleep sound
+louder and fuller, for a noisy room or a heavy sleeper. Like Extra loud
+for alarms, it evens out the sound so more of it reaches the
+speaker.</li>
+<li>The sound fades out over the last minute of the timer. <strong>All
+night</strong> plays until morning.</li>
+<li>Press the snooze bar to stop it. An alarm stops it too.</li>
+<li>If a station doesn’t start, or stops playing, the clock switches to
+pink noise after 20 seconds, so you’re not left in silence.</li>
+</ul>
+<p><img src="img/clock-noise-on.png" style="width:45.0%"
+alt="Sleep on the clock: Sounds and Radio" /> <img
+src="img/clock-sleep-radio.png" style="width:45.0%" /></p>
+</section>
+<section id="radio-1" class="level2">
+<h2>Radio</h2>
+<p>Internet radio is on the Freenove and Waveshare. You can save up to
+10 stations, and use them three ways: as an alarm’s sound, as a sleep
+sound, and in the Radio view.</p>
+<figure>
+<img src="img/web-sounds-radio.png" style="width:45.0%"
+alt="Your stations, and finding new ones" />
+<figcaption aria-hidden="true">Your stations, and finding new
+ones</figcaption>
+</figure>
+<p><strong>Finding a station.</strong> Under <strong>Radio → Find a
+station</strong>, type a station’s call letters, name, city or style
+(<em>KCUR</em>, <em>jazz</em>, <em>70s rock</em>) and tap
+<strong>Search</strong>. <strong>Where</strong> narrows it to a country;
+it starts on yours. Several words narrow the search down. In the
+results:</p>
+<ul>
+<li><strong>▶ Here</strong> plays the station on your phone so you can
+try it.</li>
+<li><strong>Add</strong> saves it to <strong>My stations</strong>.</li>
+<li>Stations Rouse can’t play are marked. Rouse plays MP3 stations,
+which most are; some use other formats (AAC or HLS) that it doesn’t
+support yet.</li>
+<li>The <strong>×</strong> in the search box, or <strong>Clear</strong>,
+empties the search.</li>
+</ul>
+<p>Station listings come from radio-browser.info, a free directory that
+anyone can add stations to. If yours isn’t listed, look on the station’s
+website for its stream address (it often ends in <em>.mp3</em>,
+<em>.m3u</em> or <em>.pls</em>) and use <strong>Or add by
+address</strong>: give it a name, paste the address, try it with
+<strong>▶ Here</strong>, and tap <strong>Add station</strong>.</p>
+<p><strong>My stations</strong> lists your saved stations. <strong>▶
+Here</strong> plays one on your phone; <strong>Delete</strong> removes
+it. Alarms and sleep sounds that used a deleted station switch to their
+backup sound or pink noise.</p>
+<p><strong>Waking up to a station.</strong> In the alarm editor, pick
+the station as the <strong>Sound</strong>. A <strong>Backup
+sound</strong> setting appears: the built-in sound to play if the
+station can’t be reached, doesn’t start within 15 seconds, or goes
+quiet. The clock connects 30 seconds before the alarm, so the station is
+ready when it rings, and the <strong>Gradually increase volume</strong>
+setting works as usual.</p>
 </section>
 <section id="hourly-chime" class="level2">
 <h2>Hourly chime</h2>
@@ -924,7 +1268,7 @@ server</strong> are for unusual setups; leave them alone.)</li>
 <p>The clock sets its own time over the internet. It keeps time through
 short WiFi outages.</p>
 </section>
-<section id="weather" class="level2">
+<section id="weather-1" class="level2">
 <h2>Weather</h2>
 <ul>
 <li><strong>Units.</strong> °F and mph, or °C and km/h.</li>
@@ -1007,13 +1351,45 @@ means <strong>http://rouse.local</strong>. Changing it restarts the
 clock.</li>
 <li><strong>Web page PIN.</strong> See below.</li>
 <li><strong>WiFi networks.</strong> Up to three WiFi networks can be
-saved. If the one in use can’t be reached, the clock tries the others.
-<strong>Add</strong> looks for networks nearby.</li>
+saved. <strong>Add</strong> looks for networks nearby.
+<strong>Save</strong> keeps a network as a backup; <strong>Save and
+switch to it</strong> makes it the clock’s main network.</li>
+</ul>
+<p><strong>How the clock chooses a network.</strong> The network you
+last chose (with <strong>Switch</strong>, <strong>Save and switch to
+it</strong>, the clock’s own network list, or the setup network) is the
+clock’s <strong>main</strong> network; the others are backups.</p>
+<ul>
+<li>If the WiFi drops, the clock tries the main network for two minutes,
+then the main network and the backups take turns.</li>
+<li>While it’s on a backup, it looks for the main network every few
+minutes and moves back as soon as it’s there (but never in the middle of
+an alarm, a sleep sound or the radio).</li>
+<li>If you switch to a network that doesn’t connect within two minutes
+(a mistyped password, say), the clock goes back to the one that was
+working.</li>
+<li>The <strong>Rouse-</strong> setup network opens only if the clock
+hasn’t connected since it was switched on and has tried every saved
+network for three minutes. While it’s open, the clock tries the others
+only now and then, so the setup network stays easy for your phone to
+find.</li>
 </ul>
 <p>The clock’s own <strong>Network &amp; tools</strong> screen (tap the
 screen, then <strong>Network &amp; tools</strong>) shows its address and
 signal, and can give it a <strong>fixed address</strong>, which avoids
-trouble on some routers.</p>
+trouble on some routers and keeps the same address for a bookmark.</p>
+<ul>
+<li><strong>A fixed address belongs to one WiFi network.</strong> Each
+saved network has its own, because each network numbers its devices its
+own way. If you add a second network and want a fixed address on it too,
+switch the clock to that network, then set it on the clock’s
+<strong>Network &amp; tools</strong> screen.</li>
+<li><strong>Switching networks.</strong> <strong>Settings → Network →
+Switch</strong> moves the clock to another saved network: it restarts
+and joins it. Afterwards, the web page reaches the clock only from a
+phone or computer on that same network, at that network’s fixed address
+or at <strong>rouse.local</strong>. The page tells you which.</li>
+</ul>
 <figure>
 <img src="img/clock-network.png" style="width:60.0%"
 alt="Network &amp; tools on the clock" />
@@ -1133,8 +1509,8 @@ through the web page.</p>
 <section id="troubleshooting" class="level1">
 <h1>Troubleshooting</h1>
 <p><strong>The clock shows “WiFi setup” again.</strong> It started up
-and couldn’t reach any saved WiFi network for a minute: the router may
-be off, or its name or password changed. Join the clock’s
+and couldn’t reach any saved WiFi network for three minutes: the router
+may be off, or its name or password changed. Join the clock’s
 <strong>Rouse-</strong> network with your phone and choose your WiFi
 again (see <a href="#first-setup">First setup</a>). If the router was
 only restarting, the clock also keeps trying your saved networks in the
@@ -1148,8 +1524,21 @@ network.</strong> Before you move it, go to <strong>Settings →
 Network</strong>, tap <strong>Add</strong>, and enter the new network
 (it can be saved even when it’s out of range). If you’ve already moved
 it, unplug the clock and plug it back in: when it can’t reach any saved
-network for a minute after starting, it opens its
+network for three minutes after starting, it opens its
 <strong>Rouse-</strong> setup network again.</p>
+<p><strong>The web page can’t reach the clock after switching WiFi
+networks.</strong> The clock has a new address on the other network. Put
+your phone on the same network, and open <strong>rouse.local</strong> or
+the address shown on the clock’s <strong>Network &amp; tools</strong>
+screen. If you open the page from a bookmark with a number address, give
+the new network the same fixed address (see <a
+href="#network">Network</a>).</p>
+<p><strong>A radio station won’t play.</strong> Try it with <strong>▶
+Here</strong> on the <strong>Sounds</strong> tab. If it plays on your
+phone but not on the clock, it’s probably not an MP3 station: the clock
+says so on its Radio view. Look for another stream from the same station
+(many offer an MP3 one), or a different station. An alarm set to a
+station that doesn’t play rings with its backup sound.</p>
 <p><strong>I forgot the web page PIN.</strong> On the clock: tap the
 screen, <strong>Network &amp; tools</strong>, <strong>Remove web
 PIN</strong>.</p>
@@ -1160,9 +1549,15 @@ fingernail works best.</p>
 <p><strong>The alarm is too quiet.</strong> Raise the alarm’s
 <strong>Volume</strong>, turn on <strong>Extra loud</strong>, or both.
 Test with <strong>▶ Clock</strong>.</p>
+<p><strong>I can’t set a quiet alarm</strong> (CYD). On the CYD, alarm
+sounds play at 25% or more and sleep sounds at 15% or more; below that
+its simple speaker output sounds rough.</p>
 <p><strong>The screen is too bright at night.</strong> Lower
 <strong>Night brightness</strong>, and choose a night theme with dark
 colors (the built-in <strong>Night</strong> theme is made for this).</p>
+<p><strong>The web page picture is behind the clock</strong> (CYD). The
+CYD’s page checks the clock every few seconds; the Freenove and
+Waveshare tell the page straight away.</p>
 <p><strong>The weather says “Updating…” for a long time.</strong> Check
 the location in <strong>Settings → Weather</strong>, then tap
 <strong>Update now</strong>. The weather needs a working internet
@@ -1170,9 +1565,16 @@ connection.</p>
 <p><strong>The clock seems stuck.</strong> Press a paperclip gently into
 the <strong>RESET</strong> hole on the back. Your settings are kept.</p>
 <p><strong>Something isn’t working right.</strong> <strong>Settings →
-Diagnostics log</strong> shows what the clock has been doing.
+Diagnostics log</strong> shows what the clock has been doing. It keeps
+the last lines from the previous few runs too, through restarts and
+power cuts, so you can see what happened before the clock restarted.
 <strong>Copy log</strong> copies it so you can send it along when asking
 for help.</p>
+<p><strong>The clock says it’s on WiFi, but there’s no time, weather or
+radio.</strong> The clock checks every two minutes that the internet
+answers, and writes to the log when it doesn’t. The most common cause is
+another device using the clock’s fixed address: reserve the address in
+your router, or switch the clock to an automatic address.</p>
 <p><strong>Start over.</strong> <strong>Settings → Factory
 reset</strong> erases all alarms, themes and settings and restarts the
 clock. It stays connected to your WiFi, and your photos and sounds stay
@@ -1205,7 +1607,7 @@ lot.</p>
 <td>Board</td>
 <td>ESP32 3.5” display (E32R35T)</td>
 <td>Freenove FNK0104N</td>
-<td>Waveshare ESP32-S3-Touch-LCD-3.5</td>
+<td>Waveshare ESP32-S3-Touch-LCD-3.5-C</td>
 </tr>
 <tr class="even">
 <td>Screen</td>
@@ -1226,18 +1628,36 @@ lot.</p>
 <td>up to 64</td>
 </tr>
 <tr class="odd">
+<td>Internet radio</td>
+<td>No</td>
+<td>Yes</td>
+<td>Yes</td>
+</tr>
+<tr class="even">
+<td>Views</td>
+<td>Clock, Weather, Carousel</td>
+<td>Clock, Radio, Weather, Carousel</td>
+<td>Clock, Radio, Weather, Carousel</td>
+</tr>
+<tr class="odd">
+<td>Lowest volume</td>
+<td>Alarms 25%, sleep sounds 15%</td>
+<td>Full range</td>
+<td>Full range</td>
+</tr>
+<tr class="even">
 <td>Touch calibration</td>
 <td>Yes</td>
 <td>Not needed</td>
 <td>Not needed</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>Snooze</td>
 <td>Snooze bar (optional)</td>
 <td>Snooze bar (optional)</td>
 <td>Tap the case</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>Firmware file name</td>
 <td>…-CYD-…</td>
 <td>…-Freenove35-…</td>
@@ -1253,10 +1673,14 @@ lot.</p>
 battery runs the clock for about 7½ hours, and a 2000 mAh one about
 twice as long; other boards may draw a little more.</li>
 <li><strong>Alarms:</strong> up to 10. <strong>Themes:</strong> up to
-10. <strong>Saved WiFi networks:</strong> up to 3.</li>
-<li><strong>Internet services:</strong> time (NTP time servers) and
-weather (Open-Meteo). Nothing else leaves your home network, and no
-account is needed.</li>
+10. <strong>Saved WiFi networks:</strong> up to 3. <strong>Radio
+stations:</strong> up to 10.</li>
+<li><strong>Internet services:</strong> time (NTP time servers), weather
+(Open-Meteo), the radio stations you choose, and a name lookup every two
+minutes to check the internet answers. Station searches and town lookups
+go from your phone to radio-browser.info, Open-Meteo and zippopotam.us,
+and the update check from your phone to rouseclock.com. Nothing else
+leaves your home network, and no account is needed.</li>
 </ul>
 </section>
 </main>

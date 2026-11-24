@@ -1,20 +1,20 @@
 {
- "version": "1.0.3",
- "notes": "Extra loud for sleep sounds, smoother sleep sounds, and a fix for a rare restart",
- "important": "",
- "whatsNew": "https://rouseclock.com/whats-new/#v1-0-3",
+ "version": "2.0.0",
+ "notes": "the connected bedside station: radio, weather and a photo carousel, your clock on your phone, steadier WiFi and quieter sound",
+ "important": "If you added the clock's page to your phone's home screen, remove the icon and add it again after updating, to get the new look.",
+ "whatsNew": "https://rouseclock.com/whats-new/#v2-0-0",
  "files": {
   "CYD": {
-   "url": "https://rouseclock.com/downloads/Rouse-1.0.3-CYD-app-flash-at-0x10000.bin",
-   "size": 1712752
+   "url": "https://rouseclock.com/downloads/Rouse-2.0.0-CYD-app-flash-at-0x10000.bin",
+   "size": 1766608
   },
   "Freenove35": {
-   "url": "https://rouseclock.com/downloads/Rouse-1.0.3-Freenove35-app-flash-at-0x10000.bin",
-   "size": 1720432
+   "url": "https://rouseclock.com/downloads/Rouse-2.0.0-Freenove35-app-flash-at-0x10000.bin",
+   "size": 1831312
   },
   "Waveshare35": {
-   "url": "https://rouseclock.com/downloads/Rouse-1.0.3-Waveshare35-app-flash-at-0x10000.bin",
-   "size": 1712928
+   "url": "https://rouseclock.com/downloads/Rouse-2.0.0-Waveshare35-app-flash-at-0x10000.bin",
+   "size": 1823648
   }
  }
 }

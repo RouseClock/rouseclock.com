@@ -3,19 +3,20 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Rouse · The bedside alarm clock you build yourself</title>
-<meta name="description" content="Rouse is a bedside alarm clock on a 3.5-inch touch display, in a 3D-printed case with a snooze bar on top. Set it up from your phone: no app, no account, no subscription.">
-<meta property="og:title" content="Rouse · The bedside alarm clock you build yourself">
-<meta property="og:description" content="A calm, connected alarm clock: a 3.5-inch touch display, a 3D-printed case and a snooze bar on top.">
+<title>Rouse · The connected bedside station you build yourself</title>
+<meta name="description" content="Rouse is the connected bedside station: clock, radio, photos and weather on a 3.5-inch touch display, in a 3D-printed case. Set it up from your phone: no app, no account, no subscription.">
+<meta property="og:title" content="Rouse · The connected bedside station you build yourself">
+<meta property="og:description" content="Clock, radio, photos and weather, for your nightstand or your desk: a 3.5-inch touch display in a 3D-printed case.">
 <meta property="og:image" content="https://rouseclock.com/img/hero.jpg">
 <meta property="og:url" content="https://rouseclock.com/">
 <meta name="theme-color" content="#2E3138">
 <link rel="icon" type="image/png" href="img/icon.png">
 <link rel="apple-touch-icon" href="img/apple-touch-icon.png">
-<link rel="stylesheet" href="site.css?v=1.0.3">
+<link rel="stylesheet" href="site.css?v=2.0.0">
 </head>
 <body>
 
+<a class="banner" href="whats-new/">Rouse 2.0 is here: radio, weather, a photo carousel and your clock on your phone. <b>See what's new →</b></a>
 <header class="top">
   <div class="bar">
     <a class="brand" href="./" aria-label="Rouse home"><svg viewBox="0 0 120 84" aria-hidden="true"><path d="M18.3 44.6 A46 46 0 0 1 101.7 44.6" fill="none" stroke="#E89234" stroke-width="7" stroke-linecap="round"/><path d="M29.2 49.6 A34 34 0 0 1 90.8 49.6" fill="none" stroke="#E89234" stroke-width="7" stroke-linecap="round"/><path d="M40 64 A20 20 0 0 1 80 64 Z" fill="#E89234"/><line x1="10" y1="72" x2="110" y2="72" stroke="currentColor" stroke-width="7" stroke-linecap="round"/></svg><span>Rouse</span></a>
@@ -34,15 +35,15 @@
 <section class="hero">
   <div class="wrap hero-grid">
     <div class="hero-text">
-      <p class="eyebrow">A bedside alarm clock you make</p>
-      <h1>Wake up gently.<br>Build it yourself.</h1>
-      <p class="lede">Rouse is an alarm clock on a 3.5-inch touch display, in a 3D-printed case with a real snooze bar on top.
-        You set it up from your phone's browser: no app to install, no account, no subscription.</p>
+      <p class="eyebrow">The connected bedside station</p>
+      <h1>Clock, radio, photos and weather.<br>Build it yourself.</h1>
+      <p class="lede">Rouse is a connected bedside station for your nightstand or your desk: an alarm clock, internet radio, weather display and photo carousel
+        on a 3.5-inch touch screen, in a 3D-printed case. You set it up from your phone's browser: no app to install, no account, no subscription.</p>
       <div class="cta">
         <a class="btn" href="#build">How to build one</a>
         <a class="btn ghost" href="manual/">Read the manual</a>
       </div>
-      <p class="fine">Free firmware for three popular ESP32 display boards · version 1.0.3</p>
+      <p class="fine">Free firmware for three popular ESP32 display boards · version 2.0.0</p>
     </div>
     <figure class="hero-photo">
       <img src="img/hero.jpg" width="1077" height="919" alt="A Rouse clock on a nightstand, seen from a slight angle: dark case, orange snooze bar on top, the time 4:31 on the screen with the date and weather below it">
@@ -67,12 +68,16 @@
         <p>Press the bar on top to snooze, hold it to stop. No hunting for a button on the screen at 6 a.m. On the Waveshare board, just tap the case: once to snooze, twice to stop.</p>
       </article>
       <article>
-        <h3>Weather at a glance</h3>
-        <p>Outside temperature, today's high and low, sunrise or sunset and your next alarm, from Open-Meteo. No API key needed.</p>
+        <h3>Internet radio</h3>
+        <p>Find stations by name, city or style, wake up to one (with a backup sound if it doesn't answer), or fall asleep to one with a sleep timer. On the Freenove and Waveshare boards.</p>
+      </article>
+      <article>
+        <h3>Weather, now and ahead</h3>
+        <p>A full Weather view with the next hours and five days, rain chances and a sky that follows the weather. From Open-Meteo; no API key needed.</p>
       </article>
       <article>
         <h3>Your look, your photos</h3>
-        <p>Pick a theme or make your own: colors, clock fonts, what's shown. Use your own photos as the background, or a daytime slideshow.</p>
+        <p>Pick a theme or make your own: colors, clock fonts, what's shown. Show your photos in a carousel that takes turns with the clock and the weather.</p>
       </article>
       <article>
         <h3>Sleep sounds</h3>
@@ -97,14 +102,15 @@
 <section class="phone">
   <div class="wrap split rev">
     <div>
-      <h2>Your phone is the remote</h2>
+      <h2>Your clock on your phone</h2>
       <p>Every Rouse has its own web page on your home WiFi. Open <b>rouse.local</b> on your phone or computer to set alarms,
-        edit themes, upload photos and sounds, back up your settings and install updates. It shows a live preview of the clock as you change things.</p>
-      <p>Nothing leaves your home network except the weather and time lookups. Add a PIN if others share your WiFi.</p>
+        find stations, edit themes, upload photos and sounds, and install updates. Add it to your home screen and it works like an app.</p>
+      <p>A live picture shows what the clock is showing, and its buttons work: play the radio, snooze or stop an alarm. Turn on <b>Play alarms here</b> and your phone rings too.</p>
+      <p>No account and no tracking: the clock only looks up the time, the weather and the stations you choose. Add a PIN if others share your WiFi.</p>
     </div>
     <div class="shots">
       <img src="img/web-alarms.png" width="398" height="864" loading="lazy" alt="The clock's web page on a phone: the list of alarms">
-      <img src="img/web-display.png" width="398" height="864" loading="lazy" alt="The clock's web page on a phone: themes with a live preview of the clock">
+      <img src="img/web-home-radio.png" width="398" height="864" loading="lazy" alt="The clock's web page on a phone: a live picture of the clock playing the radio, with its controls">
     </div>
   </div>
 </section>
@@ -114,7 +120,9 @@
     <h2>On the clock</h2>
     <div class="screen-row">
       <figure><img src="img/clock-classic.png" width="480" height="320" loading="lazy" alt="Clock screen with the time, date and weather"><figcaption>Day theme</figcaption></figure>
-      <figure><img src="img/clock-photo.png" width="480" height="320" loading="lazy" alt="Clock screen with a photo background"><figcaption>Your photo</figcaption></figure>
+      <figure><img src="img/clock-radio.png" width="480" height="320" loading="lazy" alt="The Radio view: station name, what's playing, and play, volume and sleep timer buttons"><figcaption>Radio</figcaption></figure>
+      <figure><img src="img/clock-weather.png" width="480" height="320" loading="lazy" alt="The Weather view: now, the next hours and the next five days"><figcaption>Weather</figcaption></figure>
+      <figure><img src="img/clock-photos.png" width="480" height="320" loading="lazy" alt="The Carousel showing one of your photos"><figcaption>Carousel</figcaption></figure>
       <figure><img src="img/clock-ringing.png" width="480" height="320" loading="lazy" alt="Alarm ringing, with big Snooze and Stop buttons"><figcaption>Alarm</figcaption></figure>
       <figure><img src="img/clock-night.png" width="480" height="320" loading="lazy" alt="Dim red night theme"><figcaption>Night</figcaption></figure>
     </div>
@@ -127,21 +135,27 @@
     <p class="intro">You need a display board, a 3D printer (or a friend with one) and about an hour. The Build Guide walks through every step with photos.</p>
 
     <h3 class="sub">1 · Pick a board</h3>
+    <p class="intro">Rouse runs on these three boards only. Other boards won't work unless they're the same model.</p>
     <div class="grid3 boards">
       <article>
         <p class="tag">Recommended</p>
         <h4>Freenove FNK0104N</h4>
-        <p>ESP32-S3, 3.5" IPS screen with glass touch, built-in speaker amplifier and battery connector. Holds up to 64 photos.</p>
+        <p>ESP32-S3, 3.5" IPS screen with glass touch, a real sound chip, internet radio and a battery connector. Holds up to 64 photos.</p>
+        <p><a href="https://www.amazon.com/dp/B0H1VHJHS4?tag=tuscanygroup-20" rel="sponsored noopener" target="_blank">See it on Amazon →</a></p>
       </article>
       <article>
-        <h4>Waveshare ESP32-S3-Touch-LCD-3.5</h4>
-        <p>ESP32-S3, 3.5" IPS glass touch screen. Waveshare's own enclosure drops into its own Rouse case, with nothing to wire: its motion sensor lets you tap the case to snooze. Holds up to 64 photos.</p>
+        <h4>Waveshare ESP32-S3-Touch-LCD-3.5-C</h4>
+        <p>ESP32-S3, 3.5" IPS glass touch screen, a real sound chip and internet radio. Waveshare's own enclosure drops into its own Rouse case, with nothing to wire: its motion sensor lets you tap the case to snooze. Holds up to 64 photos.</p>
+        <p><a href="https://www.amazon.com/dp/B0F9W5JM2M?tag=tuscanygroup-20" rel="sponsored noopener" target="_blank">See it on Amazon →</a></p>
       </article>
       <article>
         <h4>"CYD" E32R35T</h4>
-        <p>The low-cost classic ESP32 3.5" board with a pressure-sensitive screen (a stylus works best; the case can hold one). Holds up to 3 photos.</p>
+        <p>The low-cost classic ESP32 3.5" board with a pressure-sensitive screen (a stylus works best; the case can hold one). Simple sound, no internet radio, up to 3 photos. Great value; choose a Freenove or Waveshare for quiet alarms.</p>
+        <p><a href="https://www.amazon.com/dp/B0D93MBWC2?tag=tuscanygroup-20" rel="sponsored noopener" target="_blank">See it on Amazon →</a></p>
       </article>
     </div>
+    <p><a href="https://www.amazon.com/shop/tuscanygroup?tag=tuscanygroup-20" rel="sponsored noopener" target="_blank">Every part for each build, in one place on our Amazon page →</a></p>
+    <p class="affiliate"><em>As an Amazon Associate, The Tuscany Group earns from qualifying purchases made through the Amazon links on this page. It costs you nothing extra.</em></p>
 
     <ol class="steps">
       <li><h3>2 · Print the case</h3>
