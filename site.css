@@ -95,6 +95,12 @@ section { padding: 84px 0; }
 .steps p { color: var(--sub); font-size: 16px; }
 
 .parts { padding-top: 20px; }
+.signup { padding: 56px 0; }
+.signup-in { max-width: 760px; margin: 0 auto; padding: 0 20px; text-align: center; }
+.signup-in p { color: var(--sub); margin: 6px 0 22px; }
+.signup-form { display: flex; justify-content: center; }
+.signup-form > * { max-width: 100%; }
+main .signup { padding: 40px 0 8px; }
 .support { background: var(--amber-wash); padding: 56px 0; }
 .support-in { display: flex; align-items: center; justify-content: space-between; gap: 28px; flex-wrap: wrap; }
 .support h2 { margin-bottom: 8px; }
