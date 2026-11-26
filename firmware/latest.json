@@ -1,20 +1,20 @@
 {
- "version": "2.0.0",
- "notes": "the connected bedside station: radio, weather and a photo carousel, your clock on your phone, steadier WiFi and quieter sound",
- "important": "If you added the clock's page to your phone's home screen, remove the icon and add it again after updating, to get the new look.",
- "whatsNew": "https://rouseclock.com/whats-new/#v2-0-0",
+ "version": "2.0.1",
+ "notes": "fixes from the first days of 2.0",
+ "important": "",
+ "whatsNew": "https://rouseclock.com/whats-new/#v2-0-1",
  "files": {
   "CYD": {
-   "url": "https://rouseclock.com/downloads/Rouse-2.0.0-CYD-app-flash-at-0x10000.bin",
-   "size": 1766608
+   "url": "https://rouseclock.com/downloads/Rouse-2.0.1-CYD-app-flash-at-0x10000.bin",
+   "size": 1767264
   },
   "Freenove35": {
-   "url": "https://rouseclock.com/downloads/Rouse-2.0.0-Freenove35-app-flash-at-0x10000.bin",
-   "size": 1831312
+   "url": "https://rouseclock.com/downloads/Rouse-2.0.1-Freenove35-app-flash-at-0x10000.bin",
+   "size": 1832032
   },
   "Waveshare35": {
-   "url": "https://rouseclock.com/downloads/Rouse-2.0.0-Waveshare35-app-flash-at-0x10000.bin",
-   "size": 1823648
+   "url": "https://rouseclock.com/downloads/Rouse-2.0.1-Waveshare35-app-flash-at-0x10000.bin",
+   "size": 1824640
   }
  }
 }
